@@ -1,25 +1,25 @@
 import { ArrowUpRight, Check } from "@phosphor-icons/react";
-import quotation from "../../../assets/quotation.png";
-import check from "../../../assets/check.svg";
+import quotation from "../../../assets/landingPage/quotation.png";
+import check from "../../../assets/landingPage/check.svg";
 
 export default function QuotationProcess() {
   return (
-    <div className="bg-[#ffffff] flex flex-col gap-8 text-[#000000] px-40 py-18 max-lg:px-10">
-      <span className="text-[#fb5650] text-[24px] font-semibold">
+    <div className="bg-[#030303] flex flex-col gap-8 text-[#000000] px-40 py-18 max-lg:px-10">
+      <span className="text-[#5E0C1C] text-[24px] font-semibold">
         How it works?
       </span>
-      <div className="flex flex-row justify-between">
+      <div className="flex flex-row justify-between text-[#ffffff]">
         <h3 className="w-2/5 text-[40px] font-semibold leading-12 max-lg:w-full">
           Instant Online Quotation
         </h3>
-        <p className="block text-[#393a4a] text-[16px] w-2/3 leading-5 max-xl:hidden">
+        <p className="block text-[#d3d3d3] text-[16px] w-2/3 leading-5 max-xl:hidden">
           State of the art Digital Manufacturing platform that enables you to
           get instant online quote, fabricate and track all your additive
           manufacturing (3d printing), rapid prototyping, batch production and
           mass manufacturing requirements.
         </p>
       </div>
-      <div className="flex flex-row justify-between w-full max-lg:flex-col max-lg:gap-8">
+      <div className="flex flex-row justify-between w-full max-lg:flex-col max-lg:gap-8 text-[#ffffff]">
         <div className="flex flex-col gap-4 w-2/5 max-lg:w-full">
           <span className="text-[24px] font-semibold">
             Learn about how our Platform works
@@ -48,7 +48,7 @@ export default function QuotationProcess() {
               your project.
             </span>
           </div>
-          <span className="text-[#fb5650] text-[16px] font-semibold flex flex-row items-center gap-1 cursor-pointer hover:text-[#d23d37]">
+          <span className="text-[#B8A082] text-[16px] font-semibold flex flex-row items-center gap-1 cursor-pointer hover:text-[#938068]">
             Read How Instant Quotation Works <ArrowUpRight size={18} />
           </span>
         </div>
@@ -56,7 +56,7 @@ export default function QuotationProcess() {
           <img
             src={quotation}
             alt="quotation"
-            className="w-[600px] h-80 max-md:w-full max-md:h-full"
+            className="w-[600px] h-80 max-md:w-full max-md:h-full rounded-[12px]"
           />
         </div>
       </div>

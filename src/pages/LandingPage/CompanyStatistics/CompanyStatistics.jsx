@@ -1,6 +1,6 @@
 export default function CompanyStatistics() {
   return (
-    <div className="bg-[#121212] flex flex-row max-md:flex-col gap-16 max-md:gap-8 justify-center items-center px-40 max-lg:px-20 max-md:px-10 py-10">
+    <div className="bg-transparent flex flex-row max-md:flex-col gap-16 max-md:gap-8 justify-center items-center px-40 max-lg:px-20 max-md:px-10 py-10">
       <div className="text-[#5E0C1C] text-[22px] grid grid-cols-2">
         <div className="border-r-2 border-b-2 border-[#938068] flex flex-col items-center px-8 py-4">
           25000+{" "}

@@ -2,7 +2,7 @@ import herovideo from "../../../assets/landingPage/heroVideo.mp4";
 
 export default function HeroSection() {
   return (
-    <div className="h-[calc(100vh-150px)] text-[#ffffff] bg-gradient-to-b from-[#030303] via-[#252525] to-[#434343] max-sm:h-[calc(100vh-50px)]">
+    <div className="h-[calc(100vh-150px)] text-[#ffffff] max-sm:h-[calc(100vh-50px)]">
       <div className="block max-lg:hidden w-full h-full flex justify-start items-end px-40">
         <video
           src={herovideo}

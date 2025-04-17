@@ -3,7 +3,7 @@ import logo from "../../assets/landingPage/logo.png";
 
 export default function NavBar() {
   return (
-    <div className="absolute w-full bg-[#030303] backdrop-blur-3xl text-[#ffffff] flex flex-row justify-between max-sm:justify-center items-center px-40 max-lg:px-10 max-sm:px-10 py-5">
+    <div className="absolute w-full bg-transparent backdrop-blur-3xl text-[#ffffff] flex flex-row justify-between max-sm:justify-center items-center px-40 max-lg:px-10 max-sm:px-10 py-5">
       <div>
         <img src={logo} alt="logo" className="h-12 w-44 cursor-pointer" />
       </div>

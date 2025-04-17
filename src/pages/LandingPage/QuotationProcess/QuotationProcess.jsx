@@ -4,7 +4,7 @@ import check from "../../../assets/landingPage/check.svg";
 
 export default function QuotationProcess() {
   return (
-    <div className="bg-[#030303] flex flex-col gap-8 text-[#000000] px-40 py-18 max-lg:px-10">
+    <div className="bg-[#000000] flex flex-col gap-8 text-[#000000] px-40 py-18 max-lg:px-10">
       <span className="text-[#5E0C1C] text-[24px] font-semibold">
         How it works?
       </span>

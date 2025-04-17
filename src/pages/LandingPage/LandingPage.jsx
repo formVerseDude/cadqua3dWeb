@@ -6,8 +6,15 @@ import QuotationProcess from "./QuotationProcess/QuotationProcess";
 export default function LandingPage() {
   return (
     <div className="h-full">
-      <HeroSection />
-      <CompanyStatistics />
+      <div
+        style={{
+          backgroundImage:
+            "linear-gradient(to right bottom, #5e0c1c, #4d0e1b, #3d0f19, #2d0e15, #1e0a0f, #000000, #000000, #000000, #000000, #000000, #000000, #000000)",
+        }}
+      >
+        <HeroSection />
+        <CompanyStatistics />
+      </div>
       <QuotationProcess />
       <ClientsSlideShow />
     </div>

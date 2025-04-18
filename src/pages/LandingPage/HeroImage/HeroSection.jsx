@@ -1,4 +1,4 @@
-import herovideo from "../../../assets/landingPage/heroVideo.mp4";
+import herovideo from "../../../assets/landingPage/heroVideo.webm";
 
 export default function HeroSection() {
   return (

@@ -1,8 +1,12 @@
+import Footer from "../../components/Footer/Footer";
 import NavBar from "../../components/NavBar/NavBar";
+import PrintingUses from "./3DPrintingUses/PrintingUses";
+import Services from "./3DServices/Services";
 import ClientsSlideShow from "./ClientsSlideShow/ClientsSlideShow";
 import CompanyStatistics from "./CompanyStatistics/CompanyStatistics";
 import HeroSection from "./HeroImage/HeroSection";
 import QuotationProcess from "./QuotationProcess/QuotationProcess";
+import WhatWeOffer from "./WhatWeOffer/WhatWeOffer";
 
 export default function LandingPage() {
   return (
@@ -19,6 +23,10 @@ export default function LandingPage() {
       </div>
       <QuotationProcess />
       <ClientsSlideShow />
+      <WhatWeOffer />
+      <Services />
+      <PrintingUses />
+      <Footer />
     </div>
   );
 }

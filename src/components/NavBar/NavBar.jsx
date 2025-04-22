@@ -3,11 +3,11 @@ import logo from "../../assets/landingPage/logo.png";
 
 export default function NavBar() {
   return (
-    <div className="w-full bg-transparent text-[#ffffff] flex flex-row justify-between max-sm:justify-center items-center px-40 max-lg:px-10 max-sm:px-10 py-5">
-      <div>
-        <img src={logo} alt="logo" className="h-12 w-44 cursor-pointer" />
+    <div className="w-full relative bg-transparent text-[#ffffff] flex flex-row justify-between max-sm:justify-center items-center px-40 max-lg:px-10 max-sm:px-10 py-5">
+      <div className="absolute -top-2">
+        <img src={logo} alt="logo" className="h-40 w-44 cursor-pointer" />
       </div>
-      <div className="block max-sm:hidden flex flex-row gap-8 max-sm:gap-2">
+      <div className="block max-sm:hidden flex flex-row gap-8 max-sm:gap-2 w-full justify-end">
         <button className="group flex flex-row gap-1 items-center border-2 border-[#FFFFFF] px-6 max-sm:px-3 py-2 rounded-[20px] max-sm:rounded-[10px] text-[16px] bg-[#1C1C24] hover:bg-transparent cursor-pointer hover:text-[#B8A082] hover:border-[#5E0C1C]">
           <SignIn
             size={20}

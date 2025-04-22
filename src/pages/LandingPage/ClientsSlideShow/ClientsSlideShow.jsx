@@ -5,7 +5,7 @@ import company4 from "../../../assets/landingPage/company4.avif";
 
 export default function ClientsSlideShow() {
   return (
-    <div className="my-10">
+    <div className="bg-[#1A1A1A] py-10">
       <style>{`
   @keyframes loopScroll {
     0% { transform: translateX(0); }
@@ -21,7 +21,7 @@ export default function ClientsSlideShow() {
   }
 `}</style>
 
-      <span className="w-full flex justify-center text-center mb-10 max-md:px-10">
+      <span className="w-full text-[#ffffff] flex justify-center text-center mb-10 max-md:px-10">
         Trusted manufacturing platform for 1000+ product development companies
         across the globe.
       </span>

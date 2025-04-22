@@ -39,7 +39,7 @@ export default function WhatWeOffer() {
 
   return (
     <motion.div
-      className="bg-[#000000] flex w-full flex-row items-center px-40 max-lg:px-10 pt-20"
+      className="bg-[#000000] flex w-full flex-row max-lg:flex-col items-center px-40 max-lg:px-10 pt-20"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true }}
@@ -49,11 +49,11 @@ export default function WhatWeOffer() {
         <img src={whatWeOffer} alt="whatWeOffer" className="h-full w-full" />
       </motion.div>
       <motion.div
-        className="w-3/5 px-10 flex flex-col gap-10"
+        className="w-3/5 max-lg:w-full px-10 flex flex-col gap-10"
         variants={itemVariants}
       >
         <motion.span
-          className="text-[28px] text-[#ffffff]"
+          className="text-[28px] max-sm:text-[24px] text-[#ffffff]"
           variants={itemVariants}
         >
           We Pride Ourselves On Being The Beacon Of Reliability In The 3D

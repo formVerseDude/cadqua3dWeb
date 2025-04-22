@@ -9,7 +9,7 @@ import logo from "../../assets/landingPage/logo.png";
 
 export default function Footer() {
   return (
-    <div className="bg-[#1A1A1A] px-40 max-lg:px-20 max-md:px-10 py-16 flex flex-row justify-between max-md:flex-col max-md:gap-12">
+    <div className="bg-[#1A1A1A] px-40 max-lg:px-20 max-md:px-10 py-16 flex flex-row justify-between max-md:flex-col max-md:items-center max-md:gap-12">
       <img src={logo} alt="logo" className="h-52 w-56" />
       <div className="flex flex-col gap-6">
         <div className="flex items-center gap-3">
@@ -20,11 +20,11 @@ export default function Footer() {
         <div className="flex flex-col gap-2 text-[#E0E0E0]">
           <div className="flex flex-row items-center gap-2">
             <Clock size={24} className="text-[#5E0C1C]" />
-            <span>Mon - Fri 10:00 am – 8:00 pm</span>
+            <span>Mon - Fri 10:00 am - 8:00 pm</span>
           </div>
           <div className="flex flex-row items-center gap-2">
             <Clock size={24} className="text-[#5E0C1C]" />
-            <span>Saturday 10:00 am – 7:00 pm</span>
+            <span>Saturday 10:00 am - 7:00 pm</span>
           </div>
         </div>
         <span className="text-[#E0E0E0] text-lg font-semibold">Follow Us</span>

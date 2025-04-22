@@ -151,7 +151,7 @@ export default function Services() {
 
         {tabData.map((tab, index) => (
           <CustomTabPanel key={tab.label} value={value} index={index}>
-            <div className="flex flex-row justify-between items-center gap-8 px-4 text-[24px]">
+            <div className="flex flex-row max-lg:flex-col justify-between items-center gap-8 px-4 text-[24px]">
               <img src={tab.image} alt={tab.label} />
               <div className="flex flex-col gap-4">
                 <span>{tab.content}</span>

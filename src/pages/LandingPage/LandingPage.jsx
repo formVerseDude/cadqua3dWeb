@@ -4,6 +4,7 @@ import PrintingUses from "./3DPrintingUses/PrintingUses";
 import Services from "./3DServices/Services";
 import ClientsSlideShow from "./ClientsSlideShow/ClientsSlideShow";
 import CompanyStatistics from "./CompanyStatistics/CompanyStatistics";
+import FAQ from "./FAQ/FAQ";
 import HeroSection from "./HeroImage/HeroSection";
 import QuotationProcess from "./QuotationProcess/QuotationProcess";
 import WhatWeOffer from "./WhatWeOffer/WhatWeOffer";
@@ -26,6 +27,7 @@ export default function LandingPage() {
       <WhatWeOffer />
       <Services />
       <PrintingUses />
+      <FAQ />
       <Footer />
     </div>
   );

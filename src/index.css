@@ -46,7 +46,16 @@
   @apply bg-[#5E0C1C] rounded-full;
 }
 
-.root {
-  font-family: "Nunito", sans-serif;
+.body {
+  font-family: "Comic Relief";
   background-color: black;
+}
+
+@font-face {
+  font-family: BlackSword;
+  src: url("../src/fonts/Blacksword.otf");
+}
+
+@theme {
+  --font-blacksword: BlackSword;
 }

@@ -34,7 +34,7 @@ export default function FAQ() {
   };
 
   return (
-    <div className="bg-black px-40 max-lg:px-20 max-md:px-10 py-20">
+    <div className="bg-black px-40 max-lg:px-20 max-md:px-10 pb-20">
       {faqItems.map((item) => (
         <Accordion
           key={item.id}

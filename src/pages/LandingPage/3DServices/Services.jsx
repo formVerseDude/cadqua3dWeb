@@ -31,7 +31,7 @@ function CustomTabPanel(props) {
             bgcolor: "#1A1A1A",
           }}
         >
-          <Typography variant="body1" color="#E0E0E0">
+          <Typography variant="body1" component="div" color="#E0E0E0">
             {children}
           </Typography>
         </Paper>

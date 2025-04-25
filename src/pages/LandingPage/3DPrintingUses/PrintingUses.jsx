@@ -3,7 +3,10 @@ import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
-import { delay, motion } from "framer-motion";
+import { motion } from "framer-motion";
+
+// Wrap MUI Card with motion
+const MotionCard = motion.create(Card);
 
 export default function PrintingUses() {
   const cards = [
@@ -65,7 +68,7 @@ export default function PrintingUses() {
         className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-10"
       >
         {cards.map((card, index) => (
-          <motion.Card
+          <MotionCard
             variants={itemVariants}
             key={index}
             elevation={3}
@@ -90,7 +93,7 @@ export default function PrintingUses() {
                 {card.description}
               </Typography>
             </CardContent>
-          </motion.Card>
+          </MotionCard>
         ))}
       </motion.div>
     </Box>

@@ -1,18 +1,129 @@
+import { useState } from "react";
+import { motion } from "framer-motion";
 import comma from "../../../assets/landingPage/comma.svg";
+import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
+
+const reviews = [
+  {
+    company: "UKB",
+    review: "Best and cost-effective R&D.",
+    managerName: "John Doe",
+    managerPosition: "R&D Manager",
+  },
+  {
+    company: "Designifying 3D",
+    review: "Great B2B synergies and products on time",
+    managerName: "Jane Smith",
+    managerPosition: "Product Manager",
+  },
+  {
+    company: "Clew Pouches",
+    review: "Best 3D design and prototype post-process quality.",
+    managerName: "Michael Johnson",
+    managerPosition: "Operations Head",
+  },
+];
+
+// Variants for outer div (the entire container for the testimonials)
+const variants = {
+  hidden: { opacity: 0, y: 20, scale: 0 },
+  show: (i = 0) => ({
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      delay: i * 0.07,
+      duration: 1,
+      ease: "easeOut",
+    },
+  }),
+};
 
 export default function Testimonials() {
+  const [currentReviewIndex, setCurrentReviewIndex] = useState(0);
+
+  const handleNextReview = () => {
+    setCurrentReviewIndex((prevIndex) =>
+      prevIndex < reviews.length - 1 ? prevIndex + 1 : 0
+    );
+  };
+
+  const handlePreviousReview = () => {
+    setCurrentReviewIndex((prevIndex) =>
+      prevIndex > 0 ? prevIndex - 1 : reviews.length - 1
+    );
+  };
+
   return (
-    <div className="bg-[#000000] px-40 max-lg:px-20 max-md:px-10 pb-20">
-      <span className="text-[#B8A082]">
-        What Our <span className="text-[#5E0C1C]">Customers</span> Are Saying
-      </span>
-      <div>
-        <div className="flex flex-row items-center">
-          <img src={comma} alt="comma" />
-          <img src={comma} alt="comma" />
+    <div className="bg-[#000000] px-80 max-lg:px-20 max-md:px-10 pb-20">
+      <motion.div
+        initial="hidden"
+        animate="show"
+        variants={variants}
+        className="relative flex justify-end"
+      >
+        <div className="bg-[#1A1A1A] w-4/5 rounded-[25px]">
+          <div className="absolute text-[#B8A082] h-full left-0 flex flex-col justify-between">
+            <div className="flex flex-col gap-2">
+              <span className="text-[50px] font-semibold">
+                What Our <span className="text-[#5E0C1C]">Customers</span>{" "}
+                <br />
+                Are Saying
+              </span>
+              <span className="text-[20px] text-[#ffffff] text-left">
+                Hear how our clients have benefited from working with us
+              </span>
+            </div>
+
+            <div className="flex items-center gap-4 mt-4">
+              <KeyboardBackspaceIcon
+                className="text-[#B8A082] cursor-pointer"
+                style={{ fontSize: "50px" }}
+                onClick={handlePreviousReview}
+              />
+              <KeyboardBackspaceIcon
+                className="text-[#B8A082] cursor-pointer rotate-180"
+                style={{ fontSize: "50px" }}
+                onClick={handleNextReview}
+              />
+            </div>
+          </div>
+          <div className="flex flex-row gap-24 mt-52 pb-10 -ml-12">
+            <div className="flex flex-row items-center border border-[#B8A082] bg-[#B8A082] rounded-full w-fit h-fit">
+              <img src={comma} alt="comma" className="size-16" />
+              <img src={comma} alt="comma" className="size-16 -ml-10" />
+            </div>
+
+            <motion.div
+              key={reviews[currentReviewIndex].company}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.5 }}
+              className="flex flex-col gap-8 text-[#ffffff] mt-10 w-1/2"
+            >
+              <span className="text-[32px] font-semibold">
+                The Company Improved Our Productivity
+              </span>
+              <span className="mb-10">
+                {reviews[currentReviewIndex].review} <br />
+                Focused, efficient, and smart — the R&D approach balances
+                innovation with cost-effectiveness. By prioritizing real needs
+                and rapid experimentation, it delivers high-quality outcomes
+                without overspending.
+              </span>
+              <span className="text-[24px] font-semibold">
+                {reviews[currentReviewIndex].managerPosition}
+                <br />
+                <span className="text-[18px] font-normal">
+                  {reviews[currentReviewIndex].managerName} (
+                  {reviews[currentReviewIndex].company})
+                </span>
+              </span>
+            </motion.div>
+          </div>
         </div>
-        <div></div>
-      </div>
+      </motion.div>
     </div>
   );
 }

@@ -3,7 +3,7 @@ import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 
 // Wrap MUI Card with motion
 const MotionCard = motion.create(Card);
@@ -32,44 +32,61 @@ export default function PrintingUses() {
     },
   ];
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delay: 0.5,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
+  const variants = {
+    hidden: { opacity: 0, y: 20, scale: 0 },
+    show: (i = 0) => ({
       opacity: 1,
       y: 0,
+      scale: 1,
       transition: {
-        duration: 1.5,
+        delay: i * 0.07,
+        duration: 1,
+        ease: "easeOut",
       },
-    },
+    }),
   };
+
+  const variantsflow = {
+    hidden: { opacity: 0 },
+    show: (i) => ({
+      y: 0,
+      opacity: 1,
+      transition: { delay: i * 0.07 },
+    }),
+  };
+
+  const text = "3D Printing Applications";
+  const letters = text.split(" ");
+  const ref = React.useRef(null);
+  const isInView = useInView(ref, { once: true });
 
   return (
     <Box className="px-40 max-lg:px-20 max-md:px-10 bg-[#000000] text-[#E0E0E0] pb-20">
-      <span className="text-[#5E0C1C] text-[32px] font-semibold">
-        3D Printing Applications
-      </span>
+      <motion.div
+        className="text-[#5E0C1C] text-[32px] font-semibold"
+        ref={ref}
+        initial="hidden"
+        animate={isInView ? "show" : "hidden"}
+        variants={variantsflow}
+        viewport={{ once: true }}
+      >
+        {letters.map((word, i) => (
+          <motion.span key={`${word}-${i}`} variants={variantsflow} custom={i}>
+            {word}{" "}
+          </motion.span>
+        ))}
+      </motion.div>
 
       <motion.div
         initial="hidden"
-        whileInView="visible"
+        whileInView="show"
         viewport={{ once: true }}
-        variants={containerVariants}
+        variants={variants}
         className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-10"
       >
         {cards.map((card, index) => (
           <MotionCard
-            variants={itemVariants}
+            variants={variants}
             key={index}
             elevation={3}
             sx={{

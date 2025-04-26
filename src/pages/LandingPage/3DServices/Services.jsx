@@ -9,6 +9,8 @@ import service1 from "../../../assets/landingPage/service1.png";
 import service2 from "../../../assets/landingPage/service2.png";
 import service3 from "../../../assets/landingPage/service3.png";
 import service4 from "../../../assets/landingPage/service4.avif";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 
 function CustomTabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -103,12 +105,40 @@ export default function Services() {
     },
   ];
 
+  const variantsflow = {
+    hidden: { opacity: 0 },
+    show: (i) => ({
+      y: 0,
+      opacity: 3,
+      transition: { delay: i * 0.07 },
+    }),
+  };
+
+  const text = "SERVICES";
+  const letters = text.split(" ");
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+
   return (
     <Box
-      sx={{ backgroundColor: "#000000", minHeight: "100vh", py: 6 }}
+      sx={{ backgroundColor: "#000000", minHeight: "100%", py: 6 }}
       className="px-40 max-lg:px-20 max-md:px-10 flex flex-col gap-8"
     >
-      <span className="text-[#5E0C1C] text-[32px] font-semibold">SERVICES</span>
+      <motion.h3
+        ref={ref}
+        initial="hidden"
+        animate={isInView ? "show" : "hidden"}
+        variants={variantsflow}
+        viewport={{ once: true }}
+        className="text-[#5E0C1C] text-[32px] font-semibold"
+      >
+        {letters.map((word, i) => (
+          <motion.span key={`${word}-${i}`} variants={variantsflow} custom={i}>
+            {word}
+          </motion.span>
+        ))}
+      </motion.h3>
+
       <Box
         sx={{
           width: "100%",

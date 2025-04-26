@@ -24,19 +24,17 @@ const reviews = [
   },
 ];
 
-// Variants for outer div (the entire container for the testimonials)
 const variants = {
-  hidden: { opacity: 0, y: 20, scale: 0 },
-  show: (i = 0) => ({
+  hidden: { opacity: 0, y: 0 },
+  show: {
     opacity: 1,
     y: 0,
-    scale: 1,
     transition: {
-      delay: i * 0.07,
-      duration: 1,
+      delay: 0.5,
+      duration: 2,
       ease: "easeOut",
     },
-  }),
+  },
 };
 
 export default function Testimonials() {
@@ -55,15 +53,16 @@ export default function Testimonials() {
   };
 
   return (
-    <div className="bg-[#000000] px-80 max-lg:px-20 max-md:px-10 pb-20">
+    <div className="bg-[#000000] px-80 max-lg:px-20 max-md:px-10 py-20">
       <motion.div
         initial="hidden"
-        animate="show"
+        whileInView="show"
+        viewport={{ once: true }}
         variants={variants}
         className="relative flex justify-end"
       >
         <div className="bg-[#1A1A1A] w-4/5 rounded-[25px]">
-          <div className="absolute text-[#B8A082] h-full left-0 flex flex-col justify-between">
+          <div className="absolute text-[#D5AC72] h-full left-0 flex flex-col justify-between">
             <div className="flex flex-col gap-2">
               <span className="text-[50px] font-semibold">
                 What Our <span className="text-[#5E0C1C]">Customers</span>{" "}
@@ -77,19 +76,19 @@ export default function Testimonials() {
 
             <div className="flex items-center gap-4 mt-4">
               <KeyboardBackspaceIcon
-                className="text-[#B8A082] cursor-pointer"
+                className="text-[#D5AC72] cursor-pointer hover:text-[#7f6744]"
                 style={{ fontSize: "50px" }}
                 onClick={handlePreviousReview}
               />
               <KeyboardBackspaceIcon
-                className="text-[#B8A082] cursor-pointer rotate-180"
+                className="text-[#D5AC72] cursor-pointer rotate-180 hover:text-[#7f6744]"
                 style={{ fontSize: "50px" }}
                 onClick={handleNextReview}
               />
             </div>
           </div>
           <div className="flex flex-row gap-24 mt-52 pb-10 -ml-12">
-            <div className="flex flex-row items-center border border-[#B8A082] bg-[#B8A082] rounded-full w-fit h-fit">
+            <div className="flex flex-row items-center border border-[#D5AC72] bg-[#D5AC72] rounded-full w-fit h-fit">
               <img src={comma} alt="comma" className="size-16" />
               <img src={comma} alt="comma" className="size-16 -ml-10" />
             </div>

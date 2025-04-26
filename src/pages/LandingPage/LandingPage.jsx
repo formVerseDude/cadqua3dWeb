@@ -1,15 +1,28 @@
-import Footer from "../../components/Footer/Footer";
-import PrintingUses from "./3DPrintingUses/PrintingUses";
-import Services from "./3DServices/Services";
-import ClientsSlideShow from "./ClientsSlideShow/ClientsSlideShow";
-import CompanyStatistics from "./CompanyStatistics/CompanyStatistics";
-import FAQ from "./FAQ/FAQ";
+import { useEffect } from "react";
 import HeroSection from "./HeroImage/HeroSection";
+import CompanyStatistics from "./CompanyStatistics/CompanyStatistics";
 import QuotationProcess from "./QuotationProcess/QuotationProcess";
-import Testimonials from "./Testimonials/Testimonials";
+import ClientsSlideShow from "./ClientsSlideShow/ClientsSlideShow";
 import WhatWeOffer from "./WhatWeOffer/WhatWeOffer";
+import Services from "./3DServices/Services";
+import PrintingUses from "./3DPrintingUses/PrintingUses";
+import Testimonials from "./Testimonials/Testimonials";
+import FAQ from "./FAQ/FAQ";
+import Footer from "../../components/Footer/Footer";
 
 export default function LandingPage() {
+  useEffect(() => {
+    const handleBeforeUnload = () => {
+      window.scrollTo(0, 0);
+    };
+
+    window.addEventListener("beforeunload", handleBeforeUnload);
+
+    return () => {
+      window.removeEventListener("beforeunload", handleBeforeUnload);
+    };
+  }, []);
+
   return (
     <div>
       <HeroSection />
@@ -25,7 +38,6 @@ export default function LandingPage() {
     </div>
   );
 }
-
 /*
         style={{
           backgroundImage:

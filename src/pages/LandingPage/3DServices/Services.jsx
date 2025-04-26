@@ -105,6 +105,19 @@ export default function Services() {
     },
   ];
 
+  const variants = {
+    hidden: { opacity: 0, y: 0 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        delay: 0.5,
+        duration: 2,
+        ease: "easeOut",
+      },
+    },
+  };
+
   const variantsflow = {
     hidden: { opacity: 0 },
     show: (i) => ({
@@ -114,14 +127,14 @@ export default function Services() {
     }),
   };
 
-  const text = "SERVICES";
-  const letters = text.split(" ");
+  const text = "SERVICES WE PROVIDE";
+  const letters = text.split("");
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
 
   return (
     <Box
-      sx={{ backgroundColor: "#000000", minHeight: "100%", py: 6 }}
+      sx={{ backgroundColor: "#000000", minHeight: "100%", py: 5 }}
       className="px-40 max-lg:px-20 max-md:px-10 flex flex-col gap-8"
     >
       <motion.h3
@@ -139,7 +152,11 @@ export default function Services() {
         ))}
       </motion.h3>
 
-      <Box
+      <motion.Box
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+        variants={variants}
         sx={{
           width: "100%",
           maxWidth: "1000px",
@@ -194,7 +211,7 @@ export default function Services() {
             </div>
           </CustomTabPanel>
         ))}
-      </Box>
+      </motion.Box>
     </Box>
   );
 }

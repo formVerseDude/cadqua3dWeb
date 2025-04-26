@@ -31,6 +31,10 @@
   }
 }
 
+* {
+  user-select: none;
+}
+
 ::-webkit-scrollbar {
   @apply bg-transparent w-[11px];
 }

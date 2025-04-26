@@ -33,17 +33,16 @@ export default function PrintingUses() {
   ];
 
   const variants = {
-    hidden: { opacity: 0, y: 20, scale: 0 },
-    show: (i = 0) => ({
+    hidden: { opacity: 0, y: 0 },
+    show: {
       opacity: 1,
       y: 0,
-      scale: 1,
       transition: {
-        delay: i * 0.07,
-        duration: 1,
+        delay: 0.5,
+        duration: 2,
         ease: "easeOut",
       },
-    }),
+    },
   };
 
   const variantsflow = {
@@ -56,12 +55,12 @@ export default function PrintingUses() {
   };
 
   const text = "3D Printing Applications";
-  const letters = text.split(" ");
+  const letters = text.split("");
   const ref = React.useRef(null);
   const isInView = useInView(ref, { once: true });
 
   return (
-    <Box className="px-40 max-lg:px-20 max-md:px-10 bg-[#000000] text-[#E0E0E0] pb-20">
+    <Box className="px-40 max-lg:px-20 max-md:px-10 bg-[#000000] text-[#E0E0E0] py-20">
       <motion.div
         className="text-[#5E0C1C] text-[32px] font-semibold"
         ref={ref}
@@ -72,7 +71,7 @@ export default function PrintingUses() {
       >
         {letters.map((word, i) => (
           <motion.span key={`${word}-${i}`} variants={variantsflow} custom={i}>
-            {word}{" "}
+            {word}
           </motion.span>
         ))}
       </motion.div>

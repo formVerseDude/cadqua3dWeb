@@ -5,17 +5,16 @@ import { motion } from "framer-motion";
 
 export default function QuotationProcess() {
   const variants = {
-    hidden: { opacity: 0, y: 20, scale: 0 },
-    show: (i = 0) => ({
+    hidden: { opacity: 0, y: 0 },
+    show: {
       opacity: 1,
       y: 0,
-      scale: 1,
       transition: {
-        delay: i * 0.07,
-        duration: 1,
+        delay: 0.5,
+        duration: 2,
         ease: "easeOut",
       },
-    }),
+    },
   };
 
   return (
@@ -115,7 +114,7 @@ export default function QuotationProcess() {
             whileInView="show"
             variants={variants}
             viewport={{ once: true }}
-            className="text-[#B8A082] text-[16px] font-semibold flex flex-row items-center gap-1 cursor-pointer hover:text-[#938068]"
+            className="text-[#D5AC72] text-[16px] font-semibold flex flex-row items-center gap-1 cursor-pointer hover:text-[#7f6744]"
           >
             Read How Instant Quotation Works <ArrowUpRight size={18} />
           </motion.span>

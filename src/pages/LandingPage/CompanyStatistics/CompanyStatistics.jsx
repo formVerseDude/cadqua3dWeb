@@ -2,27 +2,26 @@ import { motion } from "framer-motion";
 
 export default function CompanyStatistics() {
   const variants = {
-    hidden: { opacity: 0, y: 20, scale: 0 },
-    show: (i) => ({
-      y: 0,
+    hidden: { opacity: 0, y: 0 },
+    show: {
       opacity: 1,
-      scale: 1,
+      y: 0,
       transition: {
-        delay: i * 0.07,
-        duration: 1,
+        delay: 0,
+        duration: 2,
         ease: "easeOut",
       },
-    }),
+    },
   };
 
   return (
     <div className="bg-[#000000] pt-20 pb-10 flex flex-row max-md:flex-col gap-16 max-md:gap-8 justify-center items-center px-40 max-lg:px-20 max-md:px-10">
       <div className="text-[#5E0C1C] text-[22px] grid grid-cols-2">
-        <div className="border-r-2 border-b-2 border-[#938068] flex flex-col items-center px-8 py-4">
+        <div className="border-r-2 border-b-2 border-[#D5AC72] flex flex-col items-center px-8 py-4">
           <motion.div
             initial="hidden"
             whileInView="show"
-            viewport={{ once: true }}
+            viewport={{ once: true, margin: "-100px" }}
             variants={variants}
             className="flex flex-col items-center"
           >
@@ -33,11 +32,11 @@ export default function CompanyStatistics() {
           </motion.div>
         </div>
 
-        <div className="border-b-2 border-[#938068] flex flex-col items-center px-8 py-4">
+        <div className="border-b-2 border-[#D5AC72] flex flex-col items-center px-8 py-4">
           <motion.div
             initial="hidden"
             whileInView="show"
-            viewport={{ once: true }}
+            viewport={{ once: true, margin: "-100px" }}
             variants={variants}
             className="flex flex-col items-center"
           >
@@ -48,11 +47,11 @@ export default function CompanyStatistics() {
           </motion.div>
         </div>
 
-        <div className="border-r-2 border-[#938068] flex flex-col items-center px-8 py-4">
+        <div className="border-r-2 border-[#D5AC72] flex flex-col items-center px-8 py-4">
           <motion.div
             initial="hidden"
             whileInView="show"
-            viewport={{ once: true }}
+            viewport={{ once: true, margin: "-100px" }}
             variants={variants}
             className="flex flex-col items-center"
           >
@@ -67,7 +66,7 @@ export default function CompanyStatistics() {
           <motion.div
             initial="hidden"
             whileInView="show"
-            viewport={{ once: true }}
+            viewport={{ once: true, margin: "-100px" }}
             variants={variants}
             className="flex flex-col items-center"
           >
@@ -83,7 +82,7 @@ export default function CompanyStatistics() {
         <motion.p
           initial="hidden"
           whileInView="show"
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-200px" }}
           variants={variants}
           className="text-left text-[20px] max-md:text-center text-[#ffffff]"
         >

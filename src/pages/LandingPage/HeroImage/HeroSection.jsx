@@ -29,12 +29,12 @@ export default function HeroSection() {
   };
 
   const text = "Together, Let’s Print the Future";
-  const letters = text.split("");
+  const letters = text.split(" ");
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
 
   return (
-    <div className="relative h-full">
+    <div className="bg-[#000000] relative h-full">
       <motion.div
         initial="hidden"
         whileInView="show"
@@ -45,14 +45,14 @@ export default function HeroSection() {
         <img src={logo} alt="logo" className="h-40" />
       </motion.div>
 
-      <div className="absolute top-10 w-full z-20">
+      <div className="absolute right-10 w-full z-20 flex flex-col justify-center gap-10 h-full">
         <motion.h2
           ref={ref}
           initial="hidden"
           animate={isInView ? "show" : "hidden"}
           variants={variants}
           viewport={{ once: true }}
-          className="flex justify-center text-[#D5AC72] text-[20px] font-blacksword sm:text-4xl md:text-6xl"
+          className="flex justify-end text-[#D5AC72] text-[20px] font-blacksword sm:text-4xl md:text-6xl"
         >
           {letters.map((word, i) => (
             <motion.span key={`${word}-${i}`} variants={variants} custom={i}>
@@ -60,12 +60,24 @@ export default function HeroSection() {
             </motion.span>
           ))}
         </motion.h2>
+
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          variants={variantsfadeIn}
+          className="w-full flex justify-end z-20"
+        >
+          <button className="cursor-pointer group group-hover:before:duration-500 group-hover:after:duration-500 after:duration-500 hover:border-[#5E0C1C] hover:before:[box-shadow:_20px_20px_20px_30px] duration-500 before:duration-500 hover:duration-500 underline underline-offset-2 hover:after:-right-8 hover:before:right-12 hover:before:-bottom-8 hover:before:blur hover:underline hover:underline-offset-4 origin-left hover:decoration-2 hover:text-[#5E0C1C] relative bg-transparent h-16 w-64 border text-left p-3 text-[#D5AC72] text-base font-bold rounded-lg  overflow-hidden  before:absolute before:w-12 before:h-12 before:content[''] before:right-1 before:top-1 before:z-10 before:bg-[#5E0C1C] before:rounded-full before:blur-lg  after:absolute after:z-10 after:w-20 after:h-20 after:content['']  after:bg-[#D5AC72] after:right-8 after:top-3 after:rounded-full after:blur-lg">
+            Get Instant Quote
+          </button>
+        </motion.div>
       </div>
 
       <div className="overflow-hidden w-full">
         <video
           src={landingPage}
-          className="scale-180 w-full z-10 -mt-6"
+          className="scale-160 w-full z-10 -ml-[700px]"
           autoPlay
           loop
           muted
@@ -73,16 +85,15 @@ export default function HeroSection() {
         />
       </div>
 
-      <motion.div
+      {/*<motion.div
         initial="hidden"
         whileInView="show"
         viewport={{ once: true }}
         variants={variantsfadeIn}
-        className="absolute flex flex-row justify-between z-20 top-0 h-full w-full px-20"
+        className="absolute flex flex-row justify-between right-0 z-20 top-0 h-full w-full px-20"
       >
         <img src={goldenLine} alt="goldenLine" />
-        <img src={goldenLine} alt="goldenLine" className="rotate-180" />
-      </motion.div>
+      </motion.div>*/}
 
       <div className="absolute top-0 left-0 w-3/6 h-full z-10 bg-transparent">
         <div
@@ -102,18 +113,6 @@ export default function HeroSection() {
           }}
         />
       </div>
-
-      <motion.div
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true }}
-        variants={variantsfadeIn}
-        className="absolute bottom-12 w-full flex justify-center z-20"
-      >
-        <button className="cursor-pointer group group-hover:before:duration-500 group-hover:after:duration-500 after:duration-500 hover:border-[#5E0C1C] hover:before:[box-shadow:_20px_20px_20px_30px] duration-500 before:duration-500 hover:duration-500 underline underline-offset-2 hover:after:-right-8 hover:before:right-12 hover:before:-bottom-8 hover:before:blur hover:underline hover:underline-offset-4 origin-left hover:decoration-2 hover:text-[#5E0C1C] relative bg-transparent h-16 w-64 border text-left p-3 text-[#D5AC72] text-base font-bold rounded-lg  overflow-hidden  before:absolute before:w-12 before:h-12 before:content[''] before:right-1 before:top-1 before:z-10 before:bg-[#5E0C1C] before:rounded-full before:blur-lg  after:absolute after:z-10 after:w-20 after:h-20 after:content['']  after:bg-[#D5AC72] after:right-8 after:top-3 after:rounded-full after:blur-lg">
-          Get Instant Quote
-        </button>
-      </motion.div>
     </div>
   );
 }

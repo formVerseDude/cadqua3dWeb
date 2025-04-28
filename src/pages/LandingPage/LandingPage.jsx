@@ -9,6 +9,7 @@ import PrintingUses from "./3DPrintingUses/PrintingUses";
 import Testimonials from "./Testimonials/Testimonials";
 import FAQ from "./FAQ/FAQ";
 import Footer from "../../components/Footer/Footer";
+import ProductsGallery from "./ProductsGallery/ProductsGallery";
 
 export default function LandingPage() {
   useEffect(() => {
@@ -33,6 +34,7 @@ export default function LandingPage() {
       <Services />
       <PrintingUses />
       <Testimonials />
+      <ProductsGallery />
       <FAQ />
       <Footer />
     </div>

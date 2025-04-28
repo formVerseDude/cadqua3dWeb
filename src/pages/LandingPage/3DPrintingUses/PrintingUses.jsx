@@ -3,9 +3,8 @@ import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
-import { delay, motion, useInView } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 
-// Wrap MUI Card with motion
 const MotionCard = motion(Card);
 
 export default function PrintingUses() {

@@ -3,10 +3,10 @@ import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
-import { motion, useInView } from "framer-motion";
+import { delay, motion, useInView } from "framer-motion";
 
 // Wrap MUI Card with motion
-const MotionCard = motion.create(Card);
+const MotionCard = motion(Card);
 
 export default function PrintingUses() {
   const cards = [
@@ -32,17 +32,19 @@ export default function PrintingUses() {
     },
   ];
 
-  const variants = {
-    hidden: { opacity: 0, y: 0 },
+  const container = {
+    hidden: { opacity: 0 },
     show: {
       opacity: 1,
-      y: 0,
       transition: {
-        delay: 0.5,
-        duration: 2,
-        ease: "easeOut",
+        staggerChildren: 0.3,
       },
     },
+  };
+
+  const listItem = {
+    hidden: { opacity: 0, y: 20 },
+    show: { opacity: 1, y: 0, delay: 1, transition: { duration: 1 } },
   };
 
   const variantsflow = {
@@ -61,13 +63,16 @@ export default function PrintingUses() {
 
   return (
     <Box className="px-40 max-lg:px-20 max-md:px-10 bg-[#000000] text-[#E0E0E0] py-20">
+      {/* Animated Title */}
       <motion.div
         className="text-[#5E0C1C] text-[32px] font-semibold"
         ref={ref}
         initial="hidden"
         animate={isInView ? "show" : "hidden"}
-        variants={variantsflow}
-        viewport={{ once: true }}
+        variants={{
+          hidden: {},
+          show: { transition: { staggerChildren: 0.05 } },
+        }}
       >
         {letters.map((word, i) => (
           <motion.span key={`${word}-${i}`} variants={variantsflow} custom={i}>
@@ -76,16 +81,16 @@ export default function PrintingUses() {
         ))}
       </motion.div>
 
+      {/* Animated Cards */}
       <motion.div
+        variants={container}
         initial="hidden"
-        whileInView="show"
-        viewport={{ once: true }}
-        variants={variants}
+        animate={isInView ? "show" : "hidden"}
         className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-10"
       >
         {cards.map((card, index) => (
           <MotionCard
-            variants={variants}
+            variants={listItem}
             key={index}
             elevation={3}
             sx={{

@@ -29,7 +29,7 @@ export default function HeroSection() {
   };
 
   const text = "Together, Let’s Print the Future";
-  const letters = text.split(" ");
+  const letters = text.split("");
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
 
@@ -46,20 +46,34 @@ export default function HeroSection() {
       </motion.div>
 
       <div className="absolute right-10 w-full z-20 flex flex-col justify-center gap-10 h-full">
-        <motion.h2
-          ref={ref}
-          initial="hidden"
-          animate={isInView ? "show" : "hidden"}
-          variants={variants}
-          viewport={{ once: true }}
-          className="flex justify-end text-[#D5AC72] text-[20px] font-blacksword sm:text-4xl md:text-6xl"
-        >
-          {letters.map((word, i) => (
-            <motion.span key={`${word}-${i}`} variants={variants} custom={i}>
-              {word}
-            </motion.span>
-          ))}
-        </motion.h2>
+        <div className="flex flex-col gap-2">
+          <motion.h2
+            ref={ref}
+            initial="hidden"
+            animate={isInView ? "show" : "hidden"}
+            variants={variants}
+            viewport={{ once: true }}
+            className="flex justify-end text-[#D5AC72] text-[60px] font-blacksword"
+          >
+            {letters.map((char, i) => (
+              <motion.span key={`${char}-${i}`} variants={variants} custom={i}>
+                {char === " " ? "\u00A0" : char}
+              </motion.span>
+            ))}
+          </motion.h2>
+
+          <motion.h3
+            ref={ref}
+            initial="hidden"
+            animate={isInView ? "show" : "hidden"}
+            variants={variants}
+            viewport={{ once: true }}
+            className="flex justify-end text-[#D5AC72] text-[32px] font-blacksword text-end"
+          >
+            Empowering Innovation Through Cutting-Edge <br /> Printing
+            Solutions.
+          </motion.h3>
+        </div>
 
         <motion.div
           initial="hidden"
@@ -68,7 +82,7 @@ export default function HeroSection() {
           variants={variantsfadeIn}
           className="w-full flex justify-end z-20"
         >
-          <button className="cursor-pointer group group-hover:before:duration-500 group-hover:after:duration-500 after:duration-500 hover:border-[#5E0C1C] hover:before:[box-shadow:_20px_20px_20px_30px] duration-500 before:duration-500 hover:duration-500 underline underline-offset-2 hover:after:-right-8 hover:before:right-12 hover:before:-bottom-8 hover:before:blur hover:underline hover:underline-offset-4 origin-left hover:decoration-2 hover:text-[#5E0C1C] relative bg-transparent h-16 w-64 border text-left p-3 text-[#D5AC72] text-base font-bold rounded-lg  overflow-hidden  before:absolute before:w-12 before:h-12 before:content[''] before:right-1 before:top-1 before:z-10 before:bg-[#5E0C1C] before:rounded-full before:blur-lg  after:absolute after:z-10 after:w-20 after:h-20 after:content['']  after:bg-[#D5AC72] after:right-8 after:top-3 after:rounded-full after:blur-lg">
+          <button className="font-blacksword cursor-pointer group group-hover:before:duration-500 group-hover:after:duration-500 after:duration-500 hover:border-[#5E0C1C] hover:before:[box-shadow:_20px_20px_20px_30px] duration-500 before:duration-500 hover:duration-500 underline underline-offset-2 hover:after:-right-8 hover:before:right-12 hover:before:-bottom-8 hover:before:blur hover:underline hover:underline-offset-4 origin-left hover:decoration-2 hover:text-[#5E0C1C] relative bg-transparent h-16 w-64 border text-left p-3 text-[#D5AC72] text-base font-bold rounded-lg  overflow-hidden  before:absolute before:w-12 before:h-12 before:content[''] before:right-1 before:top-1 before:z-10 before:bg-[#5E0C1C] before:rounded-full before:blur-lg  after:absolute after:z-10 after:w-20 after:h-20 after:content['']  after:bg-[#D5AC72] after:right-8 after:top-3 after:rounded-full after:blur-lg">
             Get Instant Quote
           </button>
         </motion.div>
@@ -77,7 +91,7 @@ export default function HeroSection() {
       <div className="overflow-hidden w-full">
         <video
           src={landingPage}
-          className="scale-160 w-full z-10 -ml-[700px]"
+          className="scale-160 w-full z-10 -translate-x-1/3"
           autoPlay
           loop
           muted

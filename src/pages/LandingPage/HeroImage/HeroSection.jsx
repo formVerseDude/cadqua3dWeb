@@ -1,10 +1,12 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import landingPage from "../../../assets/landingPage/landingPage.webm";
 import logo from "../../../assets/landingPage/logo.png";
 import { motion, useInView } from "framer-motion";
-import goldenLine from "../../../assets/landingPage/goldenLine.png";
+import InstantQuoteModal from "../../InstantQuote/InstantQuoteModal";
 
 export default function HeroSection() {
+  const [instantQuote, setInstantQuote] = useState(false);
+
   const variants = {
     hidden: { opacity: 0 },
     show: (i) => ({
@@ -82,7 +84,10 @@ export default function HeroSection() {
           variants={variantsfadeIn}
           className="w-full flex justify-end z-20"
         >
-          <button className="font-blacksword cursor-pointer group group-hover:before:duration-500 group-hover:after:duration-500 after:duration-500 hover:border-[#5E0C1C] hover:before:[box-shadow:_20px_20px_20px_30px] duration-500 before:duration-500 hover:duration-500 underline underline-offset-2 hover:after:-right-8 hover:before:right-12 hover:before:-bottom-8 hover:before:blur hover:underline hover:underline-offset-4 origin-left hover:decoration-2 hover:text-[#5E0C1C] relative bg-transparent h-16 w-64 border text-left p-3 text-[#D5AC72] text-base font-bold rounded-lg  overflow-hidden  before:absolute before:w-12 before:h-12 before:content[''] before:right-1 before:top-1 before:z-10 before:bg-[#5E0C1C] before:rounded-full before:blur-lg  after:absolute after:z-10 after:w-20 after:h-20 after:content['']  after:bg-[#D5AC72] after:right-8 after:top-3 after:rounded-full after:blur-lg">
+          <button
+            onClick={() => setInstantQuote(true)}
+            className="font-blacksword cursor-pointer group group-hover:before:duration-500 group-hover:after:duration-500 after:duration-500 hover:border-[#5E0C1C] hover:before:[box-shadow:_20px_20px_20px_30px] duration-500 before:duration-500 hover:duration-500 underline underline-offset-2 hover:after:-right-8 hover:before:right-12 hover:before:-bottom-8 hover:before:blur hover:underline hover:underline-offset-4 origin-left hover:decoration-2 hover:text-[#5E0C1C] relative bg-transparent h-16 w-64 border text-left p-3 text-[#D5AC72] text-base font-bold rounded-lg  overflow-hidden  before:absolute before:w-12 before:h-12 before:content[''] before:right-1 before:top-1 before:z-10 before:bg-[#5E0C1C] before:rounded-full before:blur-lg  after:absolute after:z-10 after:w-20 after:h-20 after:content['']  after:bg-[#D5AC72] after:right-8 after:top-3 after:rounded-full after:blur-lg"
+          >
             Get Instant Quote
           </button>
         </motion.div>
@@ -127,6 +132,10 @@ export default function HeroSection() {
           }}
         />
       </div>
+      <InstantQuoteModal
+        open={instantQuote}
+        handleClose={() => setInstantQuote(false)}
+      />
     </div>
   );
 }

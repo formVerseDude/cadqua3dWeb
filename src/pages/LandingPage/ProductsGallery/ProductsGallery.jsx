@@ -16,6 +16,7 @@ const images = import.meta.glob(
 const galleryCards = Object.keys(images).map((path, index) => ({
   id: index + 1,
   image: images[path].default,
+  title: `Image ${index + 1}`, // optional title for tooltip
 }));
 
 export default function ProductsGallery() {
@@ -78,7 +79,7 @@ export default function ProductsGallery() {
         options={{
           type: "loop",
           perPage: 4,
-          gap: "1rem",
+          gap: "4rem",
           focus: "center",
           pagination: false,
           arrows: false,
@@ -89,7 +90,7 @@ export default function ProductsGallery() {
           <SplideSlide key={card.id}>
             <motion.div
               variants={listItem}
-              className="rounded-2xl overflow-hidden flex justify-center items-center w-[272px] h-[272px]"
+              className="relative group hover:bg-[#2A2A2A] transition duration-300 border-4 border-[#333] rounded-2xl overflow-hidden flex justify-center items-center w-[272px] h-[272px]"
             >
               <img
                 src={card.image}
@@ -100,6 +101,10 @@ export default function ProductsGallery() {
                   backgroundColor: "transparent",
                 }}
               />
+              {/* Custom Tooltip */}
+              <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition duration-300 bg-[#D5AC72] text-[#1A1A1A] text-xs px-2 py-1 rounded shadow-lg z-10 pointer-events-none">
+                {card.title}
+              </div>
             </motion.div>
           </SplideSlide>
         ))}
@@ -108,12 +113,12 @@ export default function ProductsGallery() {
       {/* Arrows */}
       <div className="flex items-center gap-4 mt-8 justify-end">
         <KeyboardBackspaceIcon
-          className="text-[#D5AC72] cursor-pointer hover:text-[#7f6744]"
+          className="text-[#D5AC72] cursor-pointer hover:text-[#7f6744] transition duration-200"
           style={{ fontSize: "50px" }}
           onClick={handlePreviousReview}
         />
         <KeyboardBackspaceIcon
-          className="text-[#D5AC72] cursor-pointer rotate-180 hover:text-[#7f6744]"
+          className="text-[#D5AC72] cursor-pointer rotate-180 hover:text-[#7f6744] transition duration-200"
           style={{ fontSize: "50px" }}
           onClick={handleNextReview}
         />

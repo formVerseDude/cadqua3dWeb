@@ -62,46 +62,77 @@ export default function Services() {
     setValue(newValue);
   };
 
-  const tabData = [
+  const services = [
     {
-      label: "Rapid Prototyping",
-      content:
-        "We offer rapid prototyping services using high precision 3D printers for functional and visual prototypes.",
+      title: "2D to 3D Drafting",
       description:
-        "With industrial machines catering all applications SLA | SLS | DLP | FDM | DLP MATERIALS - ABS | NYLON PA22 | PA32GF | PLA| TPU",
-      image: service1,
+        "Transform your flat 2D drawings into dynamic, detailed 3D models with Cadqua 3D's expert drafting services. Our skilled team utilizes advanced CAD software to convert your sketches, blueprints, or technical drawings into accurate 3D representations, enhancing visualization and precision.",
     },
     {
-      label: "Scanning & Part Modelling",
-      content:
-        "We provide high-resolution 3D scanning and part modeling solutions for reverse engineering and inspection.",
+      title: "New Product Development",
       description:
-        "With high accuracy scanners and catering almost every application and scanned over 1000 parts. Part modelling to give a printable data and achieve high intricate features.",
-      image: service2,
+        "At Cadqua 3D, we specialize in transforming innovative ideas into market-ready products. Our comprehensive New Product Development (NPD) services encompass every stage of the product lifecycle, ensuring a seamless transition from concept to reality.",
     },
     {
-      label: "NPD & CAD Designing",
-      content:
-        "Our team supports NPD with professional CAD design services tailored for manufacturability.",
-      description: "With a team of high level designers we provide:",
-      points: [
-        "CAD Designing",
-        "Automotive part designing",
-        "Electronics designing",
-        "Jigs & Fixtures",
-        "Mould Designing",
-        "3D to 2D Drafting",
-        "Light Designing (Optics)",
+      title: "Rapid Prototyping",
+      description:
+        "We offer a variety of rapid prototyping technologies to bring your concepts to life quickly and accurately.",
+      methods: ["SLA", "SLS", "DLP", "FDM", "MJF", "DMLS", "POLYJET"],
+    },
+    {
+      title: "Short Batch Production",
+      description:
+        "Efficient short-run production using vacuum casting to deliver high-quality parts in small quantities.",
+      methods: ["Vacuum Casting"],
+    },
+    {
+      title: "Sheet Metal Fabrication",
+      description:
+        "We offer comprehensive sheet metal fabrication services tailored to meet the diverse needs of industries such as automotive, aerospace, construction, and electronics.",
+      includes: ["Laser Cutting", "Forming and Bending", "Post Processing"],
+    },
+    {
+      title: "CNC Prototyping",
+      description:
+        "At Cadqua 3D, our CNC prototyping services transform your digital designs into precise, functional prototypes with exceptional accuracy. Utilizing advanced CNC machining, we ensure rapid turnaround times, tight tolerances, and compatibility with a wide range of materials, facilitating efficient product development and testing.",
+    },
+    {
+      title: "Large Batch Production",
+      description:
+        "We offer precision injection molding services utilizing a versatile range of machines from 100 to 450 tons. This allows efficient production of a wide spectrum of plastic components with consistent quality and rapid turnaround.",
+      includes: ["Injection Molding", "Tool Development"],
+    },
+    {
+      title: "Mold Design and Analysis",
+      description:
+        "We specialize in precision mold designs complemented by advanced simulation analyses using Autodesk Moldflow and NX.",
+      features: [
+        "Flow Simulation",
+        "Cooling Analysis",
+        "Warp & Shrinkage Prediction",
+        "Gate & Runner Optimization",
       ],
-      image: service3,
     },
     {
-      label: "Short Batch Production",
-      content:
-        "We offer short batch production with consistent quality, perfect for pilot runs and limited releases.",
+      title: "Post Processing (Paint Shop)",
       description:
-        "With Vacuum Casting setup we are solving the issues for short batch production at affordable prices and end product quality.",
-      image: service4,
+        "We provide a range of post-processing services to ensure product aesthetics and durability.",
+      includes: [
+        "Paint Shop Services (matte to high-gloss finishes)",
+        "Metallizing (vacuum metallization, electroplating)",
+        "Surface Finishing (polishing, sandblasting, coatings)",
+      ],
+    },
+    {
+      title: "Packaging (On Demand)",
+      description:
+        "Our custom packaging solutions enhance product appeal, protection, and branding.",
+      includes: [
+        "Tailored Packaging Design",
+        "Material Selection & Prototyping",
+        "Branding & Printing Solutions",
+        "Sustainable Packaging Options",
+      ],
     },
   ];
 
@@ -168,7 +199,8 @@ export default function Services() {
             value={value}
             onChange={handleChange}
             aria-label="Services Tabs"
-            variant="fullWidth"
+            variant="scrollable"
+            scrollButtons="auto"
             indicatorColor="transparent"
             TabIndicatorProps={{ style: { display: "none" } }}
             sx={{
@@ -188,26 +220,38 @@ export default function Services() {
                   bgcolor: "#5E0C1C",
                 },
               },
+              "& .MuiTabs-scrollButtons": {
+                color: "#D5AC72",
+                fontSize: "2rem",
+                "&.Mui-disabled": {
+                  opacity: 0.3,
+                },
+              },
+              "& .MuiSvgIcon-root": {
+                fontSize: "2rem",
+              },
             }}
           >
-            {tabData.map((tab, index) => (
-              <Tab key={tab.label} label={tab.label} {...a11yProps(index)} />
+            {services.map((tab, index) => (
+              <Tab key={tab.title} label={tab.title} {...a11yProps(index)} />
             ))}
           </Tabs>
         </Paper>
 
-        {tabData.map((tab, index) => (
-          <CustomTabPanel key={tab.label} value={value} index={index}>
-            <div className="flex flex-row max-lg:flex-col justify-between items-center gap-8 px-4 text-[24px]">
-              <img src={tab.image} alt={tab.label} />
-              <div className="flex flex-col gap-4">
-                <span>{tab.content}</span>
+        {services.map((tab, index) => (
+          <CustomTabPanel key={tab.title} value={value} index={index}>
+            <div className="flex flex-col gap-4 text-[20px] px-4">
+              <span>{tab.description}</span>
+
+              {(tab.methods || tab.includes || tab.features) && (
                 <ul className="list-disc pl-5 text-[18px]">
-                  {tab.points && tab.points.length > 0
-                    ? tab.points.map((point, idx) => <li key={idx}>{point}</li>)
-                    : null}
+                  {(tab.methods || tab.includes || tab.features).map(
+                    (point, idx) => (
+                      <li key={idx}>{point}</li>
+                    )
+                  )}
                 </ul>
-              </div>
+              )}
             </div>
           </CustomTabPanel>
         ))}

@@ -90,7 +90,7 @@ export default function ProductsGallery() {
           <SplideSlide key={card.id}>
             <motion.div
               variants={listItem}
-              className="relative group hover:bg-[#2A2A2A] transition duration-300 border-4 border-[#333] rounded-2xl overflow-hidden flex justify-center items-center w-[272px] h-[272px]"
+              className="relative cursor-pointer group hover:scale-105 transform transition duration-300 hover:bg-[#2A2A2A] border-4 border-[#333] rounded-2xl overflow-hidden flex justify-center items-center w-[272px] h-[272px]"
             >
               <img
                 src={card.image}

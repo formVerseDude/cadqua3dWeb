@@ -89,12 +89,16 @@ export default function ProductsGallery() {
           <SplideSlide key={card.id}>
             <motion.div
               variants={listItem}
-              className="bg-[#1A1A1A] rounded-2xl overflow-hidden flex justify-center items-center w-[272px] h-[272px]"
+              className="rounded-2xl overflow-hidden flex justify-center items-center w-[272px] h-[272px]"
             >
               <img
                 src={card.image}
                 alt={`gallery-item-${card.id}`}
-                className="w-[272px] h-[272px] object-cover rounded-2xl scale-[0.98]"
+                style={{
+                  aspectRatio: "8 / 7",
+                  objectFit: "contain",
+                  backgroundColor: "transparent",
+                }}
               />
             </motion.div>
           </SplideSlide>

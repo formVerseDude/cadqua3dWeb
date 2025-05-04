@@ -1,16 +1,10 @@
-import * as React from "react";
+import { useEffect, useState, useRef } from "react";
 import PropTypes from "prop-types";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
-import { Box } from "@mui/material";
-import Typography from "@mui/material/Typography";
-import Paper from "@mui/material/Paper";
-import service1 from "../../../assets/landingPage/service1.png";
-import service2 from "../../../assets/landingPage/service2.png";
-import service3 from "../../../assets/landingPage/service3.png";
-import service4 from "../../../assets/landingPage/service4.avif";
+import { Box, Typography, Paper } from "@mui/material";
 import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import whatWeOffer from "../../../assets/landingPage/whatWeOffer.png";
 
 function CustomTabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -30,7 +24,7 @@ function CustomTabPanel(props) {
             p: 4,
             borderRadius: 2,
             mt: 2,
-            bgcolor: "#1A1A1A",
+            bgcolor: "transparent",
           }}
         >
           <Typography variant="body1" component="div" color="#E0E0E0">
@@ -56,7 +50,14 @@ function a11yProps(index) {
 }
 
 export default function Services() {
-  const [value, setValue] = React.useState(0);
+  const [value, setValue] = useState(0);
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setValue((prevValue) => (prevValue + 1) % services.length);
+    }, 3000);
+    return () => clearInterval(intervalId);
+  }, []);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -66,12 +67,12 @@ export default function Services() {
     {
       title: "2D to 3D Drafting",
       description:
-        "Transform your flat 2D drawings into dynamic, detailed 3D models with Cadqua 3D's expert drafting services. Our skilled team utilizes advanced CAD software to convert your sketches, blueprints, or technical drawings into accurate 3D representations, enhancing visualization and precision.",
+        "Transform your flat 2D drawings into dynamic, detailed 3D models with Cadqua 3D's expert drafting services...",
     },
     {
       title: "New Product Development",
       description:
-        "At Cadqua 3D, we specialize in transforming innovative ideas into market-ready products. Our comprehensive New Product Development (NPD) services encompass every stage of the product lifecycle, ensuring a seamless transition from concept to reality.",
+        "At Cadqua 3D, we specialize in transforming innovative ideas into market-ready products...",
     },
     {
       title: "Rapid Prototyping",
@@ -88,24 +89,24 @@ export default function Services() {
     {
       title: "Sheet Metal Fabrication",
       description:
-        "We offer comprehensive sheet metal fabrication services tailored to meet the diverse needs of industries such as automotive, aerospace, construction, and electronics.",
+        "We offer comprehensive sheet metal fabrication services tailored for automotive, aerospace, and more.",
       includes: ["Laser Cutting", "Forming and Bending", "Post Processing"],
     },
     {
       title: "CNC Prototyping",
       description:
-        "At Cadqua 3D, our CNC prototyping services transform your digital designs into precise, functional prototypes with exceptional accuracy. Utilizing advanced CNC machining, we ensure rapid turnaround times, tight tolerances, and compatibility with a wide range of materials, facilitating efficient product development and testing.",
+        "Our CNC prototyping services transform your digital designs into precise, functional prototypes...",
     },
     {
       title: "Large Batch Production",
       description:
-        "We offer precision injection molding services utilizing a versatile range of machines from 100 to 450 tons. This allows efficient production of a wide spectrum of plastic components with consistent quality and rapid turnaround.",
+        "We offer precision injection molding services for efficient, high-volume production.",
       includes: ["Injection Molding", "Tool Development"],
     },
     {
       title: "Mold Design and Analysis",
       description:
-        "We specialize in precision mold designs complemented by advanced simulation analyses using Autodesk Moldflow and NX.",
+        "We specialize in precision mold designs complemented by simulation using Autodesk Moldflow and NX.",
       features: [
         "Flow Simulation",
         "Cooling Analysis",
@@ -117,11 +118,7 @@ export default function Services() {
       title: "Post Processing (Paint Shop)",
       description:
         "We provide a range of post-processing services to ensure product aesthetics and durability.",
-      includes: [
-        "Paint Shop Services (matte to high-gloss finishes)",
-        "Metallizing (vacuum metallization, electroplating)",
-        "Surface Finishing (polishing, sandblasting, coatings)",
-      ],
+      includes: ["Paint Shop Services", "Metallizing", "Surface Finishing"],
     },
     {
       title: "Packaging (On Demand)",
@@ -129,12 +126,17 @@ export default function Services() {
         "Our custom packaging solutions enhance product appeal, protection, and branding.",
       includes: [
         "Tailored Packaging Design",
-        "Material Selection & Prototyping",
-        "Branding & Printing Solutions",
-        "Sustainable Packaging Options",
+        "Material Selection",
+        "Branding & Printing",
+        "Sustainable Options",
       ],
     },
   ];
+
+  const text = "SERVICES WE PROVIDE";
+  const letters = text.split("");
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
 
   const variants = {
     hidden: { opacity: 0, y: 0 },
@@ -153,20 +155,15 @@ export default function Services() {
     hidden: { opacity: 0 },
     show: (i) => ({
       y: 0,
-      opacity: 3,
+      opacity: 1,
       transition: { delay: i * 0.07 },
     }),
   };
 
-  const text = "SERVICES WE PROVIDE";
-  const letters = text.split("");
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
-
   return (
     <Box
-      sx={{ backgroundColor: "#000000", minHeight: "100%", py: 5 }}
-      className="px-40 max-lg:px-20 max-md:px-10 flex flex-col gap-8"
+      sx={{ backgroundColor: "#000000", pt: 5 }}
+      className="flex flex-col gap-8"
     >
       <motion.h3
         ref={ref}
@@ -174,11 +171,15 @@ export default function Services() {
         animate={isInView ? "show" : "hidden"}
         variants={variantsflow}
         viewport={{ once: true }}
-        className="text-[#5E0C1C] text-[32px] font-semibold"
+        className="text-[#D5AC72] text-[32px] font-semibold px-40 max-lg:px-20 max-md:px-10"
       >
-        {letters.map((word, i) => (
-          <motion.span key={`${word}-${i}`} variants={variantsflow} custom={i}>
-            {word}
+        {letters.map((letter, i) => (
+          <motion.span
+            key={`${letter}-${i}`}
+            variants={variantsflow}
+            custom={i}
+          >
+            {letter}
           </motion.span>
         ))}
       </motion.h3>
@@ -188,13 +189,18 @@ export default function Services() {
         whileInView="show"
         viewport={{ once: true }}
         variants={variants}
-        sx={{
-          width: "100%",
-          maxWidth: "1000px",
-          mx: "auto",
-        }}
+        sx={{ width: "100%", maxWidth: "1000px", mx: "auto" }}
       >
-        <Paper elevation={1} sx={{ borderRadius: 2, p: 2, bgcolor: "#1A1A1A" }}>
+        <Paper
+          elevation={1}
+          sx={{
+            px: 2,
+            borderBottom: "2px solid #D5AC72",
+            position: "relative",
+            overflow: "hidden",
+            backgroundColor: "transparent",
+          }}
+        >
           <Tabs
             value={value}
             onChange={handleChange}
@@ -204,54 +210,104 @@ export default function Services() {
             indicatorColor="transparent"
             TabIndicatorProps={{ style: { display: "none" } }}
             sx={{
+              zIndex: 1,
+              marginBottom: "-2px",
               ".MuiTab-root": {
                 textTransform: "none",
-                fontWeight: 500,
-                px: 2,
-                py: 1.5,
-                borderRadius: 2,
-                color: "#E0E0E0",
+                fontWeight: 700,
+                py: 3,
+                fontSize: "1.25rem",
+                borderBottom: "2px solid transparent",
+                color: "#ffffff",
                 transition: "0.3s",
-                "&:hover": {
-                  bgcolor: "#2B0A0F",
-                },
+                "&:hover": { borderBottom: "2px solid #2B0A0F" },
                 "&.Mui-selected": {
-                  color: "#FFFFFF",
-                  bgcolor: "#5E0C1C",
+                  color: "#D5AC72",
+                  borderBottom: "2px solid #5E0C1C",
                 },
               },
               "& .MuiTabs-scrollButtons": {
                 color: "#D5AC72",
                 fontSize: "2rem",
-                "&.Mui-disabled": {
-                  opacity: 0.3,
-                },
+                zIndex: 3,
+                "&.Mui-disabled": { opacity: 0.3 },
               },
-              "& .MuiSvgIcon-root": {
-                fontSize: "2rem",
-              },
+              "& .MuiSvgIcon-root": { fontSize: "2rem" },
             }}
           >
             {services.map((tab, index) => (
               <Tab key={tab.title} label={tab.title} {...a11yProps(index)} />
             ))}
           </Tabs>
+
+          {/* Left Gradient Mask */}
+          <Box
+            sx={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              width: "50%",
+              height: "100%",
+              backgroundImage:
+                "linear-gradient(to right, \
+        #000000 0%, \
+        rgba(0,0,0,0.8) 40%, \
+        rgba(0,0,0,0.6) 50%, \
+        rgba(0,0,0,0.4) 60%, \
+        rgba(0,0,0,0.2) 70%, \
+        transparent 100%)",
+              zIndex: 2,
+              pointerEvents: "none",
+            }}
+          />
+          <Box
+            sx={{
+              position: "absolute",
+              top: 0,
+              right: 0,
+              width: "50%",
+              height: "100%",
+              backgroundImage:
+                "linear-gradient(to left, \
+        #000000 0%, \
+        rgba(0,0,0,0.8) 40%, \
+        rgba(0,0,0,0.6) 50%, \
+        rgba(0,0,0,0.4) 60%, \
+        rgba(0,0,0,0.2) 70%, \
+        transparent 100%)",
+              zIndex: 2,
+              pointerEvents: "none",
+            }}
+          />
         </Paper>
 
         {services.map((tab, index) => (
-          <CustomTabPanel key={tab.title} value={value} index={index}>
-            <div className="flex flex-col gap-4 text-[20px] px-4">
-              <span>{tab.description}</span>
+          <CustomTabPanel
+            key={tab.title}
+            value={value}
+            index={index}
+            className="flex justify-center"
+          >
+            <div className="w-full p-8 flex flex-row gap-4 text-[20px] h-full bg-white/5 backdrop-blur-md rounded-2xl shadow-[0_4px_30px_rgba(0,0,0,0.1)] border border-white/10">
+              <img src={whatWeOffer} alt="whatWeOffer" className="size-96" />
+              <div className="h-full flex flex-col gap-4 text-[#E0E0E0]">
+                <span className="text-[18px]">{tab.description}</span>
 
-              {(tab.methods || tab.includes || tab.features) && (
-                <ul className="list-disc pl-5 text-[18px]">
-                  {(tab.methods || tab.includes || tab.features).map(
-                    (point, idx) => (
-                      <li key={idx}>{point}</li>
-                    )
-                  )}
-                </ul>
-              )}
+                {(tab.methods || tab.includes || tab.features) && (
+                  <ul className="list-disc pl-5 text-[16px] space-y-2">
+                    {(tab.methods || tab.includes || tab.features).map(
+                      (point, idx) => (
+                        <li
+                          key={idx}
+                          className="cursor-pointer w-fit text-[#D5AC72] hover:text-[#F4C430] border-b-2 border-transparent hover:border-[#F4C430] transition-colors duration-300 py-1"
+                        >
+                          {point}
+                        </li>
+                      )
+                    )}
+                  </ul>
+                )}
+              </div>
             </div>
           </CustomTabPanel>
         ))}

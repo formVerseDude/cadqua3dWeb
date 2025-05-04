@@ -18,13 +18,13 @@ export default function QuotationProcess() {
   };
 
   return (
-    <div className="bg-[#000000] flex flex-col gap-8 text-[#000000] px-40 max-lg:px-10 pb-10">
+    <div className="bg-[#000000] flex flex-col gap-8 text-[#000000] px-40 max-lg:px-10 py-10">
       <motion.span
         initial="hidden"
         whileInView="show"
         variants={variants}
         viewport={{ once: true }}
-        className="text-[#5E0C1C] text-[24px] font-semibold"
+        className="text-[#D5AC72] text-[24px] font-semibold"
       >
         How it works?
       </motion.span>
@@ -39,22 +39,9 @@ export default function QuotationProcess() {
         >
           Instant Online Quotation
         </motion.h3>
-
-        <motion.p
-          initial="hidden"
-          whileInView="show"
-          variants={variants}
-          viewport={{ once: true }}
-          className="block text-[#d3d3d3] text-[16px] w-2/3 leading-5 max-xl:hidden"
-        >
-          State of the art Digital Manufacturing platform that enables you to
-          get instant online quote, fabricate and track all your additive
-          manufacturing (3d printing), rapid prototyping, batch production and
-          mass manufacturing requirements.
-        </motion.p>
       </div>
 
-      <div className="flex flex-row justify-between w-full max-lg:flex-col max-lg:gap-8 text-[#ffffff]">
+      <div className="flex flex-row justify-between items-center w-full max-lg:flex-col max-lg:gap-8 text-[#ffffff]">
         <div className="flex flex-col gap-4 w-2/5 max-lg:w-full">
           <motion.span
             initial="hidden"
@@ -108,16 +95,6 @@ export default function QuotationProcess() {
               </div>
             ))}
           </div>
-
-          <motion.span
-            initial="hidden"
-            whileInView="show"
-            variants={variants}
-            viewport={{ once: true }}
-            className="text-[#D5AC72] text-[16px] font-semibold flex flex-row items-center gap-1 cursor-pointer hover:text-[#7f6744]"
-          >
-            Read How Instant Quotation Works <ArrowUpRight size={18} />
-          </motion.span>
         </div>
 
         <div className="flex justify-center items-center">

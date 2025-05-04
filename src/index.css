@@ -50,9 +50,9 @@
   @apply bg-[#5E0C1C] rounded-full;
 }
 
-.body {
-  font-family: "Comic Relief";
-  background-color: black;
+body {
+  font-family: Varela Round, sans-serif !important;
+  background-color: black !important;
 }
 
 @font-face {
@@ -60,6 +60,24 @@
   src: url("../src/fonts/Blacksword.otf");
 }
 
+@font-face {
+  font-family: FontspringExtraBold;
+  src: url("../src/fonts/Marble\ ExtraBold.otf");
+}
+
+@font-face {
+  font-family: FontspringSemiBold;
+  src: url("../src/fonts/Marble\ SemiBold.otf");
+}
+
+@font-face {
+  font-family: Vonique;
+  src: url("../src/fonts/Vonique 43_D.otf");
+}
+
 @theme {
   --font-blacksword: BlackSword;
+  --font-fontspringextrabold: FontspringExtraBold;
+  --font-fontspringsemibold: FontspringSemiBold;
+  --font-vonique: Vonique;
 }

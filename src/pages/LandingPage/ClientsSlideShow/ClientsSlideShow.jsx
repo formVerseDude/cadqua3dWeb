@@ -5,7 +5,7 @@ import company4 from "../../../assets/landingPage/company4.avif";
 
 export default function ClientsSlideShow() {
   return (
-    <div className="bg-[#1A1A1A] py-10">
+    <div className="bg-[#000000] py-20">
       <style>{`
   @keyframes loopScroll {
     0% { transform: translateX(0); }
@@ -21,12 +21,12 @@ export default function ClientsSlideShow() {
   }
 `}</style>
 
-      <span className="w-full text-[#ffffff] flex justify-center text-center mb-10 max-md:px-10">
+      <span className="w-full text-[#D5AC72] flex justify-center text-center max-md:px-10 bg-white/5 backdrop-blur-md shadow-[0_4px_30px_rgba(0,0,0,0.1)] py-10">
         Trusted manufacturing platform for 1000+ product development companies
         across the globe.
       </span>
 
-      <div className="flex space-x-16 overflow-hidden group">
+      <div className="flex space-x-16 overflow-hidden group bg-white/5 backdrop-blur-md shadow-[0_4px_30px_rgba(0,0,0,0.1)] py-10">
         <div className="flex space-x-16 loop-scroll group-hover:paused">
           <img
             src={company1}

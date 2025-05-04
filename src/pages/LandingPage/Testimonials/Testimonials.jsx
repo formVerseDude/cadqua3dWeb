@@ -61,7 +61,7 @@ export default function Testimonials() {
         variants={variants}
         className="relative flex justify-end"
       >
-        <div className="bg-[#1A1A1A] w-4/5 rounded-[25px]">
+        <div className="bg-transparent w-4/5 rounded-[25px]">
           <div className="absolute text-[#D5AC72] h-full left-0 flex flex-col justify-between">
             <div className="flex flex-col gap-2">
               <span className="text-[50px] font-semibold">
@@ -74,7 +74,7 @@ export default function Testimonials() {
               </span>
             </div>
 
-            <div className="flex items-center gap-4 mt-4">
+            <div className="flex items-center flex-end gap-4 mt-4 w-full">
               <KeyboardBackspaceIcon
                 className="text-[#D5AC72] cursor-pointer hover:text-[#7f6744]"
                 style={{ fontSize: "50px" }}
@@ -87,7 +87,7 @@ export default function Testimonials() {
               />
             </div>
           </div>
-          <div className="flex flex-row gap-24 mt-52 pb-10 -ml-12">
+          <div className="flex flex-row gap-24 mt-52 py-10 px-4 -ml-12 bg-white/5 backdrop-blur-md rounded-2xl shadow-[0_4px_30px_rgba(0,0,0,0.1)] border border-white/10">
             <div className="flex flex-row items-center border border-[#D5AC72] bg-[#D5AC72] rounded-full w-fit h-fit">
               <img src={comma} alt="comma" className="size-16" />
               <img src={comma} alt="comma" className="size-16 -ml-10" />

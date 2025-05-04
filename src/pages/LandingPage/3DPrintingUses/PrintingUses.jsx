@@ -64,7 +64,7 @@ export default function PrintingUses() {
     <Box className="px-40 max-lg:px-20 max-md:px-10 bg-[#000000] text-[#E0E0E0] py-20">
       {/* Animated Title */}
       <motion.div
-        className="text-[#5E0C1C] text-[32px] font-semibold"
+        className="text-[#D5AC72] text-[32px] font-semibold "
         ref={ref}
         initial="hidden"
         animate={isInView ? "show" : "hidden"}
@@ -93,7 +93,7 @@ export default function PrintingUses() {
             key={index}
             elevation={3}
             sx={{
-              backgroundColor: "#1A1A1A",
+              backgroundColor: "transparent",
               borderRadius: 2,
               height: "100%",
               display: "flex",
@@ -101,6 +101,7 @@ export default function PrintingUses() {
               justifyContent: "space-between",
               p: 1,
             }}
+            className="bg-white/5 backdrop-blur-md rounded-2xl shadow-[0_4px_30px_rgba(0,0,0,0.1)] border border-white/10 hover:scale-105 transform transition duration-500 ease-in-out"
           >
             <CardContent>
               <Typography

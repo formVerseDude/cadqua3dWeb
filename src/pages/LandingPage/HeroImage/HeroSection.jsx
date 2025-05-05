@@ -97,7 +97,7 @@ export default function HeroSection() {
         </motion.div>
       </div>
       <div className="w-full flex justify-end h-full">
-        <div className="w-1/2 flex flex-col justify-between gap-32 max-2xl:gap-24 h-1/2 bg-white/5 backdrop-blur-md rounded-l-2xl shadow-[0_4px_30px_rgba(0,0,0,0.1)] border-l-2 border-y-2 border-[#DAAC69]/30 pl-6 pr-14 py-12 max-2xl:py-10 -mt-10">
+        <div className="w-1/3 flex flex-col justify-between gap-32 max-2xl:gap-16 h-1/2 bg-white/5 backdrop-blur-md rounded-l-2xl shadow-[0_4px_30px_rgba(0,0,0,0.1)] border-l-2 border-y-2 border-[#DAAC69]/30 pl-6 pr-14 py-12 max-2xl:py-8 -mt-10">
           <div className="flex flex-col gap-8">
             <motion.h3
               ref={ref}
@@ -105,9 +105,9 @@ export default function HeroSection() {
               animate={isInView ? "show" : "hidden"}
               variants={variants}
               viewport={{ once: true }}
-              className="flex justify-start text-[#DAAC69] text-[48px] max-2xl:text-[42px] font-fontspringsemibold text-left leading-14"
+              className="text-[#DAAC69] text-[44px] max-2xl:text-[34px] font-fontspringsemibold leading-14 text-center"
             >
-              Together, Let’s Print the Future
+              Together Let’s Print The Future
             </motion.h3>
             <motion.h3
               ref={ref}
@@ -115,7 +115,7 @@ export default function HeroSection() {
               animate={isInView ? "show" : "hidden"}
               variants={variants}
               viewport={{ once: true }}
-              className="flex justify-start text-[#DAAC69] text-[26px] max-2xl:text-[24px] font-fontspringsemibold text-left leading-12 max-2xl:leading-10"
+              className="flex justify-start text-[#DAAC69] text-[26px] max-2xl:text-[20px] font-fontspringsemibold text-left leading-12 max-2xl:leading-10"
             >
               Empowering Innovation,
               <br /> through Cutting-Edge Printing Solutions.
@@ -130,7 +130,7 @@ export default function HeroSection() {
           >
             <button
               onClick={() => setInstantQuote(true)}
-              className="font-vonique cursor-pointer group group-hover:before:duration-500 group-hover:after:duration-500 after:duration-500 hover:border-[#3F1317] hover:before:[box-shadow:_20px_20px_20px_30px] duration-500 before:duration-500 hover:duration-500 underline underline-offset-2 hover:after:-right-8 hover:before:right-12 hover:before:-bottom-8 hover:before:blur hover:underline hover:underline-offset-4 origin-left hover:decoration-2 hover:text-[#3F1317] relative bg-transparent h-28 w-[500px] border text-left px-6 py-3 text-[#DAAC69] text-2xl font-bold rounded-lg  overflow-hidden  before:absolute before:w-12 before:h-12 before:content[''] before:right-1 before:top-1 before:z-10 before:bg-[#3F1317] before:rounded-full before:blur-lg  after:absolute after:z-10 after:w-20 after:h-20 after:content['']  after:bg-[#DAAC69] after:right-8 after:top-3 after:rounded-full after:blur-lg tracking-wider"
+              className="font-vonique cursor-pointer group group-hover:before:duration-500 group-hover:after:duration-500 after:duration-500 hover:border-[#3F1317] hover:before:[box-shadow:_20px_20px_20px_30px] duration-500 before:duration-500 hover:duration-500 underline underline-offset-2 hover:after:-right-8 hover:before:right-12 hover:before:-bottom-8 hover:before:blur hover:underline hover:underline-offset-4 origin-left hover:decoration-2 hover:text-[#3F1317] relative bg-transparent h-18 w-84 border text-left px-4 text-[#DAAC69] text-base font-bold rounded-lg  overflow-hidden  before:absolute before:w-12 before:h-12 before:content[''] before:right-1 before:top-1 before:z-10 before:bg-[#3F1317] before:rounded-full before:blur-lg  after:absolute after:z-10 after:w-20 after:h-20 after:content['']  after:bg-[#DAAC69] after:right-8 after:top-3 after:rounded-full after:blur-lg tracking-wider"
             >
               Get Instant Quote
             </button>

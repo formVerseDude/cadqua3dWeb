@@ -161,157 +161,159 @@ export default function Services() {
   };
 
   return (
-    <Box
-      sx={{ backgroundColor: "#000000", pt: 5 }}
-      className="flex flex-col gap-8"
-    >
-      <motion.h3
-        ref={ref}
-        initial="hidden"
-        animate={isInView ? "show" : "hidden"}
-        variants={variantsflow}
-        viewport={{ once: true }}
-        className="text-[#D5AC72] text-[32px] font-semibold px-40 max-lg:px-20 max-md:px-10"
+    <section id="services">
+      <Box
+        sx={{ backgroundColor: "#000000", pt: 5 }}
+        className="flex flex-col gap-8"
       >
-        {letters.map((letter, i) => (
-          <motion.span
-            key={`${letter}-${i}`}
-            variants={variantsflow}
-            custom={i}
-          >
-            {letter}
-          </motion.span>
-        ))}
-      </motion.h3>
-
-      <motion.Box
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true }}
-        variants={variants}
-        sx={{ width: "100%", maxWidth: "1000px", mx: "auto" }}
-      >
-        <Paper
-          elevation={1}
-          sx={{
-            px: 2,
-            borderBottom: "2px solid #D5AC72",
-            position: "relative",
-            overflow: "hidden",
-            backgroundColor: "transparent",
-          }}
+        <motion.h3
+          ref={ref}
+          initial="hidden"
+          animate={isInView ? "show" : "hidden"}
+          variants={variantsflow}
+          viewport={{ once: true }}
+          className="text-[#D5AC72] text-[32px] font-semibold px-40 max-lg:px-20 max-md:px-10"
         >
-          <Tabs
-            value={value}
-            onChange={handleChange}
-            aria-label="Services Tabs"
-            variant="scrollable"
-            scrollButtons="auto"
-            indicatorColor="transparent"
-            TabIndicatorProps={{ style: { display: "none" } }}
+          {letters.map((letter, i) => (
+            <motion.span
+              key={`${letter}-${i}`}
+              variants={variantsflow}
+              custom={i}
+            >
+              {letter}
+            </motion.span>
+          ))}
+        </motion.h3>
+
+        <motion.Box
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          variants={variants}
+          sx={{ width: "100%", maxWidth: "1000px", mx: "auto" }}
+        >
+          <Paper
+            elevation={1}
             sx={{
-              zIndex: 1,
-              marginBottom: "-2px",
-              ".MuiTab-root": {
-                textTransform: "none",
-                fontWeight: 700,
-                py: 3,
-                fontSize: "1.25rem",
-                borderBottom: "2px solid transparent",
-                color: "#ffffff",
-                transition: "0.3s",
-                "&:hover": { borderBottom: "2px solid #2B0A0F" },
-                "&.Mui-selected": {
-                  color: "#D5AC72",
-                  borderBottom: "2px solid #5E0C1C",
+              px: 2,
+              borderBottom: "2px solid #D5AC72",
+              position: "relative",
+              overflow: "hidden",
+              backgroundColor: "transparent",
+            }}
+          >
+            <Tabs
+              value={value}
+              onChange={handleChange}
+              aria-label="Services Tabs"
+              variant="scrollable"
+              scrollButtons="auto"
+              indicatorColor="transparent"
+              TabIndicatorProps={{ style: { display: "none" } }}
+              sx={{
+                zIndex: 1,
+                marginBottom: "-2px",
+                ".MuiTab-root": {
+                  textTransform: "none",
+                  fontWeight: 700,
+                  py: 3,
+                  fontSize: "1.25rem",
+                  borderBottom: "2px solid transparent",
+                  color: "#ffffff",
+                  transition: "0.3s",
+                  "&:hover": { borderBottom: "2px solid #2B0A0F" },
+                  "&.Mui-selected": {
+                    color: "#D5AC72",
+                    borderBottom: "2px solid #5E0C1C",
+                  },
                 },
-              },
-              "& .MuiTabs-scrollButtons": {
-                color: "#D5AC72",
-                fontSize: "2rem",
-                zIndex: 3,
-                "&.Mui-disabled": { opacity: 0.3 },
-              },
-              "& .MuiSvgIcon-root": { fontSize: "2rem" },
-            }}
-          >
-            {services.map((tab, index) => (
-              <Tab key={tab.title} label={tab.title} {...a11yProps(index)} />
-            ))}
-          </Tabs>
+                "& .MuiTabs-scrollButtons": {
+                  color: "#D5AC72",
+                  fontSize: "2rem",
+                  zIndex: 3,
+                  "&.Mui-disabled": { opacity: 0.3 },
+                },
+                "& .MuiSvgIcon-root": { fontSize: "2rem" },
+              }}
+            >
+              {services.map((tab, index) => (
+                <Tab key={tab.title} label={tab.title} {...a11yProps(index)} />
+              ))}
+            </Tabs>
 
-          {/* Left Gradient Mask */}
-          <Box
-            sx={{
-              position: "absolute",
-              top: 0,
-              left: 0,
-              width: "50%",
-              height: "100%",
-              backgroundImage:
-                "linear-gradient(to right, \
+            {/* Left Gradient Mask */}
+            <Box
+              sx={{
+                position: "absolute",
+                top: 0,
+                left: 0,
+                width: "50%",
+                height: "100%",
+                backgroundImage:
+                  "linear-gradient(to right, \
         #000000 0%, \
         rgba(0,0,0,0.8) 40%, \
         rgba(0,0,0,0.6) 50%, \
         rgba(0,0,0,0.4) 60%, \
         rgba(0,0,0,0.2) 70%, \
         transparent 100%)",
-              zIndex: 2,
-              pointerEvents: "none",
-            }}
-          />
-          <Box
-            sx={{
-              position: "absolute",
-              top: 0,
-              right: 0,
-              width: "50%",
-              height: "100%",
-              backgroundImage:
-                "linear-gradient(to left, \
+                zIndex: 2,
+                pointerEvents: "none",
+              }}
+            />
+            <Box
+              sx={{
+                position: "absolute",
+                top: 0,
+                right: 0,
+                width: "50%",
+                height: "100%",
+                backgroundImage:
+                  "linear-gradient(to left, \
         #000000 0%, \
         rgba(0,0,0,0.8) 40%, \
         rgba(0,0,0,0.6) 50%, \
         rgba(0,0,0,0.4) 60%, \
         rgba(0,0,0,0.2) 70%, \
         transparent 100%)",
-              zIndex: 2,
-              pointerEvents: "none",
-            }}
-          />
-        </Paper>
+                zIndex: 2,
+                pointerEvents: "none",
+              }}
+            />
+          </Paper>
 
-        {services.map((tab, index) => (
-          <CustomTabPanel
-            key={tab.title}
-            value={value}
-            index={index}
-            className="flex justify-center"
-          >
-            <div className="w-full p-8 flex flex-row gap-4 text-[20px] h-full bg-white/5 backdrop-blur-md rounded-2xl shadow-[0_4px_30px_rgba(0,0,0,0.1)] border border-white/10">
-              <img src={whatWeOffer} alt="whatWeOffer" className="size-96" />
-              <div className="h-full flex flex-col gap-4 text-[#E0E0E0]">
-                <span className="text-[18px]">{tab.description}</span>
+          {services.map((tab, index) => (
+            <CustomTabPanel
+              key={tab.title}
+              value={value}
+              index={index}
+              className="flex justify-center"
+            >
+              <div className="w-full p-8 flex flex-row gap-4 text-[20px] h-full bg-white/5 backdrop-blur-md rounded-2xl shadow-[0_4px_30px_rgba(0,0,0,0.1)] border border-white/10">
+                <img src={whatWeOffer} alt="whatWeOffer" className="size-96" />
+                <div className="h-full flex flex-col gap-4 text-[#E0E0E0]">
+                  <span className="text-[18px]">{tab.description}</span>
 
-                {(tab.methods || tab.includes || tab.features) && (
-                  <ul className="list-disc pl-5 text-[16px] space-y-2">
-                    {(tab.methods || tab.includes || tab.features).map(
-                      (point, idx) => (
-                        <li
-                          key={idx}
-                          className="cursor-pointer w-fit text-[#D5AC72] hover:text-[#F4C430] border-b-2 border-transparent hover:border-[#F4C430] transition-colors duration-300 py-1"
-                        >
-                          {point}
-                        </li>
-                      )
-                    )}
-                  </ul>
-                )}
+                  {(tab.methods || tab.includes || tab.features) && (
+                    <ul className="list-disc pl-5 text-[16px] space-y-2">
+                      {(tab.methods || tab.includes || tab.features).map(
+                        (point, idx) => (
+                          <li
+                            key={idx}
+                            className="cursor-pointer w-fit text-[#D5AC72] hover:text-[#F4C430] border-b-2 border-transparent hover:border-[#F4C430] transition-colors duration-300 py-1"
+                          >
+                            {point}
+                          </li>
+                        )
+                      )}
+                    </ul>
+                  )}
+                </div>
               </div>
-            </div>
-          </CustomTabPanel>
-        ))}
-      </motion.Box>
-    </Box>
+            </CustomTabPanel>
+          ))}
+        </motion.Box>
+      </Box>
+    </section>
   );
 }

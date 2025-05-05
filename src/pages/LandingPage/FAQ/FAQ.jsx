@@ -48,38 +48,40 @@ export default function FAQ() {
   };
 
   return (
-    <div className="bg-black px-40 max-lg:px-20 max-md:px-10 py-20">
-      <motion.div
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true }}
-        variants={variants}
-      >
-        {faqItems.map((item) => (
-          <Accordion
-            key={item.id}
-            expanded={expanded === item.id}
-            onChange={handleChange(item.id)}
-            sx={{ bgcolor: "#111", color: "#fff", mb: 2 }}
-          >
-            <AccordionSummary
-              expandIcon={<ExpandMoreIcon sx={{ color: "#fff" }} />}
-              aria-controls={`${item.id}-content`}
-              id={`${item.id}-header`}
+    <section id="faq">
+      <div className="bg-black px-40 max-lg:px-20 max-md:px-10 py-20">
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          variants={variants}
+        >
+          {faqItems.map((item) => (
+            <Accordion
+              key={item.id}
+              expanded={expanded === item.id}
+              onChange={handleChange(item.id)}
+              sx={{ bgcolor: "#111", color: "#fff", mb: 2 }}
             >
-              <Typography
-                component="span"
-                sx={{ fontWeight: 500, fontSize: "1rem", width: "100%" }}
+              <AccordionSummary
+                expandIcon={<ExpandMoreIcon sx={{ color: "#fff" }} />}
+                aria-controls={`${item.id}-content`}
+                id={`${item.id}-header`}
               >
-                {item.question}
-              </Typography>
-            </AccordionSummary>
-            <AccordionDetails>
-              <Typography sx={{ color: "#ccc" }}>{item.answer}</Typography>
-            </AccordionDetails>
-          </Accordion>
-        ))}
-      </motion.div>
-    </div>
+                <Typography
+                  component="span"
+                  sx={{ fontWeight: 500, fontSize: "1rem", width: "100%" }}
+                >
+                  {item.question}
+                </Typography>
+              </AccordionSummary>
+              <AccordionDetails>
+                <Typography sx={{ color: "#ccc" }}>{item.answer}</Typography>
+              </AccordionDetails>
+            </Accordion>
+          ))}
+        </motion.div>
+      </div>
+    </section>
   );
 }

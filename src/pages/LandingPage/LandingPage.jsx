@@ -34,7 +34,7 @@ export default function LandingPage() {
       <Services />
       <PrintingUses />
       <Testimonials />
-      <ProductsGallery />
+      {/*<ProductsGallery />*/}
       <FAQ />
       <Footer />
     </div>

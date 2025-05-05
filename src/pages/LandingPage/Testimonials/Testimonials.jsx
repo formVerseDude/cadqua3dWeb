@@ -54,7 +54,7 @@ export default function Testimonials() {
 
   return (
     <section id="testimonials">
-      <div className="bg-[#000000] px-80 max-lg:px-20 max-md:px-10 py-20">
+      <div className="bg-[#000000] px-40 py-5">
         <motion.div
           initial="hidden"
           whileInView="show"
@@ -62,10 +62,10 @@ export default function Testimonials() {
           variants={variants}
           className="relative flex justify-end"
         >
-          <div className="bg-transparent w-4/5 rounded-[25px]">
+          <div className="bg-transparent w-2/3 rounded-[25px]">
             <div className="absolute text-[#D5AC72] h-full left-0 flex flex-col justify-between">
               <div className="flex flex-col gap-2">
-                <span className="text-[50px] font-semibold">
+                <span className="text-[42px] font-semibold">
                   What Our <span className="text-[#5E0C1C]">Customers</span>{" "}
                   <br />
                   Are Saying
@@ -88,8 +88,8 @@ export default function Testimonials() {
                 />
               </div>
             </div>
-            <div className="flex flex-row gap-24 mt-52 py-10 px-4 -ml-12 bg-white/5 backdrop-blur-md rounded-2xl shadow-[0_4px_30px_rgba(0,0,0,0.1)] border border-white/10">
-              <div className="flex flex-row items-center border border-[#D5AC72] bg-[#D5AC72] rounded-full w-fit h-fit">
+            <div className="flex flex-row gap-4 py-10 px-4 bg-white/5 backdrop-blur-md rounded-2xl shadow-[0_4px_30px_rgba(0,0,0,0.1)] border border-white/10 mt-48">
+              <div className="flex flex-row items-center border border-[#D5AC72] bg-[#D5AC72] rounded-full w-68 mr-10 h-fit">
                 <img src={comma} alt="comma" className="size-16" />
                 <img src={comma} alt="comma" className="size-16 -ml-10" />
               </div>
@@ -100,7 +100,7 @@ export default function Testimonials() {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.5 }}
-                className="flex flex-col gap-8 text-[#ffffff] mt-10 w-1/2"
+                className="flex flex-col gap-8 text-[#ffffff] "
               >
                 <span className="text-[32px] font-semibold">
                   The Company Improved Our Productivity

@@ -61,10 +61,10 @@ export default function PrintingUses() {
   const isInView = useInView(ref, { once: true });
 
   return (
-    <Box className="px-40 max-lg:px-20 max-md:px-10 bg-[#000000] text-[#E0E0E0] py-20">
+    <Box className="px-40 max-lg:px-20 max-md:px-10 bg-[#000000] text-[#E0E0E0] py-10">
       {/* Animated Title */}
       <motion.div
-        className="text-[#D5AC72] text-[32px] font-semibold "
+        className="text-[#D5AC72] text-[32px] font-fontspringextrabold"
         ref={ref}
         initial="hidden"
         animate={isInView ? "show" : "hidden"}
@@ -106,7 +106,12 @@ export default function PrintingUses() {
             <CardContent>
               <Typography
                 variant="h6"
-                sx={{ fontWeight: "bold", color: "#5E0C1C", mb: 1 }}
+                sx={{
+                  fontWeight: "bold",
+                  color: "#5E0C1C",
+                  mb: 1,
+                  fontFamily: "fontspringsemibold",
+                }}
               >
                 {card.label}
               </Typography>

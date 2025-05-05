@@ -21,7 +21,7 @@ export default function CompanyStatistics() {
           <motion.div
             initial="hidden"
             whileInView="show"
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ once: true }}
             variants={variants}
             className="flex flex-col items-center"
           >

@@ -3,6 +3,7 @@ import landingPage from "../../../assets/landingPage/landingPage.mp4";
 import logo from "../../../assets/landingPage/logo.png";
 import { motion, useInView } from "framer-motion";
 import InstantQuoteModal from "../../InstantQuote/InstantQuoteModal";
+import lines from "../../../assets/landingPage/lines.png";
 
 export default function HeroSection() {
   const [instantQuote, setInstantQuote] = useState(false);
@@ -97,7 +98,7 @@ export default function HeroSection() {
         </motion.div>
       </div>
       <div className="w-full flex justify-end h-full">
-        <div className="w-1/3 flex flex-col justify-between gap-32 max-2xl:gap-16 h-1/2 bg-white/5 backdrop-blur-md rounded-l-2xl shadow-[0_4px_30px_rgba(0,0,0,0.1)] border-l-2 border-y-2 border-[#DAAC69]/30 pl-6 pr-14 py-12 max-2xl:py-8 -mt-10">
+        <div className="w-3/8 flex flex-col justify-between gap-32 max-2xl:gap-16 h-1/2 bg-white/5 backdrop-blur-md rounded-l-2xl shadow-[0_4px_30px_rgba(0,0,0,0.1)] border-l-2 border-y-2 border-[#DAAC69]/30 pl-6 pr-14 py-12 max-2xl:py-8 -mt-10">
           <div className="flex flex-col gap-8">
             <motion.h3
               ref={ref}
@@ -115,7 +116,7 @@ export default function HeroSection() {
               animate={isInView ? "show" : "hidden"}
               variants={variants}
               viewport={{ once: true }}
-              className="flex justify-start text-[#DAAC69] text-[26px] max-2xl:text-[20px] font-fontspringsemibold text-left leading-12 max-2xl:leading-10"
+              className="flex justify-start text-[#DAAC69] text-[26px] max-2xl:text-[20px] text-left leading-12 max-2xl:leading-10"
             >
               Empowering Innovation,
               <br /> through Cutting-Edge Printing Solutions.
@@ -143,16 +144,18 @@ export default function HeroSection() {
           whileInView="show"
           viewport={{ once: true, margin: "-200px" }}
           variants={variants}
-          className="text-center text-[20px] text-[#DAAC69] font-fontspringextrabold"
+          className="text-center text-[20px] text-[#DAAC69]"
         >
-          3D printing, also known as additive manufacturing, has emerged as a
-          transformative technology with wide-ranging applications across
-          various industries. This innovative process involves creating
-          three-dimensional objects layer by layer from a digital model.
+          Unlock the power of additive manufacturing with our cutting-edge 3D
+          printing services. From rapid prototyping to full-scale production, we
+          turn your digital designs into high-precision physical parts—fast,
+          reliable, and tailored to your exact specifications. Whether you're an
+          engineer, designer, or entrepreneur, we provide seamless access to
+          industry-grade materials, expert support, and scalable solutions.
         </motion.p>
       </div>
 
-      <div className="absolute overflow-hidden w-full top-0 -z-20 max-2xl:-mt-20 -mt-40">
+      <div className="absolute w-full top-0 -z-20 max-2xl:-mt-20 -mt-40">
         <video
           src={landingPage}
           className="scale-100 -translate-x-1/4"
@@ -160,6 +163,31 @@ export default function HeroSection() {
           loop
           muted
           playsInline
+        />
+      </div>
+
+      <div className="absolute w-1/2 right-0 h-4/5 -z-20">
+        {/* Image Layer */}
+        <motion.img
+          initial="hidden"
+          whileInView="show"
+          variants={variantsfadeIn}
+          viewport={{ once: true }}
+          src={lines}
+          alt="lines"
+          className="w-full h-full object-cover"
+        />
+
+        {/* Gradient Overlay Layer */}
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `
+              linear-gradient(to right, #000000 0%, rgba(0,0,0,0.5) 10%, transparent 100%),
+              linear-gradient(to top, #000000 0%, rgba(0,0,0,0.3) 20%, transparent 100%),
+              linear-gradient(to bottom, #000000 0%, rgba(0,0,0,0.1) 10%, transparent 100%)
+            `,
+          }}
         />
       </div>
 

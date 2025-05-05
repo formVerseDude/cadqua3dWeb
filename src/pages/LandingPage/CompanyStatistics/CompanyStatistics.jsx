@@ -15,7 +15,7 @@ export default function CompanyStatistics() {
   };
 
   return (
-    <div className="bg-[#000000] z-10 mt-16 pt-10 pb-10 gap-16 max-md:gap-8 justify-center items-center px-40 max-lg:px-20 max-md:px-10 ">
+    <div className="bg-[#000000] z-10 mt-14 pt-10 pb-10 gap-16 max-md:gap-8 justify-center items-center px-40 max-lg:px-20 max-md:px-10 ">
       <div className="text-[#5E0C1C] text-[22px] grid grid-cols-2">
         <div className="border-r-2 border-b-2 border-[#5E0C1C] flex flex-col items-center px-8 py-4">
           <motion.div

@@ -137,7 +137,7 @@ export default function HeroSection() {
           </motion.div>
         </div>
       </div>
-      <div className="flex w-full mt-20 px-20">
+      <div className="flex w-full mt-14 px-20">
         <motion.p
           initial="hidden"
           whileInView="show"

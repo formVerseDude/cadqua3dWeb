@@ -137,7 +137,7 @@ export default function HeroSection() {
           </motion.div>
         </div>
       </div>
-      <div className="flex w-full mt-16 px-20">
+      <div className="flex w-full mt-18 px-20">
         <motion.p
           initial="hidden"
           whileInView="show"
@@ -152,7 +152,7 @@ export default function HeroSection() {
         </motion.p>
       </div>
 
-      <div className="absolute overflow-hidden w-full top-0 -z-10 max-2xl:-mt-20 -mt-40">
+      <div className="absolute overflow-hidden w-full top-0 -z-40 max-2xl:-mt-20 -mt-40">
         <video
           src={landingPage}
           className="scale-100 -translate-x-1/4"

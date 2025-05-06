@@ -4,7 +4,7 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import { Box, Typography, Paper } from "@mui/material";
 import { motion, useInView } from "framer-motion";
-import whatWeOffer from "../../../assets/landingPage/whatWeOffer.png";
+import service from "../../../assets/landingPage/service.jpg";
 
 function CustomTabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -78,7 +78,7 @@ export default function Services() {
       title: "Rapid Prototyping",
       description:
         "We offer a variety of rapid prototyping technologies to bring your concepts to life quickly and accurately.",
-      methods: ["SLA", "SLS", "DLP", "FDM", "MJF", "DMLS", "POLYJET"],
+      methods: ["SLA, SLS", "DLP, FDM", "MJF, DMLS", "POLYJET"],
     },
     {
       title: "Short Batch Production",
@@ -133,7 +133,7 @@ export default function Services() {
     },
   ];
 
-  const text = "SERVICES WE PROVIDE";
+  const text = "Services We Provide";
   const letters = text.split("");
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
@@ -172,7 +172,7 @@ export default function Services() {
           animate={isInView ? "show" : "hidden"}
           variants={variantsflow}
           viewport={{ once: true }}
-          className="text-[#D5AC72] text-[32px] font-semibold px-40 max-lg:px-20 max-md:px-10"
+          className="text-[#D5AC72] text-[32px] px-40 max-lg:px-20 max-md:px-10 font-fontspringextrabold"
         >
           {letters.map((letter, i) => (
             <motion.span
@@ -190,7 +190,7 @@ export default function Services() {
           whileInView="show"
           viewport={{ once: true }}
           variants={variants}
-          sx={{ width: "100%", maxWidth: "1000px", mx: "auto" }}
+          sx={{ width: "100%" }}
         >
           <Paper
             elevation={1}
@@ -213,6 +213,9 @@ export default function Services() {
               sx={{
                 zIndex: 1,
                 marginBottom: "-2px",
+                ".MuiTabs-flexContainer": {
+                  pl: 40,
+                },
                 ".MuiTab-root": {
                   textTransform: "none",
                   fontWeight: 700,
@@ -283,31 +286,32 @@ export default function Services() {
           </Paper>
 
           {services.map((tab, index) => (
-            <CustomTabPanel
-              key={tab.title}
-              value={value}
-              index={index}
-              className="flex justify-center w-full"
-            >
-              <div className="w-2/3 p-8 flex flex-row gap-4 text-[20px] h-full bg-white/5 backdrop-blur-md rounded-2xl shadow-[0_4px_30px_rgba(0,0,0,0.1)] border border-white/10">
-                <img src={whatWeOffer} alt="whatWeOffer" className="size-96" />
-                <div className="h-full flex flex-col gap-4 text-[#E0E0E0]">
-                  <span className="text-[18px]">{tab.description}</span>
+            <CustomTabPanel key={tab.title} value={value} index={index}>
+              <div className="w-full flex justify-center">
+                <div className="w-2/3 p-8 flex flex-row gap-8 text-[20px] h-full bg-white/5 backdrop-blur-md rounded-2xl shadow-[0_4px_30px_rgba(0,0,0,0.1)] border border-white/10">
+                  <img
+                    src={service}
+                    alt="service"
+                    className="w-96 rounded-[12px]"
+                  />
+                  <div className="h-full flex flex-col gap-4 text-[#E0E0E0]">
+                    <span className="text-[18px]">{tab.description}</span>
 
-                  {(tab.methods || tab.includes || tab.features) && (
-                    <ul className="list-disc pl-5 text-[16px] space-y-2">
-                      {(tab.methods || tab.includes || tab.features).map(
-                        (point, idx) => (
-                          <li
-                            key={idx}
-                            className="cursor-pointer w-fit text-[#D5AC72] hover:text-[#F4C430] border-b-2 border-transparent hover:border-[#F4C430] transition-colors duration-300 py-1"
-                          >
-                            {point}
-                          </li>
-                        )
-                      )}
-                    </ul>
-                  )}
+                    {(tab.methods || tab.includes || tab.features) && (
+                      <ul className="list-disc pl-5 text-[16px] space-y-2">
+                        {(tab.methods || tab.includes || tab.features).map(
+                          (point, idx) => (
+                            <li
+                              key={idx}
+                              className="cursor-pointer w-fit text-[#D5AC72] hover:text-[#F4C430] border-b-2 border-transparent hover:border-[#F4C430] transition-colors duration-300 py-1"
+                            >
+                              {point}
+                            </li>
+                          )
+                        )}
+                      </ul>
+                    )}
+                  </div>
                 </div>
               </div>
             </CustomTabPanel>

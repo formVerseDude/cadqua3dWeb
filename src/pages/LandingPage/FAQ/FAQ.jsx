@@ -11,19 +11,19 @@ const faqItems = [
     id: "panel1",
     question: "Why 3D Printing?",
     answer:
-      "Additive Manufacturing is better than traditional manufacturing as it reduces pollution and accelerates product development.",
+      "Additive Manufacturing is better than traditional manufacturing as it reduces pollution, accelerates product development, and allows for the creation of complex geometries that are impossible or highly impractical with traditional manufacturing methods. It opens up a world of possibilities for custom designs and prototyping, ultimately helping to streamline the production process while being more sustainable and efficient.",
   },
   {
     id: "panel2",
     question: "How much accuracy can be expected?",
     answer:
-      "It offers higher accuracy and durability compared to traditionally manufactured products or materials.",
+      "3D printing offers higher accuracy and durability compared to traditionally manufactured products or materials. The precision can vary based on the type of 3D printing technology used, such as SLA or FDM, but generally, 3D printing provides fine resolution, especially in terms of layer height and detailed geometries. With the right settings and materials, parts can achieve tolerances of less than 0.1mm, making it ideal for applications that require detailed and high-precision components.",
   },
   {
     id: "panel3",
     question: "Is it cost effective?",
     answer:
-      "For complex designs, it's cost-effective since such designs are hard to achieve via traditional methods. For bulk production, it may be slightly more expensive.",
+      "For complex designs, 3D printing is highly cost-effective since such designs are hard to achieve via traditional methods. It eliminates the need for costly molds, tooling, and assembly processes. Additionally, 3D printing is ideal for small-batch and custom production. However, for high-volume production, the cost per part may increase due to slower production times and material costs, making traditional manufacturing methods more economical in these scenarios. It all depends on the volume and complexity of the parts being produced.",
   },
 ];
 
@@ -71,12 +71,18 @@ export default function FAQ() {
                 <Typography
                   component="span"
                   sx={{ fontWeight: 500, fontSize: "1rem", width: "100%" }}
+                  style={{ fontFamily: "Varela Round, sans-serif" }}
                 >
                   {item.question}
                 </Typography>
               </AccordionSummary>
               <AccordionDetails>
-                <Typography sx={{ color: "#ccc" }}>{item.answer}</Typography>
+                <Typography
+                  sx={{ color: "#ccc" }}
+                  style={{ fontFamily: "Varela Round, sans-serif" }}
+                >
+                  {item.answer}
+                </Typography>
               </AccordionDetails>
             </Accordion>
           ))}

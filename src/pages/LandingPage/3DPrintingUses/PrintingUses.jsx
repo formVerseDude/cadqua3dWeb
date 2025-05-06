@@ -115,7 +115,11 @@ export default function PrintingUses() {
               >
                 {card.label}
               </Typography>
-              <Typography variant="body2" sx={{ color: "#E0E0E0" }}>
+              <Typography
+                variant="body2"
+                sx={{ color: "#E0E0E0" }}
+                style={{ fontFamily: "Varela Round, sans-serif" }}
+              >
                 {card.description}
               </Typography>
             </CardContent>

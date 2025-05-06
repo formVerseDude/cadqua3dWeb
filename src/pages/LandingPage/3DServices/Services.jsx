@@ -151,6 +151,19 @@ export default function Services() {
     },
   };
 
+  const variantscontent = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        duration: 0.8,
+        ease: "easeInOut",
+        delay: 0.1,
+      },
+    },
+  };
+
   const variantsflow = {
     hidden: { opacity: 0 },
     show: (i) => ({
@@ -213,10 +226,8 @@ export default function Services() {
               sx={{
                 zIndex: 1,
                 marginBottom: "-2px",
-                ".MuiTabs-flexContainer": {
-                  pl: 40,
-                },
                 ".MuiTab-root": {
+                  fontFamily: "Varela Round, sans-serif",
                   textTransform: "none",
                   fontWeight: 700,
                   py: 3,
@@ -253,13 +264,7 @@ export default function Services() {
                 width: "50%",
                 height: "100%",
                 backgroundImage:
-                  "linear-gradient(to right, \
-        #000000 0%, \
-        rgba(0,0,0,0.8) 40%, \
-        rgba(0,0,0,0.6) 50%, \
-        rgba(0,0,0,0.4) 60%, \
-        rgba(0,0,0,0.2) 70%, \
-        transparent 100%)",
+                  "linear-gradient(to right, #000000 0%, rgba(0,0,0,0.8) 40%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0.2) 70%, transparent 100%)",
                 zIndex: 2,
                 pointerEvents: "none",
               }}
@@ -272,46 +277,57 @@ export default function Services() {
                 width: "50%",
                 height: "100%",
                 backgroundImage:
-                  "linear-gradient(to left, \
-        #000000 0%, \
-        rgba(0,0,0,0.8) 40%, \
-        rgba(0,0,0,0.6) 50%, \
-        rgba(0,0,0,0.4) 60%, \
-        rgba(0,0,0,0.2) 70%, \
-        transparent 100%)",
+                  "linear-gradient(to left, #000000 0%, rgba(0,0,0,0.8) 40%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0.2) 70%, transparent 100%)",
                 zIndex: 2,
                 pointerEvents: "none",
               }}
             />
           </Paper>
 
+          {/* Tab Content */}
           {services.map((tab, index) => (
             <CustomTabPanel key={tab.title} value={value} index={index}>
               <div className="w-full flex justify-center">
-                <div className="w-2/3 p-8 flex flex-row gap-8 text-[20px] h-full bg-white/5 backdrop-blur-md rounded-2xl shadow-[0_4px_30px_rgba(0,0,0,0.1)] border border-white/10">
-                  <img
-                    src={service}
-                    alt="service"
-                    className="w-96 rounded-[12px]"
-                  />
-                  <div className="h-full flex flex-col gap-4 text-[#E0E0E0]">
-                    <span className="text-[18px]">{tab.description}</span>
+                <div className="w-2/3 p-8 h-full bg-white/5 backdrop-blur-md rounded-2xl shadow-[0_4px_30px_rgba(0,0,0,0.1)] border border-white/10">
+                  <motion.div
+                    initial="hidden"
+                    animate={value === index ? "show" : "hidden"}
+                    variants={variantscontent}
+                    transition={{ duration: 1 }}
+                    className="flex flex-col gap-8"
+                  >
+                    <div className="text-[#D5AC72] text-[24px] font-fontspringsemibold">
+                      {tab.title}
+                    </div>
+                    <div
+                      className="flex flex-row gap-8 text-[20px]"
+                      style={{ fontFamily: "Varela Round, sans-serif" }}
+                    >
+                      <img
+                        src={service}
+                        alt="service"
+                        className="w-96 rounded-[12px]"
+                      />
+                      <div className="h-full flex flex-col gap-4 text-[#E0E0E0]">
+                        <span className="text-[18px]">{tab.description}</span>
 
-                    {(tab.methods || tab.includes || tab.features) && (
-                      <ul className="list-disc pl-5 text-[16px] space-y-2">
-                        {(tab.methods || tab.includes || tab.features).map(
-                          (point, idx) => (
-                            <li
-                              key={idx}
-                              className="cursor-pointer w-fit text-[#D5AC72] hover:text-[#F4C430] border-b-2 border-transparent hover:border-[#F4C430] transition-colors duration-300 py-1"
-                            >
-                              {point}
-                            </li>
-                          )
+                        {(tab.methods || tab.includes || tab.features) && (
+                          <ul className="list-disc pl-5 text-[16px] space-y-2">
+                            {(tab.methods || tab.includes || tab.features).map(
+                              (point, idx) => (
+                                <li
+                                  key={idx}
+                                  className="cursor-pointer w-fit text-[#D5AC72] hover:text-[#F4C430] border-b-2 border-transparent hover:border-[#F4C430] transition-colors duration-300 py-1"
+                                >
+                                  {point}
+                                </li>
+                              )
+                            )}
+                          </ul>
                         )}
-                      </ul>
-                    )}
-                  </div>
+                      </div>
+                    </div>
+                  </motion.div>
                 </div>
               </div>
             </CustomTabPanel>

@@ -2,6 +2,12 @@ import company1 from "../../../assets/landingPage/company1.avif";
 import company2 from "../../../assets/landingPage/company2.avif";
 import company3 from "../../../assets/landingPage/company3.avif";
 import company4 from "../../../assets/landingPage/company4.avif";
+import company5 from "../../../assets/landingPage/company5.png";
+import company6 from "../../../assets/landingPage/company6.png";
+import company7 from "../../../assets/landingPage/company7.png";
+import company8 from "../../../assets/landingPage/company8.png";
+import company9 from "../../../assets/landingPage/company9.png";
+import company10 from "../../../assets/landingPage/company10.png";
 
 export default function ClientsSlideShow() {
   return (
@@ -48,54 +54,34 @@ export default function ClientsSlideShow() {
             alt="company4"
             className="w-32 h-20 object-contain max-w-none"
           />
-        </div>
-        <div
-          className="flex space-x-16 loop-scroll group-hover:paused"
-          aria-hidden="true"
-        >
           <img
-            src={company1}
-            alt="company1"
+            src={company5}
+            alt="company5"
             className="w-32 h-20 object-contain max-w-none"
           />
           <img
-            src={company2}
-            alt="company2"
+            src={company6}
+            alt="company6"
             className="w-32 h-20 object-contain max-w-none"
           />
           <img
-            src={company3}
-            alt="company3"
+            src={company7}
+            alt="company7"
             className="w-32 h-20 object-contain max-w-none"
           />
           <img
-            src={company4}
-            alt="company4"
-            className="w-32 h-20 object-contain max-w-none"
-          />
-        </div>
-        <div
-          className="flex space-x-16 loop-scroll group-hover:paused"
-          aria-hidden="true"
-        >
-          <img
-            src={company1}
-            alt="company1"
+            src={company8}
+            alt="company8"
             className="w-32 h-20 object-contain max-w-none"
           />
           <img
-            src={company2}
-            alt="company2"
+            src={company9}
+            alt="company9"
             className="w-32 h-20 object-contain max-w-none"
           />
           <img
-            src={company3}
-            alt="company3"
-            className="w-32 h-20 object-contain max-w-none"
-          />
-          <img
-            src={company4}
-            alt="company4"
+            src={company10}
+            alt="company10"
             className="w-32 h-20 object-contain max-w-none"
           />
         </div>
@@ -121,6 +107,146 @@ export default function ClientsSlideShow() {
           <img
             src={company4}
             alt="company4"
+            className="w-32 h-20 object-contain max-w-none"
+          />
+          <img
+            src={company5}
+            alt="company5"
+            className="w-32 h-20 object-contain max-w-none"
+          />
+          <img
+            src={company6}
+            alt="company6"
+            className="w-32 h-20 object-contain max-w-none"
+          />
+          <img
+            src={company7}
+            alt="company7"
+            className="w-32 h-20 object-contain max-w-none"
+          />
+          <img
+            src={company8}
+            alt="company8"
+            className="w-32 h-20 object-contain max-w-none"
+          />
+          <img
+            src={company9}
+            alt="company9"
+            className="w-32 h-20 object-contain max-w-none"
+          />
+          <img
+            src={company10}
+            alt="company10"
+            className="w-32 h-20 object-contain max-w-none"
+          />
+        </div>
+        <div
+          className="flex space-x-16 loop-scroll group-hover:paused"
+          aria-hidden="true"
+        >
+          <img
+            src={company1}
+            alt="company1"
+            className="w-32 h-20 object-contain max-w-none"
+          />
+          <img
+            src={company2}
+            alt="company2"
+            className="w-32 h-20 object-contain max-w-none"
+          />
+          <img
+            src={company3}
+            alt="company3"
+            className="w-32 h-20 object-contain max-w-none"
+          />
+          <img
+            src={company4}
+            alt="company4"
+            className="w-32 h-20 object-contain max-w-none"
+          />
+          <img
+            src={company5}
+            alt="company5"
+            className="w-32 h-20 object-contain max-w-none"
+          />
+          <img
+            src={company6}
+            alt="company6"
+            className="w-32 h-20 object-contain max-w-none"
+          />
+          <img
+            src={company7}
+            alt="company7"
+            className="w-32 h-20 object-contain max-w-none"
+          />
+          <img
+            src={company8}
+            alt="company8"
+            className="w-32 h-20 object-contain max-w-none"
+          />
+          <img
+            src={company9}
+            alt="company9"
+            className="w-32 h-20 object-contain max-w-none"
+          />
+          <img
+            src={company10}
+            alt="company10"
+            className="w-32 h-20 object-contain max-w-none"
+          />
+        </div>
+        <div
+          className="flex space-x-16 loop-scroll group-hover:paused"
+          aria-hidden="true"
+        >
+          <img
+            src={company1}
+            alt="company1"
+            className="w-32 h-20 object-contain max-w-none"
+          />
+          <img
+            src={company2}
+            alt="company2"
+            className="w-32 h-20 object-contain max-w-none"
+          />
+          <img
+            src={company3}
+            alt="company3"
+            className="w-32 h-20 object-contain max-w-none"
+          />
+          <img
+            src={company4}
+            alt="company4"
+            className="w-32 h-20 object-contain max-w-none"
+          />
+          <img
+            src={company5}
+            alt="company5"
+            className="w-32 h-20 object-contain max-w-none"
+          />
+          <img
+            src={company6}
+            alt="company6"
+            className="w-32 h-20 object-contain max-w-none"
+          />
+          <img
+            src={company7}
+            alt="company7"
+            className="w-32 h-20 object-contain max-w-none"
+          />
+          <img
+            src={company8}
+            alt="company8"
+            className="w-32 h-20 object-contain max-w-none"
+          />
+          <img
+            src={company9}
+            alt="company9"
+            className="w-32 h-20 object-contain max-w-none"
+          />
+          <img
+            src={company10}
+            alt="company10"
             className="w-32 h-20 object-contain max-w-none"
           />
         </div>

@@ -287,9 +287,9 @@ export default function Services() {
               key={tab.title}
               value={value}
               index={index}
-              className="flex justify-center"
+              className="flex justify-center w-full"
             >
-              <div className="w-full p-8 flex flex-row gap-4 text-[20px] h-full bg-white/5 backdrop-blur-md rounded-2xl shadow-[0_4px_30px_rgba(0,0,0,0.1)] border border-white/10">
+              <div className="w-2/3 p-8 flex flex-row gap-4 text-[20px] h-full bg-white/5 backdrop-blur-md rounded-2xl shadow-[0_4px_30px_rgba(0,0,0,0.1)] border border-white/10">
                 <img src={whatWeOffer} alt="whatWeOffer" className="size-96" />
                 <div className="h-full flex flex-col gap-4 text-[#E0E0E0]">
                   <span className="text-[18px]">{tab.description}</span>

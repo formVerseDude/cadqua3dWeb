@@ -64,7 +64,7 @@ export default function PrintingUses() {
     <Box className="px-40 max-lg:px-20 max-md:px-10 bg-[#000000] text-[#E0E0E0] py-10">
       {/* Animated Title */}
       <motion.div
-        className="text-[#D5AC72] text-[32px] font-fontspringextrabold"
+        className="text-[#D5AC72] text-[32px] font-vonique"
         ref={ref}
         initial="hidden"
         animate={isInView ? "show" : "hidden"}

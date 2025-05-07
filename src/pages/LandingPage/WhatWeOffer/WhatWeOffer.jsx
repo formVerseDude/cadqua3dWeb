@@ -33,7 +33,7 @@ export default function WhatWeOffer() {
   return (
     <div className="bg-[#000000] flex w-full flex-col gap-10 px-40 pb-10 max-lg:px-10">
       <motion.span
-        className="text-[28px] max-sm:text-[24px] text-[#D5AC72] font-fontspringextrabold"
+        className="text-[28px] max-sm:text-[24px] text-[#D5AC72] font-vonique"
         ref={ref}
         initial="hidden"
         animate={isInView ? "show" : "hidden"}

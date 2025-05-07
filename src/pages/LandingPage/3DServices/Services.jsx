@@ -185,7 +185,7 @@ export default function Services() {
           animate={isInView ? "show" : "hidden"}
           variants={variantsflow}
           viewport={{ once: true }}
-          className="text-[#D5AC72] text-[32px] px-40 max-lg:px-20 max-md:px-10 font-fontspringextrabold"
+          className="text-[#D5AC72] text-[32px] px-40 max-lg:px-20 max-md:px-10 font-vonique"
         >
           {letters.map((letter, i) => (
             <motion.span

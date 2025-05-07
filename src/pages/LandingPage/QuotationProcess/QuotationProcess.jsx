@@ -30,7 +30,7 @@ export default function QuotationProcess() {
           How it works?
         </motion.span>
 
-        <div className="flex flex-row justify-between text-[#ffffff] font-fontspringsemibold">
+        <div className="flex flex-row justify-between text-[#ffffff] font-vonique">
           <motion.h3
             initial="hidden"
             whileInView="show"

@@ -65,7 +65,7 @@ export default function Testimonials() {
           <div className="bg-transparent w-2/3 rounded-[25px]">
             <div className="absolute text-[#D5AC72] h-full left-0 flex flex-col justify-between">
               <div className="flex flex-col gap-2">
-                <span className="text-[42px] font-semibold">
+                <span className="text-[42px] font-semibold font-vonique">
                   What Our <span className="text-[#5E0C1C]">Customers</span>{" "}
                   <br />
                   Are Saying

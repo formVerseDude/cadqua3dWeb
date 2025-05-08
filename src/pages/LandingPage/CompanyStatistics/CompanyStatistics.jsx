@@ -36,7 +36,7 @@ export default function CompanyStatistics() {
   ];
 
   return (
-    <div className="bg-[#000000] mt-60 pt-10 pb-10 gap-16 max-md:gap-8 justify-center items-center px-40 max-lg:px-20 max-md:px-10">
+    <div className="bg-[#000000] mt-80 pt-10 pb-10 gap-16 max-md:gap-8 justify-center items-center px-40 max-lg:px-20 max-md:px-10">
       <div className="text-[#5E0C1C] text-[22px] grid grid-cols-2">
         {stats.map((stat, index) => (
           <div

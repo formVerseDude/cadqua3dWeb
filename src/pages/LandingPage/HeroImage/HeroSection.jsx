@@ -117,7 +117,7 @@ export default function HeroSection() {
               animate={isInView ? "show" : "hidden"}
               variants={variants}
               viewport={{ once: true }}
-              className="flex justify-start text-[#DAAC69] text-[26px] max-2xl:text-[20px] text-left leading-12 max-2xl:leading-10"
+              className="flex justify-start text-[#ffffff] text-[26px] max-2xl:text-[20px] text-left leading-12 max-2xl:leading-10"
             >
               Empowering Innovation,
               <br /> through Cutting-Edge Printing Solutions.

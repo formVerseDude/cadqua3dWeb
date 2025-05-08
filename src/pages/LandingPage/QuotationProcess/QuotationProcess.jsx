@@ -25,18 +25,19 @@ export default function QuotationProcess() {
           whileInView="show"
           variants={variants}
           viewport={{ once: true }}
-          className="text-[#D5AC72] text-[24px] font-fontspringextrabold"
+          className="text-[#ffffff] text-[24px] font-fontspringextrabold"
         >
           How it works?
         </motion.span>
 
-        <div className="flex flex-row justify-between text-[#ffffff] font-vonique">
+        <div className="flex flex-row justify-between text-[#D5AC72] font-vonique">
           <motion.h3
             initial="hidden"
             whileInView="show"
             viewport={{ once: true }}
             variants={variants}
             className="w-full text-[40px] font-semibold leading-12"
+            style={{ wordSpacing: "0.5rem" }}
           >
             Instant Online Quotation
           </motion.h3>

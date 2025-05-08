@@ -4,7 +4,8 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 
 const faqItems = [
   {
@@ -40,6 +41,15 @@ const variants = {
   },
 };
 
+const variantsflow = {
+  hidden: { opacity: 0 },
+  show: (i) => ({
+    y: 0,
+    opacity: 1,
+    transition: { delay: i * 0.07 },
+  }),
+};
+
 export default function FAQ() {
   const [expanded, setExpanded] = React.useState(false);
 
@@ -47,9 +57,33 @@ export default function FAQ() {
     setExpanded(isExpanded ? panel : false);
   };
 
+  const text = "Frequently Asked Question(FAQ)";
+  const letters = text.split("");
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+
   return (
     <section id="faq">
-      <div className="bg-black px-40 max-lg:px-20 max-md:px-10 py-20">
+      <motion.h3
+        ref={ref}
+        initial="hidden"
+        animate={isInView ? "show" : "hidden"}
+        variants={variantsflow}
+        viewport={{ once: true }}
+        className="text-[#D5AC72] text-[32px] px-40 font-vonique my-10"
+        style={{ wordSpacing: "0.5rem" }}
+      >
+        {letters.map((letter, i) => (
+          <motion.span
+            key={`${letter}-${i}`}
+            variants={variantsflow}
+            custom={i}
+          >
+            {letter}
+          </motion.span>
+        ))}
+      </motion.h3>
+      <div className="bg-tansparent px-40 max-lg:px-20 max-md:px-10 pb-20">
         <motion.div
           initial="hidden"
           whileInView="show"
@@ -61,7 +95,12 @@ export default function FAQ() {
               key={item.id}
               expanded={expanded === item.id}
               onChange={handleChange(item.id)}
-              sx={{ bgcolor: "#111", color: "#fff", mb: 2 }}
+              sx={{
+                bgcolor: "#000",
+                color: "#fff",
+                mb: 2,
+                borderBottom: "2px solid #111",
+              }}
             >
               <AccordionSummary
                 expandIcon={<ExpandMoreIcon sx={{ color: "#fff" }} />}

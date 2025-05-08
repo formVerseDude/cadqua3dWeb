@@ -40,6 +40,7 @@ export default function WhatWeOffer() {
         animate={isInView ? "show" : "hidden"}
         variants={variantsflow}
         viewport={{ once: true }}
+        style={{ wordSpacing: "0.5rem" }}
       >
         {letters.map((word, i) => (
           <motion.span key={`${word}-${i}`} variants={variantsflow} custom={i}>

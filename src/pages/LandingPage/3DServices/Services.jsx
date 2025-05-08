@@ -186,6 +186,7 @@ export default function Services() {
           variants={variantsflow}
           viewport={{ once: true }}
           className="text-[#D5AC72] text-[32px] px-40 max-lg:px-20 max-md:px-10 font-vonique"
+          style={{ wordSpacing: "0.5rem" }}
         >
           {letters.map((letter, i) => (
             <motion.span

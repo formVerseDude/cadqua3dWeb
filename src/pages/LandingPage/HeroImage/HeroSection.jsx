@@ -106,7 +106,8 @@ export default function HeroSection() {
               animate={isInView ? "show" : "hidden"}
               variants={variants}
               viewport={{ once: true }}
-              className="text-[#DAAC69] text-[44px] max-2xl:text-[34px] font-fontspringsemibold leading-14 text-center"
+              className="text-[#DAAC69] text-[44px] max-2xl:text-[34px] font-vonique leading-14 text-center"
+              style={{ wordSpacing: "0.5rem" }}
             >
               Together Let’s Print The Future
             </motion.h3>
@@ -138,7 +139,7 @@ export default function HeroSection() {
           </motion.div>
         </div>
       </div>
-      <div className="flex w-full mt-48 px-20">
+      {/*<div className="flex w-full mt-48 px-20">
         <motion.p
           initial="hidden"
           whileInView="show"
@@ -153,9 +154,9 @@ export default function HeroSection() {
           engineer, designer, or entrepreneur, we provide seamless access to
           industry-grade materials, expert support, and scalable solutions.
         </motion.p>
-      </div>
+      </div>*/}
 
-      <div className="absolute w-full top-0 -z-20 max-2xl:-mt-20 -mt-40">
+      <div className="absolute w-full top-0 -z-40 max-2xl:-mt-20 -mt-40">
         <video
           src={landingPage}
           className="scale-100 -translate-x-1/4"

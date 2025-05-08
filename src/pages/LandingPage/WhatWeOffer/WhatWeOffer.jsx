@@ -1,6 +1,7 @@
 import whatweoffer from "../../../assets/landingPage/whatweoffer.jpg";
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import Rotation from "../../../assets/landingPage/Rotation.mp4";
 
 export default function WhatWeOffer() {
   const variants = {
@@ -47,18 +48,20 @@ export default function WhatWeOffer() {
         ))}
       </motion.span>
 
-      <div className="flex flex-row w-full justify-evenly gap-2">
+      <div className="flex flex-row w-full justify-evenly">
         <motion.div
           variants={variants}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: "-200px" }}
-          className="border-[#1A1A1A] border-2 rounded-[12px]"
         >
-          <img
-            src={whatweoffer}
-            alt="whatweoffer"
-            className="w-80 rounded-[12px]"
+          <video
+            src={Rotation}
+            className="w-3/4 scale-120"
+            autoPlay
+            loop
+            muted
+            playsInline
           />
         </motion.div>
 

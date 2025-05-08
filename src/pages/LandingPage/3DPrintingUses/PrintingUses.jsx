@@ -101,7 +101,7 @@ export default function PrintingUses() {
               justifyContent: "space-between",
               p: 1,
             }}
-            className="bg-white/5 backdrop-blur-md rounded-2xl shadow-[0_4px_30px_rgba(0,0,0,0.1)] border border-white/10 hover:scale-105 transform transition duration-500 ease-in-out"
+            className="bg-white/5 backdrop-blur-md rounded-2xl shadow-[0_4px_30px_rgba(0,0,0,0.1)] border border-white/10 transform transition-transform duration-500 ease-in-out hover:scale-105"
           >
             <CardContent>
               <Typography

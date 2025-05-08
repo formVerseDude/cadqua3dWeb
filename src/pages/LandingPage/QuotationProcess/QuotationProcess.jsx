@@ -19,8 +19,8 @@ export default function QuotationProcess() {
 
   return (
     <section id="how-it-works">
-      <div className="bg-[#000000] flex flex-col gap-8 text-[#000000] px-40 max-lg:px-10 py-10">
-        <motion.span
+      <div className="bg-[#000000] flex flex-col gap-8 text-[#000000] px-40 max-lg:px-10 py-20">
+        {/*<motion.span
           initial="hidden"
           whileInView="show"
           variants={variants}
@@ -28,7 +28,7 @@ export default function QuotationProcess() {
           className="text-[#ffffff] text-[24px] font-fontspringextrabold"
         >
           How it works?
-        </motion.span>
+        </motion.span>*/}
 
         <div className="flex flex-row justify-between text-[#D5AC72] font-vonique">
           <motion.h3
@@ -36,7 +36,7 @@ export default function QuotationProcess() {
             whileInView="show"
             viewport={{ once: true }}
             variants={variants}
-            className="w-full text-[40px] font-semibold leading-12"
+            className="w-full text-[40px] leading-12"
             style={{ wordSpacing: "0.5rem" }}
           >
             Instant Online Quotation

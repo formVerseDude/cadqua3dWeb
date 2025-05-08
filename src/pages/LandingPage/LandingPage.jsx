@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import HeroSection from "./HeroImage/HeroSection";
+import HeroSection from "./HeroSection/HeroSection";
 import CompanyStatistics from "./CompanyStatistics/CompanyStatistics";
 import QuotationProcess from "./QuotationProcess/QuotationProcess";
 import ClientsSlideShow from "./ClientsSlideShow/ClientsSlideShow";
@@ -9,7 +9,6 @@ import PrintingUses from "./3DPrintingUses/PrintingUses";
 import Testimonials from "./Testimonials/Testimonials";
 import FAQ from "./FAQ/FAQ";
 import Footer from "../../components/Footer/Footer";
-import ProductsGallery from "./ProductsGallery/ProductsGallery";
 
 export default function LandingPage() {
   useEffect(() => {
@@ -34,7 +33,6 @@ export default function LandingPage() {
       <Services />
       <PrintingUses />
       <Testimonials />
-      {/*<ProductsGallery />*/}
       <FAQ />
       <Footer />
     </div>

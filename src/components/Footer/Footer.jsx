@@ -23,7 +23,7 @@ const variants = {
 
 export default function Footer() {
   return (
-    <div className="bg-[#1A1A1A] px-40 max-lg:px-20 max-md:px-10 py-16">
+    <div className="relaive backdrop-blur-md rounded-l-2xl shadow-[0_4px_30px_rgba(0,0,0,0.1)] px-40 max-lg:px-20 max-md:px-10 py-16">
       <motion.div
         initial="hidden"
         whileInView="show"
@@ -109,6 +109,24 @@ export default function Footer() {
           </div>
         </div>
       </motion.div>
+      <div className="absolute top-0 left-0 w-3/6 h-full -z-10 bg-transparent">
+        <div
+          className="h-full"
+          style={{
+            background:
+              "linear-gradient(to left bottom, rgb(60, 0, 8, 0) 0%, rgb(60, 0, 8, 0) 10%, rgb(60, 0, 8, 0) 20%, rgb(60, 0, 8, 0) 30%, rgb(60, 0, 8, 0) 40%, rgba(77, 14, 27, 0.8) 100%,  rgb(60, 0, 8, 0.8) 100%",
+          }}
+        />
+      </div>
+      <div className="absolute top-0 right-0 w-3/6 h-full -z-10 bg-transparent">
+        <div
+          className="h-full"
+          style={{
+            background:
+              "linear-gradient(to right bottom, rgb(60, 0, 8, 0) 0%, rgb(60, 0, 8, 0) 10%, rgb(60, 0, 8, 0) 20%, rgb(60, 0, 8, 0) 30%, rgb(60, 0, 8, 0) 40%, rgba(77, 14, 27, 0.8) 100%,  rgb(60, 0, 8, 0.8) 100%",
+          }}
+        />
+      </div>
     </div>
   );
 }

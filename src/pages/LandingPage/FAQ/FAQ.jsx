@@ -57,7 +57,7 @@ export default function FAQ() {
     setExpanded(isExpanded ? panel : false);
   };
 
-  const text = "Frequently Asked Question(FAQ)";
+  const text = "Frequently Asked Question";
   const letters = text.split("");
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });

@@ -1,4 +1,3 @@
-import whatweoffer from "../../../assets/landingPage/whatweoffer.jpg";
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import Rotation from "../../../assets/landingPage/Rotation.mp4";
@@ -32,7 +31,7 @@ export default function WhatWeOffer() {
   const isInView = useInView(ref, { once: true });
 
   return (
-    <div className="bg-[#000000] flex w-full flex-col gap-10 px-40 pb-10 max-lg:px-10">
+    <div className="bg-[#000000] flex w-full h-full flex-col gap-10 px-40 py-10">
       <motion.span
         className="text-[28px] max-sm:text-[24px] text-[#D5AC72] font-vonique"
         ref={ref}
@@ -49,16 +48,17 @@ export default function WhatWeOffer() {
         ))}
       </motion.span>
 
-      <div className="flex flex-row w-full justify-evenly">
+      <div className="flex flex-row gap-20 w-full h-full mt-10">
         <motion.div
           variants={variants}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: "-200px" }}
+          style={{ zIndex: "10" }}
         >
           <video
             src={Rotation}
-            className="w-3/4 scale-120"
+            className="w-full scale-100"
             autoPlay
             loop
             muted
@@ -67,7 +67,7 @@ export default function WhatWeOffer() {
         </motion.div>
 
         <motion.div
-          className="flex flex-row flex-wrap w-2/5"
+          className="flex flex-col w-full h-[500px] justify-between cursor-pointer"
           variants={variants}
           initial="hidden"
           whileInView="show"
@@ -75,24 +75,17 @@ export default function WhatWeOffer() {
         >
           {[
             { id: 0, title: "High Quality Printed parts" },
-            { id: 1, title: "Durable, High Quality Finish" },
+            { id: 1, title: "Instant Online Quotation" },
             { id: 2, title: "Design Consultancy" },
             { id: 3, title: "White Label Shipping" },
           ].map((item, idx) => (
             <motion.div
               key={item.id}
-              className={`flex flex-col px-6 py-3 rounded-[10px]`}
-              onClick={() => handleClick(item.id)}
-              variants={variants}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true }}
+              className={`flex flex-col justify-center rounded-[14px] w-fit text-[24px] ${
+                idx === 1 || idx === 2 ? "ml-20" : ""
+              } border-2 border-[#D5AC72] px-8 py-4 bg-[#1A1A1A] transition ease-in-out duration-500 hover:scale-105 hover:bg-black hover:opacity-60`}
             >
-              <span className="font-vonique cursor-pointer group group-hover:before:duration-500 group-hover:after:duration-500 after:duration-500 hover:border-[#3F1317] hover:before:[box-shadow:_20px_20px_20px_30px] duration-500 before:duration-500 hover:duration-500 underline underline-offset-2 hover:after:-right-8 hover:before:right-12 hover:before:-bottom-8 hover:before:blur hover:underline hover:underline-offset-4 origin-left hover:decoration-2 hover:text-[#DAAC69] relative bg-transparent h-20 w-96 border text-left px-4 py-2 text-[#DAAC69] text-base font-bold rounded-lg  overflow-hidden  before:absolute before:w-12 before:h-12 before:content[''] before:right-1 before:top-1 before:z-10 before:bg-[#3F1317] before:rounded-full before:blur-lg  after:absolute after:z-10 after:w-20 after:h-20 after:content['']  after:bg-[#DAAC69] after:right-8 after:top-3 after:rounded-full after:blur-lg tracking-wider">
-                <span className="text-[24px]">{`0${item.id + 1}`}</span>
-                <br />
-                <span className="text-[14px]">{item.title}</span>
-              </span>
+              <span className="text-[20px] text-[#ffffff]">{item.title}</span>
             </motion.div>
           ))}
         </motion.div>

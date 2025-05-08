@@ -3,10 +3,12 @@ import landingPage from "../../../assets/landingPage/landingPage.mp4";
 import logo from "../../../assets/landingPage/logo.png";
 import { motion, useInView } from "framer-motion";
 import InstantQuoteModal from "../../InstantQuote/InstantQuoteModal";
-import lines from "../../../assets/landingPage/lines.png";
+import { useNavigate } from "react-router-dom";
 
 export default function HeroSection() {
   const [instantQuote, setInstantQuote] = useState(false);
+
+  const navigate = useNavigate();
 
   const variants = {
     hidden: { opacity: 0 },
@@ -31,27 +33,30 @@ export default function HeroSection() {
     },
   };
 
+  const variantsflow = {
+    hidden: { opacity: 0 },
+    show: (i) => ({
+      y: 0,
+      opacity: 1,
+      transition: { delay: i * 0.07 },
+    }),
+  };
+
   const text = "Together, Let’s Print the Future";
   const letters = text.split("");
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
 
   return (
-    <div className="bg-[#000000] relative h-full z-10 flex flex-col gap-32 max-2xl:gap-16 pb-10">
-      <div className="cursor-pointer pointer-events-auto flex flex-row justify-between items-center w-full pl-20 pr-20">
-        <motion.div
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
-          variants={variantsfadeIn}
-        >
-          <img src={logo} alt="logo" className="h-40" />
+    <div className="bg-transparent relative h-full flex flex-col gap-32 h-screen max-2xl:gap-16 pb-10">
+      <div className="cursor-pointer pointer-events-auto flex flex-row justify-between items-center w-full mt-5 pl-28 pr-20">
+        <motion.div initial="hidden" animate="show" variants={variantsfadeIn}>
+          <img src={logo} alt="logo" className="size-32 mt-5" />
         </motion.div>
 
         <motion.div
           initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
+          animate="show"
           variants={variantsfadeIn}
           className="flex flex-row gap-4 text-[#DAAC69] text-[20px]"
         >
@@ -77,6 +82,13 @@ export default function HeroSection() {
           </span>
           <span
             className="border-r-2 border-[#DAAC69] pr-4 hover:text-[#6D5634] cursor-pointer"
+            onClick={() => navigate("/gallery")}
+          >
+            Gallery
+          </span>
+
+          <span
+            className="border-r-2 border-[#DAAC69] pr-4 hover:text-[#6D5634] cursor-pointer"
             onClick={() =>
               document
                 .getElementById("testimonials")
@@ -97,47 +109,64 @@ export default function HeroSection() {
           </span>
         </motion.div>
       </div>
-      <div className="w-full flex justify-end h-full">
-        <div className="w-3/8 flex flex-col justify-between gap-32 max-2xl:gap-16 h-1/2 bg-white/5 backdrop-blur-md rounded-l-2xl shadow-[0_4px_30px_rgba(0,0,0,0.1)] border-l-2 border-y-2 border-[#DAAC69]/30 pl-6 pr-14 py-12 max-2xl:py-8 -mt-10">
-          <div className="flex flex-col gap-8">
-            <motion.h3
+      <div className="w-full h-full">
+        {/*<div className="w-3/8 flex flex-col justify-between gap-32 max-2xl:gap-16 h-1/2  border-[#DAAC69]/30 pl-6 pr-14 py-12 max-2xl:py-8 -mt-10">
+          border-l-2 border-y-2 bg-white/5 backdrop-blur-md rounded-l-2xl shadow-[0_4px_30px_rgba(0,0,0,0.1)]*/}
+        <div className="flex flex-col h-full w-full items-end text-center gap-8 pr-10">
+          <motion.h3
+            ref={ref}
+            initial="hidden"
+            animate={isInView ? "show" : "hidden"}
+            variants={variants}
+            className="text-[#DAAC69] text-[44px] max-2xl:text-[44px] font-vonique font-bold leading-18 text-end w-2/5"
+            style={{ wordSpacing: "0.5rem" }}
+            sx={{ textTransform: "uppercase" }}
+          >
+            {letters.map((word, i) => (
+              <motion.span
+                key={`${word}-${i}`}
+                variants={variantsflow}
+                custom={i}
+              >
+                {word}
+              </motion.span>
+            ))}
+          </motion.h3>
+          <motion.button
+            initial="hidden"
+            animate="show"
+            variants={variantsfadeIn}
+            onClick={() => setInstantQuote(true)}
+            className="font-vonique cursor-pointer group group-hover:before:duration-500 group-hover:after:duration-500 after:duration-500 hover:border-[#3F1317] hover:before:[box-shadow:_20px_20px_20px_30px] duration-500 before:duration-500 hover:duration-500 hover:after:-right-8 hover:before:right-12 hover:before:-bottom-8 hover:before:blur hover:underline hover:underline-offset-4 origin-left hover:decoration-2 hover:text-[#DAAC69] relative bg-transparent h-18 w-84 border text-left px-4 text-[#DAAC69] text-base font-bold rounded-lg  overflow-hidden  before:absolute before:w-12 before:h-12 before:content[''] before:right-1 before:top-1 before:z-10 before:bg-[#3F1317] before:rounded-full before:blur-lg  after:absolute after:z-10 after:w-20 after:h-20 after:content['']  after:bg-[#DAAC69] after:right-8 after:top-3 after:rounded-full after:blur-lg tracking-wider"
+          >
+            Get Instant Quote
+          </motion.button>
+          {/*<motion.h3
               ref={ref}
               initial="hidden"
               animate={isInView ? "show" : "hidden"}
               variants={variants}
-              viewport={{ once: true }}
-              className="text-[#DAAC69] text-[44px] max-2xl:text-[34px] font-vonique leading-14 text-center"
-              style={{ wordSpacing: "0.5rem" }}
-            >
-              Together Let’s Print The Future
-            </motion.h3>
-            <motion.h3
-              ref={ref}
-              initial="hidden"
-              animate={isInView ? "show" : "hidden"}
-              variants={variants}
-              viewport={{ once: true }}
+    
               className="flex justify-start text-[#ffffff] text-[26px] max-2xl:text-[20px] text-left leading-12 max-2xl:leading-10"
             >
               Empowering Innovation,
               <br /> through Cutting-Edge Printing Solutions.
-            </motion.h3>
-          </div>
-          <motion.div
+            </motion.h3>*/}
+        </div>
+        {/*<motion.div
             initial="hidden"
             whileInView="show"
-            viewport={{ once: true }}
+  
             variants={variantsfadeIn}
-            className="w-full flex justify-end z-20"
+            className="w-full flex justify-center z-20"
           >
             <button
               onClick={() => setInstantQuote(true)}
-              className="font-vonique cursor-pointer group group-hover:before:duration-500 group-hover:after:duration-500 after:duration-500 hover:border-[#3F1317] hover:before:[box-shadow:_20px_20px_20px_30px] duration-500 before:duration-500 hover:duration-500 underline underline-offset-2 hover:after:-right-8 hover:before:right-12 hover:before:-bottom-8 hover:before:blur hover:underline hover:underline-offset-4 origin-left hover:decoration-2 hover:text-[#DAAC69] relative bg-transparent h-18 w-84 border text-left px-4 text-[#DAAC69] text-base font-bold rounded-lg  overflow-hidden  before:absolute before:w-12 before:h-12 before:content[''] before:right-1 before:top-1 before:z-10 before:bg-[#3F1317] before:rounded-full before:blur-lg  after:absolute after:z-10 after:w-20 after:h-20 after:content['']  after:bg-[#DAAC69] after:right-8 after:top-3 after:rounded-full after:blur-lg tracking-wider"
+              className="font-vonique cursor-pointer group group-hover:before:duration-500 group-hover:after:duration-500 after:duration-500 hover:border-[#3F1317] hover:before:[box-shadow:_20px_20px_20px_30px] duration-500 before:duration-500 hover:duration-500 hover:after:-right-8 hover:before:right-12 hover:before:-bottom-8 hover:before:blur hover:underline hover:underline-offset-4 origin-left hover:decoration-2 hover:text-[#DAAC69] relative bg-transparent h-18 w-84 border text-left px-4 text-[#DAAC69] text-base font-bold rounded-lg  overflow-hidden  before:absolute before:w-12 before:h-12 before:content[''] before:right-1 before:top-1 before:z-10 before:bg-[#3F1317] before:rounded-full before:blur-lg  after:absolute after:z-10 after:w-20 after:h-20 after:content['']  after:bg-[#DAAC69] after:right-8 after:top-3 after:rounded-full after:blur-lg tracking-wider"
             >
               Get Instant Quote
             </button>
-          </motion.div>
-        </div>
+          </motion.div>*/}
       </div>
       {/*<div className="flex w-full mt-48 px-20">
         <motion.p
@@ -156,7 +185,12 @@ export default function HeroSection() {
         </motion.p>
       </div>*/}
 
-      <div className="absolute w-full top-0 -z-40 max-2xl:-mt-20 -mt-40">
+      <motion.div
+        initial="hidden"
+        animate="show"
+        variants={variantsfadeIn}
+        className="absolute w-full top-0 -z-10 -mt-20"
+      >
         <video
           src={landingPage}
           className="scale-100 -translate-x-1/4"
@@ -165,19 +199,10 @@ export default function HeroSection() {
           muted
           playsInline
         />
-      </div>
+      </motion.div>
 
       <div className="absolute w-1/2 right-0 h-4/5 -z-20">
         {/* Image Layer */}
-        <motion.img
-          initial="hidden"
-          whileInView="show"
-          variants={variantsfadeIn}
-          viewport={{ once: true }}
-          src={lines}
-          alt="lines"
-          className="w-full h-full object-cover"
-        />
 
         {/* Gradient Overlay Layer */}
         <div
@@ -238,7 +263,7 @@ export default function HeroSection() {
             initial="hidden"
             animate={isInView ? "show" : "hidden"}
             variants={variants}
-            viewport={{ once: true }}
+  
             className="flex flex-row flex-wrap text-[#DAAC69] text-[45px] font-fontspringextrabold max-w-full"
           >
             {letters.map((char, i) => (

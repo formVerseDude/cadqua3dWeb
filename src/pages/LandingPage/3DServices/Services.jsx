@@ -176,7 +176,7 @@ export default function Services() {
   return (
     <section id="services">
       <Box
-        sx={{ backgroundColor: "#000000", pt: 5 }}
+        sx={{ backgroundColor: "#000000", pt: 10 }}
         className="flex flex-col gap-8"
       >
         <motion.h3
@@ -228,15 +228,19 @@ export default function Services() {
                 zIndex: 1,
                 marginBottom: "-2px",
                 ".MuiTab-root": {
-                  fontFamily: "Varela Round, sans-serif",
+                  fontFamily: "vonique",
+                  wordSpacing: "0.5rem",
                   textTransform: "none",
                   fontWeight: 700,
-                  py: 3,
+                  paddingTop: "1rem",
+                  paddingBottom: "1rem",
                   fontSize: "1.25rem",
                   borderBottom: "2px solid transparent",
                   color: "#ffffff",
                   transition: "0.3s",
-                  "&:hover": { borderBottom: "2px solid #2B0A0F" },
+                  "&:hover": {
+                    borderBottom: "2px solid #2B0A0F",
+                  },
                   "&.Mui-selected": {
                     color: "#D5AC72",
                     borderBottom: "2px solid #5E0C1C",
@@ -297,7 +301,10 @@ export default function Services() {
                     transition={{ duration: 1 }}
                     className="flex flex-col gap-8"
                   >
-                    <div className="text-[#D5AC72] text-[24px] font-fontspringsemibold">
+                    <div
+                      className="text-[#D5AC72] text-[24px] font-vonique font-bold"
+                      style={{ wordSpacing: "0.5rem" }}
+                    >
                       {tab.title}
                     </div>
                     <div

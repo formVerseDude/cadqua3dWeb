@@ -8,10 +8,30 @@ import company7 from "../../../assets/landingPage/company7.png";
 import company8 from "../../../assets/landingPage/company8.png";
 import company9 from "../../../assets/landingPage/company9.png";
 import company10 from "../../../assets/landingPage/company10.png";
+import { motion } from "framer-motion";
 
 export default function ClientsSlideShow() {
+  const variantsfadeIn = {
+    hidden: { opacity: 0, y: 0 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        delay: 0.25,
+        duration: 2,
+        ease: "easeOut",
+      },
+    },
+  };
+
   return (
-    <div className="bg-[#000000] py-10">
+    <motion.div
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true }}
+      variants={variantsfadeIn}
+      className="bg-[#000000] py-10"
+    >
       <style>{`
   @keyframes loopScroll {
     0% { transform: translateX(0); }
@@ -32,7 +52,7 @@ export default function ClientsSlideShow() {
         across the globe.
       </span>
 
-      <div className="flex space-x-16 overflow-hidden group bg-white/5 backdrop-blur-md shadow-[0_4px_30px_rgba(0,0,0,0.1)] py-5">
+      <div className="flex space-x-16 overflow-hidden group bg-white/5 backdrop-blur-md shadow-[0_4px_30px_rgba(0,0,0,0.1)] py-10">
         <div className="flex space-x-16 loop-scroll group-hover:paused">
           <img
             src={company1}
@@ -251,6 +271,6 @@ export default function ClientsSlideShow() {
           />
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }

@@ -33,7 +33,7 @@ export default function LandingPage() {
       <Services />
       <PrintingUses />
       <Testimonials />
-      <FAQ />
+      {/*<FAQ />*/}
       <Footer />
     </div>
   );

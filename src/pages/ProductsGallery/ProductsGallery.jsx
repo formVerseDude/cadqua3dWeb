@@ -1,6 +1,6 @@
 import Box from "@mui/material/Box";
 import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
 import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
@@ -11,11 +11,12 @@ const images = import.meta.glob("../../assets/landingPage/gallery/image*.png", {
   eager: true,
 });
 
-const galleryCards = Object.keys(images).map((path, index) => ({
+const allCards = Object.keys(images).map((path, index) => ({
   id: index + 1,
   image: images[path].default,
   title: `Image ${index + 1}`,
 }));
+const initialCards = allCards.slice(0, 9);
 
 export default function ProductsGallery() {
   const splideRef = useRef(null);
@@ -24,7 +25,6 @@ export default function ProductsGallery() {
 
   const text = "Gallery";
   const letters = text.split("");
-
   const navigate = useNavigate();
 
   const handlePreviousReview = () => {
@@ -62,16 +62,38 @@ export default function ProductsGallery() {
     show: { opacity: 1, y: 0, delay: 1, transition: { duration: 1 } },
   };
 
+  const [galleryCards, setGalleryCards] = useState(initialCards);
+  const [hasMore, setHasMore] = useState(true);
+
+  const fetchMoreFromAPI = async () => {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        const currentLength = galleryCards.length;
+        const moreCards = allCards.slice(currentLength, currentLength + 6);
+        resolve(moreCards);
+      }, 1000);
+    });
+  };
+
+  const fetchMoreCards = async () => {
+    const newCards = await fetchMoreFromAPI();
+    if (newCards.length === 0) {
+      setHasMore(false);
+    } else {
+      setGalleryCards((prev) => [...prev, ...newCards]);
+    }
+  };
+
   return (
-    <Box className="relative z-10 px-40 bg-[#000000] text-[#E0E0E0]">
-      <div className=" cursor-pointer pointer-events-auto flex flex-row justify-between items-center w-full pb-20 pt-5">
+    <Box className="relative z-10 bg-[#000000] text-[#E0E0E0] h-screen">
+      <div className="px-40 pointer-events-auto flex flex-row justify-between items-center w-full pb-10 pt-5">
         <motion.div
           initial="hidden"
           animate="show"
           variants={variantsfadeIn}
           onClick={() => navigate("/")}
         >
-          <img src={logo} alt="logo" className="size-32 mt-5" />
+          <img src={logo} alt="logo" className="size-32 mt-5 cursor-pointer" />
         </motion.div>
         <motion.div
           initial="hidden"
@@ -87,8 +109,88 @@ export default function ProductsGallery() {
           </span>
         </motion.div>
       </div>
-      <motion.div
-        className="text-[#D5AC72] text-[32px] font-vonique mb-8"
+
+      <div className="-z-10 absolute top-0 left-1/2 transform -translate-x-1/2 h-screen overflow-hidden">
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-3 gap-6"
+          animate={{ y: ["0%", "-50%"] }}
+          transition={{
+            repeat: Infinity,
+            duration: 30,
+            ease: "linear",
+          }}
+        >
+          {[...galleryCards, ...galleryCards].map((card, i) => (
+            <div
+              key={`${card.id}-${i}`}
+              className={`w-fit h-[272px] border-4 border-[#333] rounded-2xl overflow-hidden flex justify-center items-center bg-[#000] ${
+                i % 3 === 1 ? "transform translate-y-40" : ""
+              }`}
+            >
+              <img
+                src={card.image}
+                alt={`gallery-item-${card.id}`}
+                style={{
+                  aspectRatio: "8 / 7",
+                  objectFit: "contain",
+                  backgroundColor: "transparent",
+                }}
+                className="scale-100"
+              />
+            </div>
+          ))}
+        </motion.div>
+      </div>
+
+      <div className="absolute -z-10 top-0 left-0 w-3/6 h-full bg-transparent">
+        <div
+          className="h-full"
+          style={{
+            background:
+              "linear-gradient(to left top, rgb(60, 0, 8, 0) 0%, rgb(60, 0, 8, 0) 40%, rgba(77, 14, 27, 0.8) 100%)",
+          }}
+        />
+      </div>
+      <div className="absolute top-0 right-0 -z-10 w-3/6 h-full bg-transparent">
+        <div
+          className="h-full"
+          style={{
+            background:
+              "linear-gradient(to right top, rgb(60, 0, 8, 0) 0%, rgb(60, 0, 8, 0) 40%, rgba(77, 14, 27, 0.8) 100%)",
+          }}
+        />
+      </div>
+      <Box
+        sx={{
+          position: "absolute",
+          top: 0,
+          width: "100%",
+          height: "20%",
+          backgroundImage:
+            "linear-gradient(to bottom, #000000 0%, rgba(0,0,0,0.8) 20%, rgba(0,0,0,0.6) 40%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0.2) 80%, transparent 100%)",
+          zIndex: -10,
+          pointerEvents: "none",
+        }}
+      />
+      <Box
+        sx={{
+          position: "absolute",
+          bottom: 0,
+          width: "100%",
+          height: "20%",
+          backgroundImage:
+            "linear-gradient(to top, #000000 0%, rgba(0,0,0,0.8) 20%, rgba(0,0,0,0.6) 40%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0.2) 80%, transparent 100%)",
+          zIndex: -10,
+          pointerEvents: "none",
+        }}
+      />
+    </Box>
+  );
+}
+
+{
+  /*<motion.div
+        className="text-[#D5AC72] text-[32px] font-vonique px-40"
         ref={ref}
         initial="hidden"
         animate={isInView ? "show" : "hidden"}
@@ -107,7 +209,11 @@ export default function ProductsGallery() {
           </motion.span>
         ))}
       </motion.div>
-      <Splide
+      */
+}
+{
+  /*
+  <Splide
         ref={splideRef}
         options={{
           type: "loop",
@@ -118,7 +224,7 @@ export default function ProductsGallery() {
         }}
         aria-label="Gallery"
       >
-        {galleryCards.map((card) => (
+        {initialCards.map((card) => (
           <SplideSlide key={card.id}>
             <motion.div
               variants={listItem}
@@ -137,6 +243,7 @@ export default function ProductsGallery() {
           </SplideSlide>
         ))}
       </Splide>
+
       <div className="flex items-center gap-4 mt-8 justify-end">
         <KeyboardBackspaceIcon
           className="text-[#D5AC72] cursor-pointer hover:text-[#7f6744] transition duration-200"
@@ -149,44 +256,5 @@ export default function ProductsGallery() {
           onClick={handleNextReview}
         />
       </div>
-
-      <div className="flex flex-row flex-wrap justify-center gap-6 my-20">
-        {galleryCards.map((card) => (
-          <motion.div
-            key={card.id}
-            variants={listItem}
-            className="relative cursor-pointer group hover:scale-105 transform transition duration-300 hover:bg-[#2A2A2A] border-4 border-[#333] rounded-2xl overflow-hidden flex justify-center items-center w-[272px] h-[272px]"
-          >
-            <img
-              src={card.image}
-              alt={`gallery-item-${card.id}`}
-              style={{
-                aspectRatio: "8 / 7",
-                objectFit: "contain",
-                backgroundColor: "transparent",
-              }}
-            />
-          </motion.div>
-        ))}
-      </div>
-      <div className="absolute -z-10 top-0 left-0 w-3/6 h-full bg-transparent">
-        <div
-          className="h-full"
-          style={{
-            background:
-              "linear-gradient(to left top, rgb(60, 0, 8, 0) 0%, rgb(60, 0, 8, 0) 10%, rgb(60, 0, 8, 0) 20%, rgb(60, 0, 8, 0) 30%, rgb(60, 0, 8, 0) 40%, rgba(77, 14, 27, 0.8) 100%,  rgb(60, 0, 8, 0.8) 100%",
-          }}
-        />
-      </div>
-      <div className="absolute top-0 right-0 -z-10 w-3/6 h-full bg-transparent">
-        <div
-          className="h-full"
-          style={{
-            background:
-              "linear-gradient(to right top, rgb(60, 0, 8, 0) 0%, rgb(60, 0, 8, 0) 10%, rgb(60, 0, 8, 0) 20%, rgb(60, 0, 8, 0) 30%, rgb(60, 0, 8, 0) 40%, rgba(77, 14, 27, 0.8) 100%,  rgb(60, 0, 8, 0.8) 100%",
-          }}
-        />
-      </div>
-    </Box>
-  );
+      */
 }

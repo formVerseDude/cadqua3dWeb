@@ -58,7 +58,7 @@ export default function WhatWeOffer() {
         >
           <video
             src={whatweoffer}
-            className="w-full scale-140 mt-14"
+            className="w-full"
             autoPlay
             loop
             muted
@@ -67,7 +67,8 @@ export default function WhatWeOffer() {
         </motion.div>
 
         <motion.div
-          className="flex flex-col w-full h-[580px] max-2xl:h-[500px] max-[120rem]:h-[580px] max-[140rem]:h-[620px] max-[160rem]:h-[650px] max-[180rem]:h-[700px] justify-between cursor-pointer z-10"
+          className="flex flex-col h-full w-full justify-between cursor-pointer z-10 -ml-30"
+          style={{ height: "auto" }}
           variants={variants}
           initial="hidden"
           whileInView="show"
@@ -77,16 +78,20 @@ export default function WhatWeOffer() {
             { id: 0, title: "High Quality Printed parts" },
             { id: 1, title: "Instant Online Quotation" },
             { id: 2, title: "Design Consultancy" },
-            { id: 3, title: "Design Consultancy" },
-            { id: 3, title: "White Label Shipping" },
+            { id: 3, title: "Rapid Turnaround Times" },
+            { id: 4, title: "White Label Shipping" },
           ].map((item, idx) => (
             <motion.div
               key={item.id}
-              className={`flex flex-col justify-center rounded-[14px] w-fit text-[24px] ${
-                idx === 1 || idx === 2 || idx === 3 ? "ml-10" : ""
-              } border-2 border-[#D5AC72] px-8 py-4 bg-[#1A1A1A] transition ease-in-out duration-500 hover:scale-105 hover:bg-black hover:opacity-90`}
+              className={`flex flex-col justify-center items-center rounded-[14px] w-[350px] h-[50px] 
+                 text-[24px] border-2 border-[#D5AC72] px-8 py-4 bg-[#1A1A1A] 
+                 transition ease-in-out duration-500 hover:scale-105 hover:bg-black hover:opacity-90
+                 ${idx === 1 || idx === 2 || idx === 3 ? "ml-10" : ""}
+                 `}
             >
-              <span className="text-[20px] text-[#ffffff]">{item.title}</span>
+              <span className="text-[20px] text-white text-center">
+                {item.title}
+              </span>
             </motion.div>
           ))}
         </motion.div>

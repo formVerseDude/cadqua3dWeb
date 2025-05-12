@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import Rotation from "../../../assets/landingPage/Rotation.mp4";
+import whatweoffer from "../../../assets/landingPage/whatweoffer.mp4";
 
 export default function WhatWeOffer() {
   const variants = {
@@ -48,7 +48,7 @@ export default function WhatWeOffer() {
         ))}
       </motion.span>
 
-      <div className="flex flex-row gap-20 w-full h-full mt-10">
+      <div className="flex flex-row justify-center gap-20 w-full h-full mt-10">
         <motion.div
           variants={variants}
           initial="hidden"
@@ -57,8 +57,8 @@ export default function WhatWeOffer() {
           style={{ zIndex: "10" }}
         >
           <video
-            src={Rotation}
-            className="w-full scale-100"
+            src={whatweoffer}
+            className="w-full scale-140 mt-14"
             autoPlay
             loop
             muted
@@ -67,7 +67,7 @@ export default function WhatWeOffer() {
         </motion.div>
 
         <motion.div
-          className="flex flex-col w-full h-[500px] justify-between cursor-pointer"
+          className="flex flex-col w-full h-[580px] max-2xl:h-[500px] max-[120rem]:h-[580px] max-[140rem]:h-[620px] max-[160rem]:h-[650px] max-[180rem]:h-[700px] justify-between cursor-pointer z-10"
           variants={variants}
           initial="hidden"
           whileInView="show"
@@ -77,13 +77,14 @@ export default function WhatWeOffer() {
             { id: 0, title: "High Quality Printed parts" },
             { id: 1, title: "Instant Online Quotation" },
             { id: 2, title: "Design Consultancy" },
+            { id: 3, title: "Design Consultancy" },
             { id: 3, title: "White Label Shipping" },
           ].map((item, idx) => (
             <motion.div
               key={item.id}
               className={`flex flex-col justify-center rounded-[14px] w-fit text-[24px] ${
-                idx === 1 || idx === 2 ? "ml-20" : ""
-              } border-2 border-[#D5AC72] px-8 py-4 bg-[#1A1A1A] transition ease-in-out duration-500 hover:scale-105 hover:bg-black hover:opacity-60`}
+                idx === 1 || idx === 2 || idx === 3 ? "ml-10" : ""
+              } border-2 border-[#D5AC72] px-8 py-4 bg-[#1A1A1A] transition ease-in-out duration-500 hover:scale-105 hover:bg-black hover:opacity-90`}
             >
               <span className="text-[20px] text-[#ffffff]">{item.title}</span>
             </motion.div>

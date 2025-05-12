@@ -2,9 +2,11 @@ import { useEffect, useState, useRef } from "react";
 import PropTypes from "prop-types";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
-import { Box, Typography, Paper } from "@mui/material";
+import { Box, Typography, Paper, IconButton } from "@mui/material";
 import { motion, useInView } from "framer-motion";
 import service from "../../../assets/landingPage/service.jpg";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
 function CustomTabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -61,6 +63,15 @@ export default function Services() {
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
+  };
+
+  const handleArrowClick = (direction) => {
+    setValue((prevValue) => {
+      if (direction === "next") {
+        return (prevValue + 1) % services.length;
+      }
+      return (prevValue - 1 + services.length) % services.length;
+    });
   };
 
   const services = [
@@ -220,13 +231,13 @@ export default function Services() {
               value={value}
               onChange={handleChange}
               aria-label="Services Tabs"
-              variant="scrollable"
-              scrollButtons="auto"
               indicatorColor="transparent"
+              variant="standard"
               TabIndicatorProps={{ style: { display: "none" } }}
               sx={{
                 zIndex: 1,
                 marginBottom: "-2px",
+                px: "10%",
                 ".MuiTab-root": {
                   fontFamily: "vonique",
                   wordSpacing: "0.5rem",
@@ -246,13 +257,6 @@ export default function Services() {
                     borderBottom: "2px solid #5E0C1C",
                   },
                 },
-                "& .MuiTabs-scrollButtons": {
-                  color: "#D5AC72",
-                  fontSize: "2rem",
-                  zIndex: 3,
-                  "&.Mui-disabled": { opacity: 0.3 },
-                },
-                "& .MuiSvgIcon-root": { fontSize: "2rem" },
               }}
             >
               {services.map((tab, index) => (
@@ -260,7 +264,41 @@ export default function Services() {
               ))}
             </Tabs>
 
-            {/* Left Gradient Mask */}
+            {/* Arrows for changing tabs */}
+            <Box
+              sx={{
+                position: "absolute",
+                top: "50%",
+                left: "0",
+                transform: "translateY(-50%)",
+                zIndex: 20,
+              }}
+            >
+              <IconButton
+                color="primary"
+                onClick={() => handleArrowClick("prev")}
+                sx={{ fontSize: "2rem", color: "#D5AC72" }}
+              >
+                <ArrowBackIcon />
+              </IconButton>
+            </Box>
+            <Box
+              sx={{
+                position: "absolute",
+                top: "50%",
+                right: "0",
+                transform: "translateY(-50%)",
+                zIndex: 20,
+              }}
+            >
+              <IconButton
+                color="primary"
+                onClick={() => handleArrowClick("next")}
+                sx={{ fontSize: "2rem", color: "#D5AC72" }}
+              >
+                <ArrowForwardIcon />
+              </IconButton>
+            </Box>
             <Box
               sx={{
                 position: "absolute",

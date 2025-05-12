@@ -1,7 +1,7 @@
-import { useRef, useState } from "react";
+import { useState } from "react";
 import landingPage from "../../../assets/landingPage/landingPage.mp4";
 import logo from "../../../assets/landingPage/logo.png";
-import { motion, useInView } from "framer-motion";
+import { motion } from "framer-motion";
 import InstantQuoteModal from "../../InstantQuote/InstantQuoteModal";
 import { useNavigate } from "react-router-dom";
 
@@ -41,11 +41,6 @@ export default function HeroSection() {
       transition: { delay: i * 0.07 },
     }),
   };
-
-  const text = "Together, Let’s Print the Future";
-  const letters = text.split("");
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
 
   return (
     <div className="bg-transparent relative h-full flex flex-col gap-32 h-screen max-2xl:gap-16 pb-10">
@@ -114,24 +109,15 @@ export default function HeroSection() {
           border-l-2 border-y-2 bg-white/5 backdrop-blur-md rounded-l-2xl shadow-[0_4px_30px_rgba(0,0,0,0.1)]*/}
         <div className="flex flex-col h-full w-full items-end text-center gap-8 pr-10">
           <motion.h3
-            ref={ref}
             initial="hidden"
-            animate={isInView ? "show" : "hidden"}
-            variants={variants}
-            className="text-[#DAAC69] text-[44px] max-2xl:text-[44px] font-vonique font-bold leading-18 text-end w-2/5"
+            animate="show"
+            variants={variantsfadeIn}
+            className="text-[#DAAC69] text-[44px] font-vonique font-bold leading-18 text-end w-2/5"
             style={{ wordSpacing: "0.5rem" }}
-            sx={{ textTransform: "uppercase" }}
           >
-            {letters.map((word, i) => (
-              <motion.span
-                key={`${word}-${i}`}
-                variants={variantsflow}
-                custom={i}
-              >
-                {word}
-              </motion.span>
-            ))}
+            Together, Let’s Print the <br /> Future
           </motion.h3>
+
           <motion.button
             initial="hidden"
             animate="show"

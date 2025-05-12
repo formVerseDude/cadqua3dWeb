@@ -75,50 +75,52 @@ export default function Testimonials() {
             </span>
           </div>
 
-          <div className="mx-20 flex flex-row gap-8 py-10 pl-8 pr-16 bg-white/5 backdrop-blur-md rounded-2xl shadow-[0_4px_30px_rgba(0,0,0,0.1)] border border-white/10 w-4/5">
-            <div className="flex flex-row items-center border border-[#D5AC72] bg-[#D5AC72] rounded-full w-60 h-fit">
-              <img src={comma} alt="comma" className="size-16" />
-              <img src={comma} alt="comma" className="size-16 -ml-10" />
-            </div>
+          <div className="w-full flex justify-center">
+            <div className="mx-20 flex flex-row gap-8 py-10 pl-8 pr-16 bg-white/5 backdrop-blur-md rounded-2xl shadow-[0_4px_30px_rgba(0,0,0,0.1)] border border-white/10 max-2xl:w-4/5 w-3/5">
+              <div className="flex flex-row items-center border border-[#D5AC72] bg-[#D5AC72] rounded-full w-60 h-fit">
+                <img src={comma} alt="comma" className="size-16" />
+                <img src={comma} alt="comma" className="size-16 -ml-10" />
+              </div>
 
-            <motion.div
-              key={reviews[currentReviewIndex].company}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.5 }}
-              className="flex flex-col gap-8 text-[#ffffff] "
-            >
-              <span className="text-[32px] font-semibold">
-                The Company Improved Our Productivity
-              </span>
-              <span className="mb-10">
-                {reviews[currentReviewIndex].review} <br />
-                Focused, efficient, and smart — the R&D approach balances
-                innovation with cost-effectiveness. By prioritizing real needs
-                and rapid experimentation, it delivers high-quality outcomes
-                without overspending.
-              </span>
-              <span className="text-[24px] font-semibold">
-                {reviews[currentReviewIndex].managerPosition}
-                <br />
-                <span className="text-[18px] font-normal">
-                  {reviews[currentReviewIndex].managerName} (
-                  {reviews[currentReviewIndex].company})
+              <motion.div
+                key={reviews[currentReviewIndex].company}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.5 }}
+                className="flex flex-col gap-8 text-[#ffffff] "
+              >
+                <span className="text-[32px] font-semibold">
+                  The Company Improved Our Productivity
                 </span>
-              </span>
-            </motion.div>
-            <div className="flex items-end flex-end gap-4 mt-4 w-fit">
-              <KeyboardBackspaceIcon
-                className="text-[#D5AC72] cursor-pointer hover:text-[#7f6744]"
-                style={{ fontSize: "50px" }}
-                onClick={handlePreviousReview}
-              />
-              <KeyboardBackspaceIcon
-                className="text-[#D5AC72] cursor-pointer rotate-180 hover:text-[#7f6744]"
-                style={{ fontSize: "50px" }}
-                onClick={handleNextReview}
-              />
+                <span className="mb-10">
+                  {reviews[currentReviewIndex].review} <br />
+                  Focused, efficient, and smart — the R&D approach balances
+                  innovation with cost-effectiveness. By prioritizing real needs
+                  and rapid experimentation, it delivers high-quality outcomes
+                  without overspending.
+                </span>
+                <span className="text-[24px] font-semibold">
+                  {reviews[currentReviewIndex].managerPosition}
+                  <br />
+                  <span className="text-[18px] font-normal">
+                    {reviews[currentReviewIndex].managerName} (
+                    {reviews[currentReviewIndex].company})
+                  </span>
+                </span>
+              </motion.div>
+              <div className="flex items-end flex-end gap-4 mt-4 w-fit">
+                <KeyboardBackspaceIcon
+                  className="text-[#D5AC72] cursor-pointer hover:text-[#7f6744]"
+                  style={{ fontSize: "50px" }}
+                  onClick={handlePreviousReview}
+                />
+                <KeyboardBackspaceIcon
+                  className="text-[#D5AC72] cursor-pointer rotate-180 hover:text-[#7f6744]"
+                  style={{ fontSize: "50px" }}
+                  onClick={handleNextReview}
+                />
+              </div>
             </div>
           </div>
         </div>

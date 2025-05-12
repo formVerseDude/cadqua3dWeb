@@ -86,31 +86,34 @@ export default function ProductsGallery() {
 
   return (
     <Box className="relative z-10 bg-[#000000] text-[#E0E0E0] h-screen">
-      <div className="px-40 pointer-events-auto flex flex-row justify-between items-center w-full pb-10 pt-5">
-        <motion.div
-          initial="hidden"
-          animate="show"
-          variants={variantsfadeIn}
+      {/* Left Section */}
+      {/* Left Section */}
+      <motion.div
+        initial="hidden"
+        animate="show"
+        variants={variantsfadeIn}
+        onClick={() => navigate("/")}
+        className="flex items-center gap-4 absolute left-30 top-30 transform -translate-y-1/2 px-4 z-50" // Added z-index
+      >
+        <img src={logo} alt="logo" className="size-32 mt-5 cursor-pointer" />
+      </motion.div>
+
+      {/* Right Section */}
+      <motion.div
+        initial="hidden"
+        animate="show"
+        variants={variantsfadeIn}
+        className="flex flex-row gap-4 text-[#DAAC69] text-[20px] absolute right-30 top-30 transform -translate-y-1/2 px-4 z-50" // Added z-index
+      >
+        <span
+          className="hover:text-[#6D5634] cursor-pointer"
           onClick={() => navigate("/")}
         >
-          <img src={logo} alt="logo" className="size-32 mt-5 cursor-pointer" />
-        </motion.div>
-        <motion.div
-          initial="hidden"
-          animate="show"
-          variants={variantsfadeIn}
-          className="flex flex-row gap-4 text-[#DAAC69] text-[20px]"
-        >
-          <span
-            className="hover:text-[#6D5634] cursor-pointer"
-            onClick={() => navigate("/")}
-          >
-            Home
-          </span>
-        </motion.div>
-      </div>
+          Home
+        </span>
+      </motion.div>
 
-      <div className="-z-10 absolute top-0 left-1/2 transform -translate-x-1/2 h-screen overflow-hidden">
+      <div className="z-20 absolute top-0 left-1/2 transform -translate-x-1/2 h-screen overflow-hidden px-10">
         <motion.div
           className="grid grid-cols-1 md:grid-cols-3 gap-6"
           animate={{ y: ["0%", "-50%"] }}
@@ -123,9 +126,9 @@ export default function ProductsGallery() {
           {[...galleryCards, ...galleryCards].map((card, i) => (
             <div
               key={`${card.id}-${i}`}
-              className={`w-fit h-[272px] border-4 border-[#333] rounded-2xl overflow-hidden flex justify-center items-center bg-[#000] ${
+              className={`cursor-pointer w-fit h-[272px] border-4 border-[#333] rounded-2xl overflow-hidden flex justify-center items-center bg-[#000] ${
                 i % 3 === 1 ? "transform translate-y-40" : ""
-              }`}
+              } hover:shadow-xl hover:shadow-[#DAAC69] transition-shadow duration-300 ease-in-out`}
             >
               <img
                 src={card.image}
@@ -135,7 +138,7 @@ export default function ProductsGallery() {
                   objectFit: "contain",
                   backgroundColor: "transparent",
                 }}
-                className="scale-100"
+                className="scale-100 transition-transform duration-300 ease-in-out hover:scale-105"
               />
             </div>
           ))}
@@ -168,7 +171,7 @@ export default function ProductsGallery() {
           height: "20%",
           backgroundImage:
             "linear-gradient(to bottom, #000000 0%, rgba(0,0,0,0.8) 20%, rgba(0,0,0,0.6) 40%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0.2) 80%, transparent 100%)",
-          zIndex: -10,
+          zIndex: 20,
           pointerEvents: "none",
         }}
       />
@@ -180,7 +183,7 @@ export default function ProductsGallery() {
           height: "20%",
           backgroundImage:
             "linear-gradient(to top, #000000 0%, rgba(0,0,0,0.8) 20%, rgba(0,0,0,0.6) 40%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0.2) 80%, transparent 100%)",
-          zIndex: -10,
+          zIndex: 20,
           pointerEvents: "none",
         }}
       />

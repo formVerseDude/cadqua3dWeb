@@ -1,7 +1,7 @@
-import serverLogo from "../../../assets/landingPage/serverLogo.png";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { DiscordLogo } from "@phosphor-icons/react";
+import formverse from "../../../assets/landingPage/formverse.mp4";
 
 export default function CommunityFormVerse() {
   const variants = {
@@ -24,6 +24,19 @@ export default function CommunityFormVerse() {
       opacity: 1,
       transition: { delay: i * 0.07 },
     }),
+  };
+
+  const variantsfadeIn = {
+    hidden: { opacity: 0, y: 0 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        delay: 0.25,
+        duration: 2,
+        ease: "easeOut",
+      },
+    },
   };
 
   const text = "Join the desgin community! FormVerse";
@@ -61,24 +74,28 @@ export default function CommunityFormVerse() {
             Earn While You Engage at India's first 3D CAD Model Trading
             Marketplace
           </div>
-          <div className="flex flex-row items-center justify-between gap-4 w-full max-lg:w-full">
-            <div className="flex justify-center items-center flex-1">
-              <motion.img
-                initial="hidden"
-                whileInView="show"
-                variants={variants}
-                viewport={{ once: true }}
-                src={serverLogo}
-                alt="serverLogo"
-                className="w-[600px] h-full max-md:w-full max-md:h-full rounded-[12px]"
+          <div className="flex flex-row items-start justify-between gap-8 w-full max-lg:w-full">
+            <motion.div
+              initial="hidden"
+              animate="show"
+              variants={variantsfadeIn}
+              className="flex flex-1 rounded-[10px]"
+            >
+              <video
+                src={formverse}
+                className="scale-100 rounded-[10px]"
+                autoPlay
+                loop
+                muted
+                playsInline
               />
-            </div>
+            </motion.div>
             <motion.span
               initial="hidden"
               whileInView="show"
               variants={variants}
               viewport={{ once: true }}
-              className="flex flex-col gap-4 flex-1"
+              className="flex flex-col gap-5 flex-1"
             >
               <span className="text-[24px]">
                 <span className="text-[#D5AC72]">Designed something cool?</span>

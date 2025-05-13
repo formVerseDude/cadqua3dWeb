@@ -93,6 +93,16 @@ export default function HeroSection() {
             Testimonials
           </span>
           <span
+            className="border-r-2 border-[#DAAC69] pr-4 hover:text-[#6D5634] cursor-pointer"
+            onClick={() =>
+              document
+                .getElementById("formverse")
+                ?.scrollIntoView({ behavior: "smooth" })
+            }
+          >
+            FormVerse
+          </span>
+          <span
             className="hover:text-[#6D5634] cursor-pointer"
             onClick={() =>
               document
@@ -112,7 +122,7 @@ export default function HeroSection() {
             initial="hidden"
             animate="show"
             variants={variantsfadeIn}
-            className="text-[#DAAC69] text-[44px] font-vonique font-bold leading-18 text-end w-2/5"
+            className="text-[#DAAC69] text-[40px] font-vonique font-bold leading-18 text-end w-2/5"
             style={{ wordSpacing: "0.5rem" }}
           >
             Together, Let’s Print the <br /> Future
@@ -123,7 +133,7 @@ export default function HeroSection() {
             animate="show"
             variants={variantsfadeIn}
             onClick={() => setInstantQuote(true)}
-            className="font-vonique cursor-pointer group group-hover:before:duration-500 group-hover:after:duration-500 after:duration-500 hover:border-[#3F1317] hover:before:[box-shadow:_20px_20px_20px_30px] duration-500 before:duration-500 hover:duration-500 hover:after:-right-8 hover:before:right-12 hover:before:-bottom-8 hover:before:blur hover:underline hover:underline-offset-4 origin-left hover:decoration-2 hover:text-[#DAAC69] relative bg-transparent h-18 w-84 border text-left px-4 text-[#DAAC69] text-base font-bold rounded-lg  overflow-hidden  before:absolute before:w-12 before:h-12 before:content[''] before:right-1 before:top-1 before:z-10 before:bg-[#3F1317] before:rounded-full before:blur-lg  after:absolute after:z-10 after:w-20 after:h-20 after:content['']  after:bg-[#DAAC69] after:right-8 after:top-3 after:rounded-full after:blur-lg tracking-wider"
+            className="font-vonique cursor-pointer group group-hover:before:duration-500 group-hover:after:duration-500 after:duration-500 hover:border-[#3F1317] hover:before:[box-shadow:_20px_20px_20px_30px] duration-500 before:duration-500 hover:duration-500 hover:after:-right-8 hover:before:right-12 hover:before:-bottom-8 hover:before:blur hover:text-[18px] origin-left hover:decoration-2 hover:text-[#DAAC69] relative bg-transparent h-18 w-84 border text-left px-4 text-[#DAAC69] text-base font-bold rounded-lg  overflow-hidden  before:absolute before:w-12 before:h-12 before:content[''] before:right-1 before:top-1 before:z-10 before:bg-[#3F1317] before:rounded-full before:blur-lg  after:absolute after:z-10 after:w-20 after:h-20 after:content['']  after:bg-[#DAAC69] after:right-8 after:top-3 after:rounded-full after:blur-lg tracking-wider"
           >
             Get Instant Quote
           </motion.button>

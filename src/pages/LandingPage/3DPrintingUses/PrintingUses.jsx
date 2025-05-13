@@ -95,7 +95,7 @@ export default function PrintingUses() {
         variants={container}
         initial="hidden"
         animate={isInView ? "show" : "hidden"}
-        className="flex flex-col gap-6 mt-10"
+        className="flex flex-col gap-6 mt-20"
       >
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {cards.map((card, index) => (

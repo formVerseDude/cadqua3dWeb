@@ -48,7 +48,7 @@ export default function WhatWeOffer() {
         ))}
       </motion.span>
 
-      <div className="flex flex-row justify-center gap-20 w-full h-full mt-10">
+      <div className="flex flex-row justify-center gap-20 w-full h-full mt-10 -ml-10">
         <motion.div
           variants={variants}
           initial="hidden"
@@ -58,7 +58,7 @@ export default function WhatWeOffer() {
         >
           <video
             src={whatweoffer}
-            className="w-full"
+            className="w-full scale-110"
             autoPlay
             loop
             muted

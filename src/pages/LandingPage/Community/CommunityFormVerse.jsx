@@ -1,5 +1,4 @@
 import serverLogo from "../../../assets/landingPage/serverLogo.png";
-import BotLogo from "../../../assets/landingPage/BotLogo.png";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { DiscordLogo } from "@phosphor-icons/react";

@@ -187,7 +187,7 @@ export default function Services() {
   return (
     <section id="services">
       <Box
-        sx={{ backgroundColor: "#000000", pt: 10 }}
+        sx={{ backgroundColor: "#000000", py: 10 }}
         className="flex flex-col gap-8"
       >
         <motion.h3
@@ -196,7 +196,7 @@ export default function Services() {
           animate={isInView ? "show" : "hidden"}
           variants={variantsflow}
           viewport={{ once: true }}
-          className="text-[#D5AC72] text-[32px] px-40 max-lg:px-20 max-md:px-10 font-vonique"
+          className="text-[#D5AC72] text-[32px] px-[10%] font-vonique"
           style={{ wordSpacing: "0.5rem" }}
         >
           {letters.map((letter, i) => (
@@ -264,7 +264,6 @@ export default function Services() {
               ))}
             </Tabs>
 
-            {/* Arrows for changing tabs */}
             <Box
               sx={{
                 position: "absolute",
@@ -327,17 +326,16 @@ export default function Services() {
             />
           </Paper>
 
-          {/* Tab Content */}
           {services.map((tab, index) => (
             <CustomTabPanel key={tab.title} value={value} index={index}>
               <div className="w-full flex justify-center">
-                <div className="w-2/3 p-8 h-full bg-white/5 backdrop-blur-md rounded-2xl shadow-[0_4px_30px_rgba(0,0,0,0.1)] border border-white/10">
+                <div className="w-2/3 max-md:w-full p-8 h-full max-lg:h-[650px] bg-white/5 backdrop-blur-md rounded-2xl shadow-[0_4px_30px_rgba(0,0,0,0.1)] border border-white/10">
                   <motion.div
                     initial="hidden"
                     animate={value === index ? "show" : "hidden"}
                     variants={variantscontent}
                     transition={{ duration: 1 }}
-                    className="flex flex-col gap-8"
+                    className="flex flex-col max-lg:items-center gap-8"
                   >
                     <div
                       className="text-[#D5AC72] text-[24px] font-vonique font-bold"
@@ -346,7 +344,7 @@ export default function Services() {
                       {tab.title}
                     </div>
                     <div
-                      className="flex flex-row gap-8 text-[20px]"
+                      className="flex flex-row max-lg:flex-col max-lg:items-center gap-8 text-[20px]"
                       style={{ fontFamily: "Varela Round, sans-serif" }}
                     >
                       <img

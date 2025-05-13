@@ -72,7 +72,7 @@ export default function PrintingUses() {
   const isInView = useInView(ref, { once: true });
 
   return (
-    <Box className="px-40 max-lg:px-20 max-md:px-10 bg-[#000000] text-[#E0E0E0] py-20">
+    <Box className="px-[10%] bg-[#000000] text-[#E0E0E0] py-20">
       <motion.div
         className="text-[#D5AC72] text-[32px] font-vonique"
         ref={ref}
@@ -97,7 +97,7 @@ export default function PrintingUses() {
         animate={isInView ? "show" : "hidden"}
         className="flex flex-col gap-6 mt-20"
       >
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-3 max-lg:grid-cols-1 gap-8">
           {cards.map((card, index) => (
             <MotionCard
               key={index}
@@ -174,7 +174,7 @@ export default function PrintingUses() {
           }}
           className="cursor-pointer w-full bg-white/5 backdrop-blur-md rounded-2xl shadow-[0_4px_30px_rgba(0,0,0,0.1)] border border-white/10"
         >
-          <div className="flex flex-row transition ease-in-out delay-50 duration-500 hover:scale-105 hover:bg-black hover:opacity-60">
+          <div className="flex flex-row max-lg:flex-col transition ease-in-out delay-50 duration-500 hover:scale-105 hover:bg-black hover:opacity-60">
             <CardMedia
               component="img"
               image={jewelery}

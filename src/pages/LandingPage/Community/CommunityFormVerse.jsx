@@ -46,7 +46,7 @@ export default function CommunityFormVerse() {
 
   return (
     <section id="formverse">
-      <div className="bg-[#000000] flex flex-col gap-8 text-[#000000] px-40 max-lg:px-10 py-20">
+      <div className="bg-[#000000] flex flex-col gap-8 text-[#000000] px-[10%] py-20">
         <div className="flex flex-row justify-between text-[#D5AC72] font-vonique">
           <motion.h3
             ref={ref}
@@ -69,12 +69,12 @@ export default function CommunityFormVerse() {
           </motion.h3>
         </div>
 
-        <div className="flex flex-col gap-16 w-full max-lg:flex-col max-lg:gap-8 text-[#ffffff]">
+        <div className="flex flex-col gap-16 w-full text-[#ffffff]">
           <div className="text-[24px] ">
             Earn While You Engage at India's first 3D CAD Model Trading
             Marketplace
           </div>
-          <div className="flex flex-row items-start justify-between gap-8 w-full max-lg:w-full">
+          <div className="flex flex-row max-lg:flex-col items-start justify-between gap-8 w-full max-lg:w-full">
             <motion.div
               initial="hidden"
               animate="show"

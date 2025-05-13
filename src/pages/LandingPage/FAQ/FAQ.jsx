@@ -70,7 +70,7 @@ export default function FAQ() {
         animate={isInView ? "show" : "hidden"}
         variants={variantsflow}
         viewport={{ once: true }}
-        className="text-[#D5AC72] text-[32px] px-40 font-vonique my-10"
+        className="text-[#D5AC72] text-[32px] px-[10%] font-vonique py-20"
         style={{ wordSpacing: "0.5rem" }}
       >
         {letters.map((letter, i) => (

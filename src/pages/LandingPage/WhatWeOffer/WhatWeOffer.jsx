@@ -84,11 +84,10 @@ export default function WhatWeOffer() {
           ].map((item, idx) => (
             <motion.div
               key={item.id}
-              className={`flex flex-col justify-center items-center rounded-[14px] w-[350px] h-[50px] 
-    text-[24px] border-2 border-[#D5AC72] px-8 py-4 bg-[#1A1A1A] 
+              className={`flex flex-col justify-center items-center rounded-[14px] w-[350px] h-[50px] max-md:w-full max-md:h-full
+    text-[24px] border-2 border-[#D5AC72] px-8 py-4 max-md:px-4 max-md:py-2 bg-[#1A1A1A] 
     transition ease-in-out duration-500 hover:scale-105 hover:bg-black hover:opacity-90
     ${idx === 1 || idx === 2 || idx === 3 ? "ml-10 max-md:ml-0" : ""}
-    ${idx == 1 || idx === 3 ? "max-md:self-end" : ""}
   `}
             >
               <span className="text-[20px] text-white text-center">

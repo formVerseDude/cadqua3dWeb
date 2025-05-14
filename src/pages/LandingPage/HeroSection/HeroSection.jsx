@@ -4,9 +4,12 @@ import logo from "../../../assets/landingPage/logo.png";
 import { motion } from "framer-motion";
 import InstantQuoteModal from "../../InstantQuote/InstantQuoteModal";
 import { useNavigate } from "react-router-dom";
+import { List } from "@phosphor-icons/react";
+import SideNav from "../../../components/NavBar/SideNav";
 
 export default function HeroSection() {
   const [instantQuote, setInstantQuote] = useState(false);
+  const [openNavModal, setOpenNavModal] = useState(false);
 
   const navigate = useNavigate();
 
@@ -43,8 +46,8 @@ export default function HeroSection() {
   };
 
   return (
-    <div className="bg-transparent relative h-full flex flex-col gap-32 h-screen max-2xl:gap-16 pb-10">
-      <div className="cursor-pointer pointer-events-auto flex flex-row justify-between items-center w-full mt-5 pl-28 pr-20">
+    <div className="bg-transparent relative h-full flex flex-col gap-32 h-screen max-lg:h-full max-2xl:gap-16 pb-10">
+      <div className="cursor-pointer pointer-events-auto flex flex-row justify-between items-center w-full mt-5 pl-28 pr-20 max-sm:pl-[10%] max-sm:pr-[10%]">
         <motion.div initial="hidden" animate="show" variants={variantsfadeIn}>
           <img src={logo} alt="logo" className="size-32 mt-5" />
         </motion.div>
@@ -53,7 +56,7 @@ export default function HeroSection() {
           initial="hidden"
           animate="show"
           variants={variantsfadeIn}
-          className="flex flex-row gap-4 text-[#DAAC69] text-[20px]"
+          className="flex flex-row gap-4 text-[#DAAC69] text-[20px] block max-lg:hidden"
         >
           <span
             className="border-r-2 border-[#DAAC69] pr-4 hover:text-[#6D5634] cursor-pointer"
@@ -113,16 +116,26 @@ export default function HeroSection() {
             FAQ
           </span>
         </motion.div>
+
+        <motion.div
+          initial="hidden"
+          animate="show"
+          variants={variantsfadeIn}
+          className="hidden max-lg:block cursor-pointer"
+          onClick={openNavModal}
+        >
+          <List color="#DAAC69" size={40} />
+        </motion.div>
       </div>
       <div className="w-full h-full">
         {/*<div className="w-3/8 flex flex-col justify-between gap-32 max-2xl:gap-16 h-1/2  border-[#DAAC69]/30 pl-6 pr-14 py-12 max-2xl:py-8 -mt-10">
           border-l-2 border-y-2 bg-white/5 backdrop-blur-md rounded-l-2xl shadow-[0_4px_30px_rgba(0,0,0,0.1)]*/}
-        <div className="flex flex-col h-full w-full items-end text-center gap-8 pr-10">
+        <div className="flex flex-col h-full w-full items-end text-center max-lg:items-center gap-8 pr-10 max-lg:px-[10%]">
           <motion.h3
             initial="hidden"
             animate="show"
             variants={variantsfadeIn}
-            className="text-[#DAAC69] text-[40px] font-vonique font-bold leading-18 text-end w-2/5"
+            className="text-[#DAAC69] text-[40px] font-vonique font-bold leading-18 text-end w-2/5 max-md:w-full max-md:text-center"
             style={{ wordSpacing: "0.5rem" }}
           >
             Together, Let’s Print the <br /> Future
@@ -185,7 +198,7 @@ export default function HeroSection() {
         initial="hidden"
         animate="show"
         variants={variantsfadeIn}
-        className="absolute w-full top-0 -z-10 -mt-20"
+        className="absolute w-full top-0 -z-10 -mt-20 block max-lg:hidden"
       >
         <video
           src={landingPage}
@@ -246,6 +259,8 @@ export default function HeroSection() {
         open={instantQuote}
         handleClose={() => setInstantQuote(false)}
       />
+
+      <SideNav open={openNavModal} handleClose={() => setOpenNavModal(false)} />
     </div>
   );
 }

@@ -9,13 +9,7 @@ import {
   YoutubeLogo,
 } from "@phosphor-icons/react";
 import logo from "../../assets/landingPage/logo.png";
-import Accordion from "@mui/material/Accordion";
-import AccordionDetails from "@mui/material/AccordionDetails";
-import AccordionSummary from "@mui/material/AccordionSummary";
-import Typography from "@mui/material/Typography";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { motion } from "framer-motion";
 
 const faqItems = [
   {
@@ -67,19 +61,14 @@ export default function Footer() {
     setExpanded(isExpanded ? panel : false);
   };
 
-  const text = "Frequently Asked Question";
-  const letters = text.split("");
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
-
   return (
-    <div className="relaive border-t-0 border-[#5E0C1C] backdrop-blur-md rounded-t-2xl shadow-[0_4px_30px_rgba(0,0,0,0.1)] px-40 max-lg:px-20 max-md:px-10 py-16">
+    <div className="relaive border-t-0 border-[#5E0C1C] backdrop-blur-md rounded-t-2xl shadow-[0_4px_30px_rgba(0,0,0,0.1)] px-[10%] py-20">
       <motion.div
         initial="hidden"
         whileInView="show"
         viewport={{ once: true }}
         variants={variants}
-        className="flex flex-row justify-between gap-20 max-md:flex-col max-md:items-center max-md:gap-12"
+        className="flex flex-row justify-between gap-20 max-lg:flex-col max-lg:items-center max-sm:items-start max-md:gap-12"
       >
         <div className="flex flex-1">
           <img src={logo} alt="logo" className="h-52" />

@@ -19,7 +19,7 @@ export default function QuotationProcess() {
 
   return (
     <section id="how-it-works">
-      <div className="bg-[#000000] flex flex-col gap-8 text-[#000000] px-40 max-lg:px-10 py-20">
+      <div className="bg-[#000000] flex flex-col gap-8 text-[#000000] px-[10%] py-20">
         {/*<motion.span
           initial="hidden"
           whileInView="show"
@@ -43,7 +43,7 @@ export default function QuotationProcess() {
           </motion.h3>
         </div>
 
-        <div className="flex flex-row justify-between items-center w-full max-lg:flex-col max-lg:gap-8 text-[#ffffff]">
+        <div className="flex flex-row gap-20 items-center w-full max-lg:flex-col text-[#ffffff]">
           <div className="flex justify-center items-center">
             <motion.img
               initial="hidden"
@@ -52,7 +52,7 @@ export default function QuotationProcess() {
               viewport={{ once: true }}
               src={Printer}
               alt="Printer"
-              className="w-[600px] h-80 max-md:w-full max-md:h-full rounded-[12px]"
+              className="w-full h-80 max-md:w-full max-md:h-full rounded-[12px]"
             />
           </div>
           <div className="flex flex-col justify-between gap-4 w-2/5 max-lg:w-full">

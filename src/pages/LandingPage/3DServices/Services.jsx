@@ -7,6 +7,16 @@ import { motion, useInView } from "framer-motion";
 import service from "../../../assets/landingPage/service.jpg";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import service1 from "../../../assets/landingPage/services/2d3dDraftingServices.jpg";
+import service2 from "../../../assets/landingPage/services/newProductDevelopment.jpg";
+import service3 from "../../../assets/landingPage/services/rapidPrototyping.jpg";
+import service4 from "../../../assets/landingPage/services/shortBatchProduction.webp";
+import service5 from "../../../assets/landingPage/services/sheetMetalPrototyping.jpg";
+import service6 from "../../../assets/landingPage/services/cncPrototyping.jpg";
+import service7 from "../../../assets/landingPage/services/largeBatchProduction.jpg";
+import service8 from "../../../assets/landingPage/services/mouldDesignandAnalysis.jpg";
+import service9 from "../../../assets/landingPage/services/postProcessing.jpg";
+import service10 from "../../../assets/landingPage/services/packaging.jpg";
 
 function CustomTabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -79,40 +89,47 @@ export default function Services() {
       title: "2D to 3D Drafting",
       description:
         "Transform your flat 2D drawings into dynamic, detailed 3D models with Cadqua 3D's expert drafting services...",
+      image: service1,
     },
     {
       title: "New Product Development",
       description:
         "At Cadqua 3D, we specialize in transforming innovative ideas into market-ready products...",
+      image: service2,
     },
     {
       title: "Rapid Prototyping",
       description:
         "We offer a variety of rapid prototyping technologies to bring your concepts to life quickly and accurately.",
       methods: ["SLA, SLS", "DLP, FDM", "MJF, DMLS", "POLYJET"],
+      image: service3,
     },
     {
       title: "Short Batch Production",
       description:
         "Efficient short-run production using vacuum casting to deliver high-quality parts in small quantities.",
       methods: ["Vacuum Casting"],
+      image: service4,
     },
     {
       title: "Sheet Metal Fabrication",
       description:
         "We offer comprehensive sheet metal fabrication services tailored for automotive, aerospace, and more.",
       includes: ["Laser Cutting", "Forming and Bending", "Post Processing"],
+      image: service5,
     },
     {
       title: "CNC Prototyping",
       description:
         "Our CNC prototyping services transform your digital designs into precise, functional prototypes...",
+      image: service6,
     },
     {
       title: "Large Batch Production",
       description:
         "We offer precision injection molding services for efficient, high-volume production.",
       includes: ["Injection Molding", "Tool Development"],
+      image: service7,
     },
     {
       title: "Mold Design and Analysis",
@@ -124,12 +141,14 @@ export default function Services() {
         "Warp & Shrinkage Prediction",
         "Gate & Runner Optimization",
       ],
+      image: service8,
     },
     {
       title: "Post Processing (Paint Shop)",
       description:
         "We provide a range of post-processing services to ensure product aesthetics and durability.",
       includes: ["Paint Shop Services", "Metallizing", "Surface Finishing"],
+      image: service9,
     },
     {
       title: "Packaging (On Demand)",
@@ -141,6 +160,7 @@ export default function Services() {
         "Branding & Printing",
         "Sustainable Options",
       ],
+      image: service10,
     },
   ];
 
@@ -256,6 +276,9 @@ export default function Services() {
                     color: "#D5AC72",
                     borderBottom: "2px solid #5E0C1C",
                   },
+                  "@media (max-width: 768px)": {
+                    fontSize: "1rem",
+                  },
                 },
               }}
             >
@@ -329,7 +352,7 @@ export default function Services() {
           {services.map((tab, index) => (
             <CustomTabPanel key={tab.title} value={value} index={index}>
               <div className="w-full flex justify-center">
-                <div className="w-2/3 max-md:w-full p-8 h-full max-lg:h-[650px] bg-white/5 backdrop-blur-md rounded-2xl shadow-[0_4px_30px_rgba(0,0,0,0.1)] border border-white/10">
+                <div className="w-2/3 max-md:w-full p-8 h-full max-lg:h-full bg-white/5 backdrop-blur-md rounded-2xl shadow-[0_4px_30px_rgba(0,0,0,0.1)] border border-white/10">
                   <motion.div
                     initial="hidden"
                     animate={value === index ? "show" : "hidden"}
@@ -348,8 +371,8 @@ export default function Services() {
                       style={{ fontFamily: "Varela Round, sans-serif" }}
                     >
                       <img
-                        src={service}
-                        alt="service"
+                        src={tab.image}
+                        alt={tab.title}
                         className="w-96 rounded-[12px]"
                       />
                       <div className="h-full flex flex-col gap-4 text-[#E0E0E0]">

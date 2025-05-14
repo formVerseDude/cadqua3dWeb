@@ -4,10 +4,12 @@ import logo from "../../../assets/landingPage/logo.png";
 import { motion } from "framer-motion";
 import InstantQuoteModal from "../../InstantQuote/InstantQuoteModal";
 import { useNavigate } from "react-router-dom";
-import { Hamburger, List } from "@phosphor-icons/react";
+import { List } from "@phosphor-icons/react";
+import SideNav from "../../../components/NavBar/SideNav";
 
 export default function HeroSection() {
   const [instantQuote, setInstantQuote] = useState(false);
+  const [openNavModal, setOpenNavModal] = useState(false);
 
   const navigate = useNavigate();
 
@@ -120,6 +122,7 @@ export default function HeroSection() {
           animate="show"
           variants={variantsfadeIn}
           className="hidden max-lg:block cursor-pointer"
+          onClick={openNavModal}
         >
           <List color="#DAAC69" size={40} />
         </motion.div>
@@ -256,6 +259,8 @@ export default function HeroSection() {
         open={instantQuote}
         handleClose={() => setInstantQuote(false)}
       />
+
+      <SideNav open={openNavModal} handleClose={() => setOpenNavModal(false)} />
     </div>
   );
 }

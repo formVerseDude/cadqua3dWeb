@@ -135,7 +135,7 @@ export default function HeroSection() {
             initial="hidden"
             animate="show"
             variants={variantsfadeIn}
-            className="text-[#DAAC69] text-[120px] max-2xl:text-[40px] font-vonique font-bold max-2xl:leading-18 text-end w-2/5 max-md:w-full max-md:text-center"
+            className="text-[#DAAC69] text-[120px] max-[2400px]:text-[80px] max-2xl:text-[40px] font-vonique font-bold max-2xl:leading-18 text-end w-2/5 max-md:w-full max-md:text-center"
             style={{ wordSpacing: "0.5rem" }}
           >
             Together, Let’s Print the <br /> Future

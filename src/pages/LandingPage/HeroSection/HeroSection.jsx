@@ -122,7 +122,7 @@ export default function HeroSection() {
           animate="show"
           variants={variantsfadeIn}
           className="hidden max-lg:block cursor-pointer"
-          onClick={openNavModal}
+          onClick={() => setOpenNavModal(true)}
         >
           <List color="#DAAC69" size={40} />
         </motion.div>
@@ -135,7 +135,7 @@ export default function HeroSection() {
             initial="hidden"
             animate="show"
             variants={variantsfadeIn}
-            className="text-[#DAAC69] text-[120px] max-[2400px]:text-[80px] max-2xl:text-[40px] font-vonique font-bold max-2xl:leading-18 text-end w-2/5 max-md:w-full max-md:text-center"
+            className="text-[#DAAC69] text-[90px] max-[2400px]:text-[70px] max-2xl:text-[40px] font-vonique font-bold max-2xl:leading-18 text-end w-2/5 max-md:w-full max-md:text-center"
             style={{ wordSpacing: "0.5rem" }}
           >
             Together, Let’s Print the <br /> Future

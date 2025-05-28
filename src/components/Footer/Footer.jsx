@@ -102,19 +102,34 @@ export default function Footer() {
               Follow Us
             </span>
             <div className="flex flex-row items-center gap-4">
-              <InstagramLogo
-                size={28}
-                className="text-[#5E0C1C] hover:text-[#D5AC72] transition-colors duration-100"
-              />
-              <LinkedinLogo
-                size={28}
-                className="text-[#5E0C1C] hover:text-[#D5AC72] transition-colors duration-100"
-              />
+              <a href="#" target="_blank" rel="noopener noreferrer">
+                <InstagramLogo
+                  size={28}
+                  className="text-[#5E0C1C] hover:text-[#D5AC72] transition-colors duration-100"
+                />
+              </a>
 
-              <YoutubeLogo
-                size={28}
-                className="text-[#5E0C1C] hover:text-[#D5AC72] transition-colors duration-100"
-              />
+              <a
+                href="https://www.linkedin.com/in/shivang-aggarwal-6272a0150"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <LinkedinLogo
+                  size={28}
+                  className="text-[#5E0C1C] hover:text-[#D5AC72] transition-colors duration-100"
+                />
+              </a>
+
+              <a
+                href="https://www.youtube.com/@CADQUA3D"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <YoutubeLogo
+                  size={28}
+                  className="text-[#5E0C1C] hover:text-[#D5AC72] transition-colors duration-100"
+                />
+              </a>
             </div>
           </div>
         </div>

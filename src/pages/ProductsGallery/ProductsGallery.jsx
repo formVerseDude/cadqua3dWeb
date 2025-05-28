@@ -6,6 +6,7 @@ import "@splidejs/react-splide/css";
 import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
 import logo from "../../assets/landingPage/logo.png";
 import { useNavigate } from "react-router-dom";
+import { ArrowLeft } from "@phosphor-icons/react";
 
 const images = import.meta.glob("../../assets/landingPage/gallery/image*.png", {
   eager: true,
@@ -93,13 +94,16 @@ export default function ProductsGallery() {
         animate="show"
         variants={variantsfadeIn}
         onClick={() => navigate("/")}
-        className="flex items-center gap-4 absolute left-30 top-30 transform -translate-y-1/2 px-4 z-50" // Added z-index
+        className="flex items-center gap-4 text-[#DAAC69] absolute left-30 top-30 transform -translate-y-1/2 px-4 z-50"
       >
-        <img src={logo} alt="logo" className="size-32 mt-5 cursor-pointer" />
+        <ArrowLeft
+          size={40}
+          className="hover:text-[#6D5634] hover:scale-110 transition-transform duration-300 ease-in-out transform cursor-pointer"
+        />
       </motion.div>
 
       {/* Right Section */}
-      <motion.div
+      {/*<motion.div
         initial="hidden"
         animate="show"
         variants={variantsfadeIn}
@@ -111,7 +115,7 @@ export default function ProductsGallery() {
         >
           Home
         </span>
-      </motion.div>
+      </motion.div>*/}
 
       <div className="z-20 absolute top-0 left-1/2 transform -translate-x-1/2 h-screen overflow-hidden px-10">
         <motion.div

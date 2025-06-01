@@ -104,7 +104,7 @@ export default function InstantQuoteModal({ open, handleClose }) {
       <Modal
         open={open}
         onClose={handleClose}
-        className="rounded-[12px]"
+        className="rounded-[12px] hidden max-md:block"
         sx={{
           backgroundColor: "rgba(26, 26, 26, 0.2)",
         }}

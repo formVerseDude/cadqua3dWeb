@@ -77,7 +77,13 @@ export default function InstantQuoteModal({ open, handleClose }) {
             </div>
 
             <a href="/quotation" target="_blank" rel="noopener noreferrer">
-              <div className="text-lg font-semibold text-[#D5AC72] cursor-pointer my-10">
+              <div
+                className="text-lg font-semibold cursor-pointer my-10 bg-[linear-gradient(to_right,_#5E0C1C,_#D5AC72,_#5E0C1C,_#D5AC72,_#5E0C1C,_#D5AC72,_#5E0C1C)] bg-clip-text text-transparent"
+                style={{
+                  backgroundSize: "200% 200%",
+                  animation: "gradientMove 4s ease infinite",
+                }}
+              >
                 Get Your Instant Quote Now
               </div>
             </a>
@@ -100,7 +106,6 @@ export default function InstantQuoteModal({ open, handleClose }) {
           </div>
         </Box>
       </Modal>
-
       <Modal
         open={open}
         onClose={handleClose}
@@ -139,7 +144,13 @@ export default function InstantQuoteModal({ open, handleClose }) {
             </div>
 
             <a href="/quotation" target="_blank" rel="noopener noreferrer">
-              <div className="text-lg font-semibold text-[#D5AC72] cursor-pointer my-10">
+              <div
+                className="text-lg font-semibold cursor-pointer my-10 bg-[linear-gradient(to_right,_#5E0C1C,_#D5AC72,_#5E0C1C,_#D5AC72,_#5E0C1C,_#D5AC72,_#5E0C1C)] bg-clip-text text-transparent"
+                style={{
+                  backgroundSize: "360% 360%",
+                  animation: "gradientMove 4s ease infinite",
+                }}
+              >
                 Get Your Instant Quote Now
               </div>
             </a>
@@ -162,6 +173,21 @@ export default function InstantQuoteModal({ open, handleClose }) {
           </div>
         </Box>
       </Modal>
+      <style>
+        {`
+      @keyframes gradientMove {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+    `}
+      </style>
     </>
   );
 }

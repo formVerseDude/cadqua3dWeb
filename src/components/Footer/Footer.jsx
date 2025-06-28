@@ -102,7 +102,11 @@ export default function Footer() {
               Follow Us
             </span>
             <div className="flex flex-row items-center gap-4">
-              <a href="#" target="_blank" rel="noopener noreferrer">
+              <a
+                href="http://www.instagram.com/cadqua3d"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <InstagramLogo
                   size={28}
                   className="text-[#5E0C1C] hover:text-[#D5AC72] transition-colors duration-100"

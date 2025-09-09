@@ -18,18 +18,8 @@ export default function QuotationProcess() {
   };
 
   return (
-    <section id="how-it-works">
+    <section id="how-it-works" className="scroll-mt-12 md:scroll-mt-16">
       <div className="bg-[#000000] flex flex-col gap-8 text-[#000000] px-[10%] py-20">
-        {/*<motion.span
-          initial="hidden"
-          whileInView="show"
-          variants={variants}
-          viewport={{ once: true }}
-          className="text-[#ffffff] text-[24px] font-fontspringextrabold"
-        >
-          How it works?
-        </motion.span>*/}
-
         <div className="flex flex-row justify-between text-[#D5AC72] font-vonique">
           <motion.h3
             initial="hidden"

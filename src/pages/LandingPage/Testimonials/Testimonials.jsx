@@ -61,7 +61,7 @@ export default function Testimonials() {
   }, []);
 
   return (
-    <section id="testimonials">
+    <section id="testimonials" className="scroll-mt-12 md:scroll-mt-8">
       <motion.div
         initial="hidden"
         whileInView="show"

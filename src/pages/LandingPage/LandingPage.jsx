@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import HeroSection from "./HeroSection/HeroSection";
 import CompanyStatistics from "./CompanyStatistics/CompanyStatistics";
 import QuotationProcess from "./QuotationProcess/QuotationProcess";
@@ -10,8 +10,11 @@ import Testimonials from "./Testimonials/Testimonials";
 import FAQ from "./FAQ/FAQ";
 import Footer from "../../components/Footer/Footer";
 import CommunityFormVerse from "./Community/CommunityFormVerse";
+import NavBar from "../../components/NavBar/NavBar";
 
 export default function LandingPage() {
+  const [openNavModal, setOpenNavModal] = useState(false);
+
   useEffect(() => {
     const handleBeforeUnload = () => {
       window.scrollTo(0, 0);
@@ -26,7 +29,11 @@ export default function LandingPage() {
 
   return (
     <div>
-      <HeroSection />
+      <NavBar setOpenNavModal={setOpenNavModal} />
+      <HeroSection
+        openNavModal={openNavModal}
+        setOpenNavModal={setOpenNavModal}
+      />
       <CompanyStatistics />
       <QuotationProcess />
       <ClientsSlideShow />

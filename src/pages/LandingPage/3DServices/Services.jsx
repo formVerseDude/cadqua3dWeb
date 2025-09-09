@@ -4,7 +4,6 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import { Box, Typography, Paper, IconButton } from "@mui/material";
 import { motion, useInView } from "framer-motion";
-import service from "../../../assets/landingPage/service.jpg";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import service1 from "../../../assets/landingPage/services/2d3dDraftingServices.jpg";
@@ -67,9 +66,9 @@ export default function Services() {
   useEffect(() => {
     const intervalId = setInterval(() => {
       setValue((prevValue) => (prevValue + 1) % services.length);
-    }, 3000);
+    }, 7000);
     return () => clearInterval(intervalId);
-  }, []);
+  }, [value]);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -205,9 +204,9 @@ export default function Services() {
   };
 
   return (
-    <section id="services">
+    <section id="services" className="scroll-mt-12 md:scroll-mt-32">
       <Box
-        sx={{ backgroundColor: "#000000", py: 10 }}
+        sx={{ backgroundColor: "#000000", pb: 10 }}
         className="flex flex-col gap-8"
       >
         <motion.h3
@@ -230,7 +229,7 @@ export default function Services() {
           ))}
         </motion.h3>
 
-        <motion.Box
+        <motion.div
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
@@ -352,7 +351,7 @@ export default function Services() {
           {services.map((tab, index) => (
             <CustomTabPanel key={tab.title} value={value} index={index}>
               <div className="w-full flex justify-center">
-                <div className="w-2/3 max-md:w-full p-8 h-full max-lg:h-full bg-white/5 backdrop-blur-md rounded-2xl shadow-[0_4px_30px_rgba(0,0,0,0.1)] border border-white/10">
+                <div className="w-2/3 max-md:w-full p-8 h-[520px] max-lg:h-full bg-white/5 backdrop-blur-md rounded-2xl shadow-[0_4px_30px_rgba(0,0,0,0.1)] border border-white/10">
                   <motion.div
                     initial="hidden"
                     animate={value === index ? "show" : "hidden"}
@@ -399,7 +398,7 @@ export default function Services() {
               </div>
             </CustomTabPanel>
           ))}
-        </motion.Box>
+        </motion.div>
       </Box>
     </section>
   );

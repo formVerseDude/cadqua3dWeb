@@ -45,7 +45,7 @@ export default function CommunityFormVerse() {
   const isInView = useInView(ref, { once: true });
 
   return (
-    <section id="formverse">
+    <section id="formverse" className="scroll-mt-12 md:scroll-mt-16">
       <div className="bg-[#000000] flex flex-col gap-8 text-[#000000] px-[10%] py-20">
         <div className="flex flex-row justify-between text-[#D5AC72] font-vonique">
           <motion.h3
